@@ -1,0 +1,946 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from themedesigner.in/demo/admin-press/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2017 13:38:59 GMT -->
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    @*<div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>*@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Header");
+        }
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Side_Navigation");
+        }
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor custom_lime_green">Add New Officer</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">Dashboard</li>
+                        <li class="breadcrumb-item active">Add New Officer</li>
+                    </ol>
+                </div>
+                <div class="">
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Officer Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="#">
+                                    <div class="form-body">
+                                        <h3 class="card-title">Person Info</h3>
+                                        <hr>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">No</label>
+                                                    <input type="text" name="no" class="form-control" placeholder="No">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Rank</label>
+                                                    <select class="form-control custom-select">
+                                                        <option value="">-- Select Rank --</option>
+                                                        <option>Hon Capt</option>
+                                                        <option>Hon LT</option>
+                                                        <option>SM</option>
+                                                        <option>Sub</option>
+                                                        <option>Nsub</option>
+                                                        <option>Hav</option>
+                                                        <option>Lhav</option>
+                                                        <option>NK</option>
+                                                        <option>Lnk</option>
+                                                        <option>Sig</option>
+                                                        <option>NCsE</option>
+                                                        <option>NCB</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Trade</label>
+                                                    <select class="form-control custom-select">
+                                                        <option value="">-- Select Trade --</option>
+                                                        <option>Tech Sigs</option>
+                                                        <option>Op Sigs</option>
+                                                        <option>Dvr Sigs</option>
+                                                        <option>W/Sigs</option>
+                                                        <option>Crypot</option>
+                                                        <option>Cook Mess</option>
+                                                        <option>Cook Unit</option>
+                                                        <option>Clk</option>
+                                                        <option>SMT</option>
+                                                        <option>SW</option>
+                                                        <option>Waiter</option>
+                                                        <option>NCB</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Height (Cm)</label>
+                                                    <input type="text" name="height" id="height" class="form-control" placeholder="Height">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Weight (Kg)</label>
+                                                    <input type="text" class="form-control" name="weight" id="weight" placeholder="Weight">
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        <div class="row p-t-20">
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Complexion</label>
+                                                    <input type="text" class="form-control" name="complexion" id="complexion" placeholder="Complexion">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Demography</label>
+                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Enrollment</label>
+                                                    <input type="text" class="form-control" name="date_of_enrl" id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Present Rank</label>
+                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of SOD</label>
+                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">CNIC</label>
+                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Caste</label>
+                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Sect</label>
+                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">No. of Marriage</label>
+                                                    <select class="form-control custom-select" name="no_of_marriage" id="no_of_marriage" onchange="wife_divs()">
+                                                        <option value="">-- Select No. of Marriage --</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            @*<script>
+                                            function wife_divs() {
+                                                //var count = $("#no_of_marriage").val();
+                                                ////alert("count"+count);
+                                                //for (var i = 1; i < count; i++) {
+                                                //    //alert(i);
+                                                //    var fieldHTML = '<div class="row wife_rows" style="margin-left:0px"><div class="col-md-4"><div class="form-group"><label class="control-label">Wife Name</label><input type="text" name="wife_name" id="wife_name" class="form-control" placeholder="Wife Name"></div></div><div class="col-md-4"><div class="form-group "><label class="control-label">Wife Status</label><select class="form-control custom-select" name="wife_status" id="wife_status"><option value="">-- Select Status --</option><option>Wife</option><option>Divorced</option></select></div></div></div>';
+                                                //    $(".wife_rows").append(fieldHTML);
+                                                //}
+
+                                            }
+                                        </script>*@
+
+                                        </div>
+
+
+
+
+                                        <div class="row p-t-20 wife_rows">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Wife Name</label>
+                                                    <input type="text" name="wife_name" id="wife_name" class="form-control" placeholder="Wife Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Wife Status</label>
+                                                    <select class="form-control custom-select" name="wife_status" id="wife_status">
+                                                        <option value="">-- Select Status --</option>
+                                                        <option>Wife</option>
+                                                        <option>Divorced</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Children</label>
+                                                    <div>
+                                                        <input type="text" name="son" id="son" class="form-control pull-left col-md-6" placeholder="Sons">
+                                                        <input type="text" name="daughter" id="daughter" class="form-control pull-left col-md-6" placeholder="Daughters">
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="clear"></div>
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Blood Group</label>
+                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                        <option value="">-- Select Blood Group --</option>
+                                                        <option value="1">A</option>
+                                                        <option value="2">A+</option>
+                                                        <option value="3">B</option>
+                                                        <option value="4">B+</option>
+                                                        <option value="4">B-</option>
+                                                        <option value="4">O+</option>
+                                                        <option value="4">O-</option>
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Red Entry</label>
+                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                        <option value="">-- Select --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="2">No</option>
+                                                    </select>
+                                                    <input type="text" name="red_entry" id="red_entry" class="form-control pull-left" placeholder="Red Entry">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Qualification</label>
+                                                    <select class="form-control custom-select" name="qualification" id="qualification">
+                                                        <option value="">-- Select your Qualification --</option>
+                                                        <option value="1">TT-1</option>
+                                                        <option value="1">TT-2</option>
+                                                        <option value="1">TT-3</option>
+                                                        <option value="4">MR-1</option>
+                                                        <option value="4">MR-2</option>
+                                                        <option value="4">MR-3</option>
+                                                        <option value="4">MR Basic Lvl</option>
+                                                        <option value="4">MR Adv Lvl</option>
+                                                        <option value="4">Civ</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Sport</label>
+                                                    <select class="form-control custom-select" name="sport" id="sport">
+                                                        <option value="">-- Select your Sport --</option>
+                                                        <option value="1">Hockey</option>
+                                                        <option value="2">Volleyball</option>
+                                                        <option value="3">Football</option>
+                                                        <option value="4">Basket Ball</option>
+                                                        <option value="4">Wrestling</option>
+                                                        <option value="4">Wushu</option>
+                                                        <option value="4">Baseball</option>
+                                                        <option value="4">Athletic</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">Medical Record</h3>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category</label>
+                                                    <select class="form-control custom-select">
+                                                        <option value="">-- Select Category --</option>
+                                                        <option>A</option>
+                                                        <option>B Temp</option>
+                                                        <option>B Perm</option>
+                                                        <option>C Temp</option>
+                                                        <option>C Perm</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row field_wrapper">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="" id="datepicker_autoclose" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="" id="datepicker_autoclose1" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Diseases</label>
+                                                    <input type="text" class="form-control" name="" placeholder="Diseases">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <script>
+                                            // Date Picker
+                                            jQuery('.mydatepicker, #datepicker').datepicker();
+                                            jQuery('#datepicker_autoclose').datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            });
+                                            jQuery('#datepicker_autoclose1').datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            });
+                                        </script>
+
+                                        <h3 class="box-title m-t-40">Courses</h3>
+                                        <hr>
+                                        <div class="row courses_add">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Course Name</label>
+                                                    <div>
+                                                        <input type="text" name="courses" id="courses" class="form-control" placeholder="Courses">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Grading</label>
+                                                    <select class="form-control custom-select" name="grading" id="grading">
+                                                        <option value="">-- Select your Grade --</option>
+                                                        <option value="1">D</option>
+                                                        <option value="2">A</option>
+                                                        <option value="3">B(+)</option>
+                                                        <option value="4">BH</option>
+                                                        <option value="4">BA</option>
+                                                        <option value="4">BL</option>
+                                                        <option value="4">B(-)</option>
+                                                        <option value="4">C</option>
+                                                        <option value="4">F</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Ability</label>
+                                                    <select class="form-control custom-select" name="ability" id="ability">
+                                                        <option value="">-- Select your Ability --</option>
+                                                        <option value="1">X1</option>
+                                                        <option value="2">X2</option>
+                                                        <option value="1">Y1</option>
+                                                        <option value="1">Y2</option>
+                                                        <option value="1">Y3</option>
+                                                        <option value="1">Z1</option>
+                                                        <option value="1">W</option>
+                                                        <option value="1">F</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_courses"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+
+
+                                        <script type="text/javascript">
+
+                                            var addButton_course = $('.add_button_courses');
+                                            var wrapper_course = $('.courses_add');
+                                            $(addButton_course).click(function () {
+                                                //alert("asasas");
+                                                var fieldHTMLss = '<div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="courses" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option><option value="1">Yes</option><option value="2">No</option></select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+                                                $(wrapper_course).append(fieldHTMLss);
+                                            });
+
+                                            $(wrapper_course).on('click', '.remove_courses', function (e) {
+
+                                                e.preventDefault();
+                                                $(this).closest('.r_courses').remove();
+                                            });
+                                        </script>
+
+                                        <h3 class="box-title m-t-40">Services Record</h3>
+                                        <hr>
+
+
+
+
+
+
+                                        <h5 class="box-title m-t-40">Previous Record</h5>
+                                        <hr>
+                                        <div class="row previous_emp_record">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Unit</label>
+                                                    <div>
+                                                        <input type="text" name="unit_previous[]" id="unit_previous[]" class="form-control" placeholder="Unit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Location</label>
+                                                    <div>
+                                                        <input type="text" name="location_previous[]" id="location_previous[]" class="form-control" placeholder="Location">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="from_previous[]" id="from_previous[]" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_previous[]" id="to_previous[]" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_previous_record"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+
+
+
+
+                                        <h5 class="box-title m-t-40">Present Record</h5>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Unit</label>
+                                                    <div>
+                                                        <input type="text" name="unit_present" id="unit_present" class="form-control" placeholder="Unit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Location</label>
+                                                    <div>
+                                                        <input type="text" name="location_present" id="location_present" class="form-control" placeholder="Location">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="from_present" id="from_present" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_present" id="to_present" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+                                        <h4 class="box-title m-t-40">Total Service</h4>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Years</label>
+                                                    <div>
+                                                        <input type="text" name="total_years" id="total_years" class="form-control" placeholder="Years">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Month</label>
+                                                    <div>
+                                                        <input type="text" name="total_months" id="total_months" class="form-control" placeholder="Month">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Days</label>
+                                                    <input type="text" class="form-control" name="total_days" id="total_days" placeholder="Days">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_present" id="to_present" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        <h3 class="box-title m-t-40">Region / Distt</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Village</label>
+                                                    <div>
+                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">P/O</label>
+                                                    <div>
+                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Thana</label>
+                                                    <input type="text" class="form-control" name="thana" id="thana" placeholder="Thana">
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tehsil</label>
+                                                    <div>
+                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Distt</label>
+                                                    <div>
+                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">ACR's</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Years</label>
+                                                    <select class="form-control custom-select" name="acr_year" id="acr_year">
+                                                        <option value="">-- Select your Year --</option>
+                                                        <option value="1">2012</option>
+                                                        <option value="2">2013</option>
+                                                        <option value="1">2014</option>
+                                                        <option value="2">2015</option>
+                                                        <option value="1">2016</option>
+                                                        <option value="2">2017</option>
+                                                        <option value="2">2018</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Grade Scale</label>
+                                                    <select class="form-control custom-select" name="scale" id="scale">
+                                                        <option value="">-- Select your Ability --</option>
+                                                        <option value="1">OS</option>
+                                                        <option value="2">WAA</option>
+                                                        <option value="1">AA</option>
+                                                        <option value="2">HA</option>
+                                                        <option value="1">BA</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                        </div>
+
+                                        <h3 class="box-title m-t-40">Leave Record</h3>
+                                        <hr>
+                                        <div class="row leave_record_div">
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Last Leave</label>
+                                                    <div>
+                                                        <input type="text" name="last_leave[]" id="last_leave[]" class="form-control" placeholder="Last Leave">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="from_leave[]" id="from_leave[]" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_leave[]" id="to_leave[]" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Days</label>
+                                                    <div>
+                                                        <input type="text" name="leave_days[]" id="leave_days[]" class="form-control" placeholder="Days">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_leaves_record"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h3 class="box-title m-t-40">Comments &amp; Reviews</h3>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <label>Comments</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+
+
+                                        <div class="form-actions  m-t-40">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        @*<div class="col-md-4"></div>*@
+                                                        <div class="offset-sm-3 col-md-4">
+                                                            <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Submit</button>
+                                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        @*<div class="col-md-4"></div>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <script type="text/javascript">
+
+                                        var addButton_leaves = $('.add_button_leaves_record');
+                                        var wrapper_leaves = $('.leave_record_div');
+                                        $(addButton_leaves).click(function () {
+                                            //alert("asasas");
+                                            var fieldHTML_leaves = '<div class="row remove_leave_record" style="margin-left:0px"><div class="col-md-2"><div class="form-group"><label class="control-label">Last Leave</label><div><input type="text" name="last_leave[]" id="last_leave[]" class="form-control" placeholder="Last Leave"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_leave[]" id="from_leave[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_leave[]" id="to_leave[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Days</label><div><input type="text" name="leave_days[]" id="leave_days[]" class="form-control" placeholder="Days"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label> <a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_leaves_record"> <i class="fa fa-minus"></i> Remove</a></div></div></div>';
+                                            $(wrapper_leaves).append(fieldHTML_leaves);
+                                        });
+
+                                        $(wrapper_leaves).on('click', '.delete_button_leaves_record', function (e) {
+
+                                            e.preventDefault();
+                                            $(this).closest('.remove_leave_record').remove();
+                                        });
+                                    </script>
+
+
+                                    <script type="text/javascript">
+
+                                        var addButton_previous = $('.add_button_previous_record');
+                                        var wrapper_previous = $('.previous_emp_record');
+                                        $(addButton_previous).click(function () {
+                                            //alert("asasas");
+                                            var fieldHTML_previous = '<div class="row remove_previous_emp_record" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Unit</label><div><input type="text" name="unit_previous[]" id="unit_previous[]" class="form-control" placeholder="Unit"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Location</label><div><input type="text" name="location_previous[]" id="location_previous[]" class="form-control" placeholder="Location"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_previous[]" id="from_previous[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_previous[]" id="to_previous[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_previous_record"><i class="fa fa-minus"></i>  Remove</a></div></div><div class="clear"></div></div>';
+                                            $(wrapper_previous).append(fieldHTML_previous);
+                                        });
+
+                                        $(wrapper_previous).on('click', '.delete_button_previous_record', function (e) {
+
+                                            e.preventDefault();
+                                            $(this).closest('.remove_previous_emp_record').remove();
+                                        });
+                                    </script>
+
+
+                                    <script type="text/javascript">
+
+                                        var addButton = $('.add_button');
+                                        var wrapper = $('.field_wrapper');
+                                        $(addButton).click(function () {
+                                            //alert("asasas");
+                                            var fieldHTML = '<div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="" id="datepicker_autoclose" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="" id="datepicker_autoclose1" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div>';
+                                            $(wrapper).append(fieldHTML);
+                                        });
+
+                                        $(wrapper).on('click', '.remove_button', function (e) {
+
+                                            e.preventDefault();
+                                            $(this).closest('.r').remove();
+                                        });
+                                    </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+    </div>
+
+
+</body>
+
+</html>

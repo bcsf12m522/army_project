@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from themedesigner.in/demo/admin-press/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2017 13:38:59 GMT -->
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    @*<div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>*@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    @*<div id="main-wrapper">*@
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    @{
+        Html.RenderPartial("Header");
+    }
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    @{
+        Html.RenderPartial("Side_Navigation");
+    }
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Dashboard</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item custom_lime_green">Dashboard</li>
+                </ol>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+
+                        <div class="card-body">
+
+                            <div class="card-group">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0"><i class="fa fa-users text-current_color"></i></h2>
+                                                <h3 class="">500</h3>
+                                                <h6 class="card-subtitle">Total Employees</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-current_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0"><i class="fa fa-user text-teal_color"></i></h2>
+                                                <h3 class="">10</h3>
+                                                <h6 class="card-subtitle">Total Admins</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-teal_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Column -->
+                                <!-- Column -->
+                                <!-- Column -->
+                                <!-- Column -->
+                                <!-- Column -->
+                                <!-- Column -->
+
+                            </div>
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-md-6 pull-left">
+                                    <div class="card">
+                                        <div class="card-body bg-custom_List_emp_admin">
+                                            <h4 class="text-custom_color card-title">Employee List</h4>
+                                            <h6 class="card-subtitle text-custom_color m-0 op-5">Checkout latest Employee here</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="message-box contact-box">
+                                                <h2 class="add-ct-btn"><a class="text-white btn btn-circle btn-lg btn-success waves-effect waves-dark custom_plus_btn_design" href="~/Employee/Employee_Form_Data">+</a></h2>
+                                                <div class="message-widget contact-widget">
+                                                    <!-- Message -->
+                                                    <a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Hamza Imran</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a>
+                                                    <!-- Message -->
+                                                    <a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Ammar Sohail</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Kashif Latif</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Ateeq Khalil</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Shoaib Anwar</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 pull-left">
+                                    <div class="card">
+                                        <div class="card-body bg-custom_List_emp_admin">
+                                            <h4 class="text-custom_color card-title">Admin List</h4>
+                                            <h6 class="card-subtitle text-custom_color m-0 op-5">Checkout latest Admin here</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="message-box contact-box">
+                                                <h2 class="add-ct-btn"><a class="text-white btn btn-circle btn-lg btn-success waves-effect waves-dark custom_plus_btn_design" href="~/Admin/Admin_Form_Data">+</a></h2>
+                                                <div class="message-widget contact-widget">
+                                                    <!-- Message -->
+                                                    <a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Hamza Imran</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a>
+                                                    <!-- Message -->
+                                                    <a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Ammar Sohail</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Kashif Latif</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Ateeq Khalil</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a><a>
+
+                                                        <div class="user-img"> <img src="~/images/2.jpg" alt="user" class="img-circle"></div>
+                                                        <div class="mail-contnet col-md-10">
+                                                            <h5>Shoaib Anwar</h5> <span class="mail-desc">info@wrappixel.com</span>
+                                                            @*<a href="~/Employee/Profile_Employee"><span class="pull-right label label-info">View Profile</span></a>*@
+                                                            <span class="label label-info" style="position: absolute; right: -50px; top: 14px;">View Profile</span>
+                                                        </div>
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row -->
+            <!-- Row -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+
+
+</body>
+
+</html>
