@@ -1,0 +1,603 @@
+﻿<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    @*<div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>*@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Header");
+        }
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Side_Navigation");
+        }
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper" style="">
+
+
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Search Officer</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">Dashboard</li>
+                        <li class="breadcrumb-item custom_lime_green active">Search Existing Officer</li>
+                    </ol>
+                </div>
+
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="card">
+                            <div class="card-body">
+
+
+                                <div class="row p-t-20">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <input type="text" name="no" class="form-control" placeholder="No">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <select class="form-control custom-select">
+                                                <option value="">Select Rank</option>
+                                                <option>Hon Capt</option>
+                                                <option>Hon LT</option>
+                                                <option>SM</option>
+                                                <option>Sub</option>
+                                                <option>Nsub</option>
+                                                <option>Hav</option>
+                                                <option>Lhav</option>
+                                                <option>NK</option>
+                                                <option>Lnk</option>
+                                                <option>Sig</option>
+                                                <option>NCsE</option>
+                                                <option>NCB</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                              
+
+
+
+                                    <script>
+                                        function show_search_filters() {
+                                            //alert("ASDadasd");
+                                            $(".hide_search_filters").show();
+                                            $("#show_advance_search_option_btn").hide();
+
+                                            
+                                            $("#hide_advance_search_option_btn").show();
+
+                                        }
+
+
+                                       
+
+                                    </script>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8"></div>
+                                        <div class="col-md-4" id="show_advance_search_option_btn">
+                                            <div class="form-group pull-right">
+                                                <a class="advance_search_a_tag m-0 font-12" href="#" onclick="show_search_filters()">Advance Search Options</a>
+                                            </div>
+                                        </div>
+
+                                </div>
+
+                              
+
+
+                                    <div class="hide_search_filters" style="display:none">
+                                        
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select">
+                                                        <option value="">Select Trade</option>
+                                                        <option>Tech Sigs</option>
+                                                        <option>Op Sigs</option>
+                                                        <option>Dvr Sigs</option>
+                                                        <option>W/Sigs</option>
+                                                        <option>Crypot</option>
+                                                        <option>Cook Mess</option>
+                                                        <option>Cook Unit</option>
+                                                        <option>Clk</option>
+                                                        <option>SMT</option>
+                                                        <option>SW</option>
+                                                        <option>Waiter</option>
+                                                        <option>NCB</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <input type="text" name="height" id="height" class="form-control" placeholder="Height">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="weight" id="weight" placeholder="Weight">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="complexion" id="complexion" placeholder="Complexion">
+                                                </div>
+                                            </div>
+
+                                         
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="date_of_enrl" id="date_of_enrl" placeholder="Enrollment Date">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="Present Rank Date">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="Date Of SOD">
+                                                </div>
+                                            </div>
+
+
+                                           
+
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select" name="no_of_marriage" id="no_of_marriage" onchange="wife_divs()">
+                                                        <option value="">No. of Marriages</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                        <option value="">-- Select Blood Group --</option>
+                                                        <option value="1">A</option>
+                                                        <option value="2">A+</option>
+                                                        <option value="3">B</option>
+                                                        <option value="4">B+</option>
+                                                        <option value="4">B-</option>
+                                                        <option value="4">O+</option>
+                                                        <option value="4">O-</option>
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                        <option value="">-- Select Red Entry --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="2">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select" name="qualification" id="qualification">
+                                                        <option value="">-- Select your Qualification --</option>
+                                                        <option value="1">TT-1</option>
+                                                        <option value="1">TT-2</option>
+                                                        <option value="1">TT-3</option>
+                                                        <option value="4">MR-1</option>
+                                                        <option value="4">MR-2</option>
+                                                        <option value="4">MR-3</option>
+                                                        <option value="4">MR Basic Lvl</option>
+                                                        <option value="4">MR Adv Lvl</option>
+                                                        <option value="4">Civ</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select" name="sport" id="sport">
+                                                        <option value="">-- Select your Sport --</option>
+                                                        <option value="1">Hockey</option>
+                                                        <option value="2">Volleyball</option>
+                                                        <option value="3">Football</option>
+                                                        <option value="4">Basket Ball</option>
+                                                        <option value="4">Wrestling</option>
+                                                        <option value="4">Wushu</option>
+                                                        <option value="4">Baseball</option>
+                                                        <option value="4">Athletic</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select">
+                                                        <option value="">-- Select Medical Category --</option>
+                                                        <option>A</option>
+                                                        <option>B Temp</option>
+                                                        <option>B Perm</option>
+                                                        <option>C Temp</option>
+                                                        <option>C Perm</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="thana" id="thana" placeholder="Thana">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <select class="form-control custom-select" name="acr_year" id="acr_year">
+                                                        <option value="">--ACR Year --</option>
+                                                        <option value="1">2012</option>
+                                                        <option value="2">2013</option>
+                                                        <option value="1">2014</option>
+                                                        <option value="2">2015</option>
+                                                        <option value="1">2016</option>
+                                                        <option value="2">2017</option>
+                                                        <option value="2">2018</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <select class="form-control custom-select" name="scale" id="scale">
+                                                        <option value="">-- ACR Grade --</option>
+                                                        <option value="1">OS</option>
+                                                        <option value="2">WAA</option>
+                                                        <option value="1">AA</option>
+                                                        <option value="2">HA</option>
+                                                        <option value="1">BA</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                      
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4" style="display:none" id="hide_advance_search_option_btn">
+                                        <div class="form-group pull-right">
+                                            <a class="advance_search_a_tag m-0 font-12" href="#" onclick="hide_search_filters()">Hide Advance Search Options</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <script>
+                                    function hide_search_filters() {
+                                        //alert("ASDadasd");
+                                        $(".hide_search_filters").hide();
+                                        $("#show_advance_search_option_btn").show();
+
+
+                                        $("#hide_advance_search_option_btn").hide();
+                                    }
+
+                                </script>
+
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-10"></div>
+                                                <div class="offset-sm-3 col-md-2 pull-right">
+                                                    <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Search</button>
+                                                </div>
+                                                @*<div class="col-md-4"></div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr class="hr_height p-b-40"/>
+
+
+                                <h3 class="card-title">OFFICER LIST</h3>
+                                @*<h6 class="card-subtitle">Data table example</h6>*@
+                                <div class="table-responsive m-t-10">
+                                    <table id="aa" class="table full-color-table full-warning-table hover-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Rank</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">Phone No</th>
+                                                @*<th class="text-center">CNIC</th>*@
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">Iftikhar Ahmed</td>
+                                                <td class="text-center">Major</td>
+                                                <td class="text-center">Multan</td>
+                                                <td class="text-center">iftikhar@admin.com</td>
+                                                <td class="text-center">0311-1111111</td>
+
+
+
+                                                <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10" href="~/Employee/Edit_Employee/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+                                    @*<table id="myTable" class="table full-color-table full-dark-table">*@
+                                    @*<table id="myTable" class="table color-table dark-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                        </table>*@
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#aa').DataTable();
+                    $(document).ready(function () {
+                        var table = $('#example').DataTable({
+                            "columnDefs": [{
+                                "visible": false,
+                                "targets": 2
+                            }],
+                            "order": [
+                                [2, 'asc']
+                            ],
+                            "displayLength": 25,
+                            "drawCallback": function (settings) {
+                                var api = this.api();
+                                var rows = api.rows({
+                                    page: 'current'
+                                }).nodes();
+                                var last = null;
+                                api.column(2, {
+                                    page: 'current'
+                                }).data().each(function (group, i) {
+                                    if (last !== group) {
+                                        $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                                        last = group;
+                                    }
+                                });
+                            }
+                        });
+                        // Order by the grouping
+                        $('#example tbody').on('click', 'tr.group', function () {
+                            var currentOrder = table.order()[0];
+                            if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                                table.order([2, 'desc']).draw();
+                            } else {
+                                table.order([2, 'asc']).draw();
+                            }
+                        });
+                    });
+                });
+                $('#example23').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+            </script>
+
+
+
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            @{
+                Html.RenderPartial("Footer");
+            }
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+
+
+</body>

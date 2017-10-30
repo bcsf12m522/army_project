@@ -391,6 +391,10 @@ html body .font-10 {
     font-size: 10px;
 }
 
+html body .font-12 {
+    font-size: 11px;
+}
+
 html body .font-18 {
     font-size: 18px;
 }
@@ -496,8 +500,26 @@ html body .text-current_color {
     color: #455a64;
 }
 
+html body .text-brown_color {
+    color: #4a4236!important;
+}
+
+html body .text-light_brown_color {
+    color: #c3b983!important;
+}
+
+
+
 .bg-current_color {
     background-color: #455a64 !important;
+}
+
+.bg-brown_color {
+    background-color: #4a4236 !important;
+}
+
+.bg-light_brown_color {
+    background-color: #c3b983 !important;
 }
 
 html body .text-teal_color {
@@ -671,6 +693,10 @@ html body .bg-white {
 
 .label-info {
     background-color: #1976d2;
+}
+
+.label-brown {
+    background-color: #4a4236!important;
 }
 
 .label-warning {
@@ -6405,13 +6431,13 @@ a.mytooltip {
     }
 
         .sidebar-nav > ul > li.active > a {
-            color: #1976d2;
+            color: #d6c466;
             font-weight: 500;
-            border-left: 3px solid #1976d2;
+            border-left: 3px solid darkgreen;
         }
 
             .sidebar-nav > ul > li.active > a i {
-                color: #1976d2;
+                color: #d6c466;
             }
 
     .sidebar-nav .has-arrow {
@@ -9654,3 +9680,33 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever:after, input[type=chec
     background: #4a4236!important;
     border: 1px solid #4a4236!important;
 }
+
+.unbold{
+    font-weight:100;
+}
+
+.view_btn_profile_margin{
+    /*position: absolute; 
+    right: -20px; top: 12px;*/
+    margin-top: -42px;
+    margin-right: -20px;
+}
+
+change_hover.a:hover {
+    color: #000;
+    background-color: #c3b983 !important;
+}
+
+a.change_hover span:hover {
+    color:#000;
+    background-color: #c3b983 !important;
+}
+
+.hr_height {
+    border-top: 4px solid rgba(0,0,0,.1);
+}
+
+.advance_search_a_tag:hover{
+    color:limegreen;
+}
+
