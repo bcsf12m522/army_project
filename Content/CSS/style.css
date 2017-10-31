@@ -1184,24 +1184,25 @@ html body .waves-notransition {
     }
 
 .btn-success, .btn-success.disabled {
-    background: #26dad2;
-    border: 1px solid #26dad2;
-    -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
-    box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+    background: #4a4236;
+    border: 1px solid #4a4236;
+    /*-webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);*/
     -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
 }
 
     .btn-success.disabled:hover, .btn-success:hover {
-        background: #26dad2;
-        -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
-        box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
-        border: 1px solid #26dad2;
+        background: #c3b983;
+        /*-webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+        box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);*/
+        border: 1px solid #c3b983;
+        color:#000;
     }
 
     .btn-success.active, .btn-success.disabled.active, .btn-success.disabled:active, .btn-success.disabled:focus, .btn-success:active, .btn-success:focus {
-        background: #1eacbe;
+        background: #4a4236;
         -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
         box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     }
@@ -1379,7 +1380,7 @@ html body .waves-notransition {
     .btn-outline-success.active, .btn-outline-success:active, .btn-outline-success:focus {
         -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
         box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
-        background: #1eacbe;
+        background: #4a4236;
     }
 
 .btn-outline-info {
@@ -1495,8 +1496,8 @@ html body .waves-notransition {
 }
 
 .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success.focus, .btn-success.focus:active, .btn-success:active:focus, .btn-success:active:hover, .btn-success:focus, .open > .dropdown-toggle.btn-success.focus, .open > .dropdown-toggle.btn-success:focus, .open > .dropdown-toggle.btn-success:hover {
-    background-color: #1eacbe;
-    border: 1px solid #1eacbe;
+    background-color: #4a4236;
+    border: 1px solid #4a4236;
 }
 
 .btn-info.active.focus, .btn-info.active:focus, .btn-info.active:hover, .btn-info.focus, .btn-info.focus:active, .btn-info:active:focus, .btn-info:active:hover, .btn-info:focus, .open > .dropdown-toggle.btn-info.focus, .open > .dropdown-toggle.btn-info:focus, .open > .dropdown-toggle.btn-info:hover {
@@ -1774,7 +1775,8 @@ ul.list-style-none {
 }
 
 .custom-select {
-    background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat;
+    /*background: url(../../assets/images/custom-select.png)*/ 
+    background: url('../static_images_website/custom-select-dropdown.png') right 0.75rem center no-repeat;
 }
 
 textarea {
@@ -3682,11 +3684,15 @@ table th {
     }
 
 .full-color-table.full-warning-table {
-    background-color: #F0FFF0;
+    background-color: beige;
 }
 
     .full-color-table.full-warning-table thead th {
-        background-color: #263238 !important;
+        background: #766956!important; /* Old browsers */
+background: -moz-linear-gradient(top, #766956 10%, #766956 10%, #4a4236 47%, #2c2720 100%)!important; /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%)!important; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#766956', endColorstr='#2c2720',GradientType=0 )!important; /* IE6-9 */
         border: 0;
         color: #ffffff;
     }
@@ -3696,13 +3702,35 @@ table th {
     }
 
     .full-color-table.full-warning-table tr:hover {
-        background-color: #6e744c;
-        color: #ffffff;
+        background-color: #c3b983!important;
+        color: #000;
     }
 
      .full-color-table.full-warning-table tr:hover td a {
         color: #FFF!important;
     }
+
+     .full-color-table.full-brown-table thead th {
+        /*background-color: #4a4236 !important;*/
+
+background: #766956!important; /* Old browsers */
+background: -moz-linear-gradient(top, #766956 10%, #766956 10%, #4a4236 47%, #2c2720 100%)!important; /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%)!important; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#766956', endColorstr='#2c2720',GradientType=0 )!important; /* IE6-9 */
+
+
+        border: 0;
+        color: #ffffff;
+    }
+
+     .full-color-table.full-brown-table tr:hover {
+        background-color: #c3b983!important;
+        color: #000;
+    }
+     .full-color-table.full-brown-table {
+    background-color: beige;
+}
 
 .full-color-table.full-danger-table {
     background-color: #f9e7eb;
@@ -3968,8 +3996,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
         .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
             color: #ffffff !important;
-            border: 1px solid #263238;
-            background-color: #263238;
+            border: 1px solid #4a4236;
+            background-color: #4a4236;
         }
 
         .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
