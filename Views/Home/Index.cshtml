@@ -4,125 +4,39 @@
 <!-- Mirrored from themedesigner.in/demo/admin-press/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2017 13:38:59 GMT -->
 
 <body class="fix-header fix-sidebar card-no-border">
-   
-    <header class="topbar">
-        <nav class="navbar top-navbar navbar-expand-md navbar-light">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="~/Home/Index">
-                    <!-- Logo icon --><b>
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <!-- Dark Logo icon -->
-
-                        <img src="~/images/army_logo.png" class="dark-logo" />
-                        <img src="~/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-
-                    </b>
-                    <!--End Logo icon -->
-                    <!-- Logo text --><span>
-                        <!-- dark Logo text -->
-                        <img src="~/images/logo-text.png" class="dark-logo" />
-
-                        <!-- Light Logo text -->
-                        <img src="~/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                    </span>
-                </a>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
-            <div class="navbar-collapse">
-                <!-- ============================================================== -->
-                <!-- toggle and nav items -->
-                <!-- ============================================================== -->
-                <ul class="navbar-nav mr-auto mt-md-0">
-                    <!-- This is  -->
-                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                    <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
-                    <!-- ============================================================== -->
-                    <!-- Comment -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                </ul>
-                <!-- ============================================================== -->
-                <!-- User profile and search -->
-                <!-- ============================================================== -->
-                <ul class="navbar-nav my-lg-0">
-                    <!-- ============================================================== -->
-                    <!-- Search -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Language -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-pk"></i></a>
-
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- Profile -->
-                    <!-- ============================================================== -->
-
-                </ul>
-            </div>
-        </nav>
-    </header>
-   
-
-    <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
-        <div class="scroll-sidebar">
-            <!-- User profile -->
-            <div class="user-profile">
-                <!-- User profile image -->
-                <div class="profile-img">
-                    <img src="~/images/pak_army.jpg" style="height:70px" alt="user" />
-                    <!-- this is blinking heartbit-->
-                    <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
-                </div>
-                <!-- User profile text-->
-                <div class="profile-text">
-                    <h5>Iftikhar Ahmed</h5>
-                    <h6 style="color:lightblue">Colonel</h6>
-                    <a href="~/Admin/Login" class="" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-                </div>
-            </div>
-            <!-- End User profile text-->
-            <!-- Sidebar navigation--><!-- Sidebar navigation--><!-- Sidebar navigation--><!-- Sidebar navigation-->
-            <nav class="sidebar-nav">
-                <ul id="sidebarnav">
-                    <li class="nav-devider"></li>
-                    <li>
-                        <a class="waves-effect waves-dark" href="~/Home/Index" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
-                    </li>
-
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Officers</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="~/Officer/Officer_Form_Data">Add Officer </a></li>
-                            <li><a href="~/Officer/List_Officer">List Officer</a></li>
-                            <li><a href="~/Officer/Search_Officer">Search Officer</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Admin</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="~/Admin/Admin_Form_Data">Create Admin</a></li>
-                            <li><a href="~/Admin/List_Admin">List Admin</a></li>
-                        </ul>
-                    </li>
-
-
-
-                </ul>
-            </nav>
-            <!-- End Sidebar navigation -->
-        </div>
-        <!-- End Sidebar scroll-->
-    </aside>
-   
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    @*<div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>*@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    @*<div id="main-wrapper">*@
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    @{
+        Html.RenderPartial("Header");
+    }
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    @{
+        Html.RenderPartial("Side_Navigation");
+    }
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
     <div class="page-wrapper">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -139,8 +53,16 @@
             </div>
 
         </div>
-
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
         <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
             <!-- Row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -403,14 +325,35 @@
                     </div>
                 </div>
             </div>
-
-
+            <!-- Row -->
+            <!-- Row -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
         </div>
-    
-    
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
     </div>
-
-
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
 
     <script>
     $(document).ready(function () {
