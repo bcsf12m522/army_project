@@ -134,12 +134,12 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <select class="form-control custom-select">
-                                                        <option value="">--Select Trade--</option>
+                                                        <option value="">-- Select Trade --</option>
                                                         <option>Tech Sigs</option>
                                                         <option>Op Sigs</option>
                                                         <option>Dvr Sigs</option>
-                                                        <option>W/Sigs</option>
-                                                        <option>Crypot</option>
+                                                        <option>W/ Sigs</option>
+                                                        <option>Crypto</option>
                                                         <option>Cook Mess</option>
                                                         <option>Cook Unit</option>
                                                         <option>Clk</option>
@@ -252,14 +252,16 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <select class="form-control custom-select" name="blood_group" id="blood_group">
-                                                        <option value="">Select Blood Group</option>
-                                                        <option value="1">A</option>
+                                                        <option value="">-- Select Blood Group --</option>
                                                         <option value="2">A+</option>
-                                                        <option value="3">B</option>
-                                                        <option value="4">B+</option>
+                                                        <option value="1">A-</option>
+                                                        <option value="3">B+</option>
                                                         <option value="4">B-</option>
                                                         <option value="4">O+</option>
                                                         <option value="4">O-</option>
+                                                        <option value="4">AB+</option>
+                                                        <option value="4">AB-</option>
+
 
 
                                                     </select>
@@ -439,8 +441,8 @@
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-10"></div>
-                                                <div class="offset-sm-3 col-md-2 pull-right">
-                                                    <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Search</button>
+                                                <div class="col-md-2 pull-right">
+                                                    <button type="submit" class="btn btn-themecolor" onclick="show_officer_table()"> <i class="fa fa-check"></i> Search</button>
                                                 </div>
                                                 @*<div class="col-md-4"></div>*@
                                             </div>
@@ -448,66 +450,173 @@
                                     </div>
                                 </div>
 
-
+                               
                                 <hr class="hr_height p-b-40"/>
 
-
-                                <h3 class="card-title">OFFICER LIST</h3>
-                                @*<h6 class="card-subtitle">Data table example</h6>*@
-                                <div class="table-responsive m-t-10">
-                                    <table id="aa" class="table full-color-table full-warning-table hover-table">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">Name</th>
-                                                <th class="text-center">Rank</th>
-                                                <th class="text-center">Address</th>
-                                                <th class="text-center">Email</th>
-                                                <th class="text-center">Phone No</th>
-                                                @*<th class="text-center">CNIC</th>*@
-                                                <th class="text-center">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">Iftikhar Ahmed</td>
-                                                <td class="text-center">Major</td>
-                                                <td class="text-center">Multan</td>
-                                                <td class="text-center">iftikhar@admin.com</td>
-                                                <td class="text-center">0311-1111111</td>
+                                <div class="hide_table_officer" style="display:none">
 
 
-
-                                                <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10" href="~/Employee/Edit_Employee/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                            </tr>
-
-
-
-                                        </tbody>
-                                    </table>
-                                    @*<table id="myTable" class="table full-color-table full-dark-table">*@
-                                    @*<table id="myTable" class="table color-table dark-table">
+                                    <h3 class="card-title">OFFICER LIST</h3>
+                                    @*<h6 class="card-subtitle">Data table example</h6>*@
+                                    <div class="table-responsive m-t-10">
+                                        <table id="aa" class="table full-color-table full-warning-table hover-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Rank</th>
+                                                    <th class="text-center">Address</th>
+                                                    <th class="text-center">Email</th>
+                                                    <th class="text-center">Phone No</th>
+                                                    @*<th class="text-center">CNIC</th>*@
+                                                    <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
+                                                    <td class="text-center">Iftikhar Ahmed</td>
+                                                    <td class="text-center">Hon LT</td>
+                                                    <td class="text-center">Multan</td>
+                                                    <td class="text-center">PJO-3665960</td>
+                                                    <td class="text-center">0300-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
                                                 </tr>
-                                        </table>*@
+                                                <tr>
+                                                    <td class="text-center">Hamza Imran</td>
+                                                    <td class="text-center">Hon Capt</td>
+                                                    <td class="text-center">Multan</td>
+                                                    <td class="text-center">PJO-57848324</td>
+                                                    <td class="text-center">0301-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Junaid Khan</td>
+                                                    <td class="text-center">SM</td>
+                                                    <td class="text-center">Lahore</td>
+                                                    <td class="text-center">PJO-7636828</td>
+                                                    <td class="text-center">0302-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Waqar Hussian</td>
+                                                    <td class="text-center">Lhav</td>
+                                                    <td class="text-center">Lahore</td>
+                                                    <td class="text-center">PJO-7368392</td>
+                                                    <td class="text-center">0303-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Yasir Shokat</td>
+                                                    <td class="text-center">NCB</td>
+                                                    <td class="text-center">Muzafer Ghar</td>
+                                                    <td class="text-center">PJO-93744745</td>
+                                                    <td class="text-center">0304-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Muzammil Haneef</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">Lahore</td>
+                                                    <td class="text-center">PJO-6753475</td>
+                                                    <td class="text-center">0305-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Zeeshan Safder</td>
+                                                    <td class="text-center">Sig</td>
+                                                    <td class="text-center">Faisalabad</td>
+                                                    <td class="text-center">PJO-87643685</td>
+                                                    <td class="text-center">0306-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Kamran Haneef</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">Multan</td>
+                                                    <td class="text-center">PJO-6576528</td>
+                                                    <td class="text-center">0308-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Shoaib Shokat</td>
+                                                    <td class="text-center">NCB</td>
+                                                    <td class="text-center">Muzafer Ghar</td>
+                                                    <td class="text-center">PJO-8474763</td>
+                                                    <td class="text-center">0309-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Shokat Yasir</td>
+                                                    <td class="text-center">Sig</td>
+                                                    <td class="text-center">Muzafer Ghar</td>
+                                                    <td class="text-center">PJO-0643704</td>
+                                                    <td class="text-center">0310-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Kashif Latif</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">karachi</td>
+                                                    <td class="text-center">PJO-9965638</td>
+                                                    <td class="text-center">03011-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Latif Khan</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">Lahore</td>
+                                                    <td class="text-center">PJO-6784775</td>
+                                                    <td class="text-center">03011-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Irfan Haneef</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">Multan</td>
+                                                    <td class="text-center">PJO-7883645</td>
+                                                    <td class="text-center">03011-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-center">Saif Khan</td>
+                                                    <td class="text-center">NCsE</td>
+                                                    <td class="text-center">Multan</td>
+                                                    <td class="text-center">PJO-9578393</td>
+                                                    <td class="text-center">03011-1111111</td>
+                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Officer/Edit_Officer/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                        @*<table id="myTable" class="table full-color-table full-dark-table">*@
+                                        @*<table id="myTable" class="table color-table dark-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                        </tr>
+                </table>*@
+
+                                    </div>
 
                                 </div>
+
                             </div>
                         </div>
 
@@ -515,6 +624,16 @@
                 </div>
 
             </div>
+
+            <script>
+    function show_officer_table() {
+        $(".hide_table_officer").show();
+    }
+
+            </script>
+
+
+
             <script>
                 $(document).ready(function () {
                     $('#aa').DataTable();
@@ -597,6 +716,30 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+
+    <script>
+    // Date Picker
+    jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker_autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date_of_enrl').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date_of_present_rank').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date_of_sod ').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+
+    </script>
 
 
 

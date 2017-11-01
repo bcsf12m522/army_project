@@ -49,7 +49,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Dashboard</li>
-                        <li class="breadcrumb-item active">Add New Officer</li>
+                        <li class="breadcrumb-item active custom_lime_green">Add New Officer</li>
                     </ol>
                 </div>
                 
@@ -74,7 +74,7 @@
                             <div class="card-body">
                                 <form action="#">
                                     <div class="form-body">
-                                        <h3 class="card-title">Person Info</h3>
+                                        <h3 class="card-title">Personal Info</h3>
                                         <hr>
                                         <div class="row p-t-20">
                                             <div class="col-md-4">
@@ -111,8 +111,8 @@
                                                         <option>Tech Sigs</option>
                                                         <option>Op Sigs</option>
                                                         <option>Dvr Sigs</option>
-                                                        <option>W/Sigs</option>
-                                                        <option>Crypot</option>
+                                                        <option>W/ Sigs</option>
+                                                        <option>Crypto</option>
                                                         <option>Cook Mess</option>
                                                         <option>Cook Unit</option>
                                                         <option>Clk</option>
@@ -136,7 +136,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group ">
                                                     <label class="control-label">Height (Cm)</label>
-                                                    <input type="text" name="height" id="height" class="form-control" placeholder="Height">
+                                                    <input type="text" name="height" id="height" class="form-control" placeholder="Height (Cm)">
                                                 </div>
                                             </div>
 
@@ -144,7 +144,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Weight (Kg)</label>
-                                                    <input type="text" class="form-control" name="weight" id="weight" placeholder="Weight">
+                                                    <input type="text" class="form-control" name="weight" id="weight" placeholder="Weight (Kg)">
                                                 </div>
                                             </div>
 
@@ -308,13 +308,15 @@
                                                     <label class="control-label">Blood Group</label>
                                                     <select class="form-control custom-select" name="blood_group" id="blood_group">
                                                         <option value="">-- Select Blood Group --</option>
-                                                        <option value="1">A</option>
                                                         <option value="2">A+</option>
-                                                        <option value="3">B</option>
-                                                        <option value="4">B+</option>
+                                                        <option value="1">A-</option>
+                                                        <option value="3">B+</option>
                                                         <option value="4">B-</option>
                                                         <option value="4">O+</option>
                                                         <option value="4">O-</option>
+                                                        <option value="4">AB+</option>
+                                                        <option value="4">AB-</option>
+
 
 
                                                     </select>
@@ -437,18 +439,11 @@
 
                                         </div>
 
-                                        <script>
-                                            // Date Picker
-                                            jQuery('.mydatepicker, #datepicker').datepicker();
-                                            jQuery('#datepicker_autoclose').datepicker({
-                                                autoclose: true,
-                                                todayHighlight: true
-                                            });
-                                            jQuery('#datepicker_autoclose1').datepicker({
-                                                autoclose: true,
-                                                todayHighlight: true
-                                            });
-                                        </script>
+                                        
+                                            
+                                            
+
+                                       
 
                                         <h3 class="box-title m-t-40">Courses</h3>
                                         <hr>
@@ -494,6 +489,7 @@
                                                         <option value="1">Y2</option>
                                                         <option value="1">Y3</option>
                                                         <option value="1">Z1</option>
+                                                        <option value="1">Z2</option>
                                                         <option value="1">W</option>
                                                         <option value="1">F</option>
                                                     </select>
@@ -561,13 +557,13 @@
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label">From</label>
-                                                    <input type="text" class="form-control" name="from_previous[]" id="from_previous[]" placeholder="mm/dd/yyyy">
+                                                    <input type="text" class="form-control" name="from_previous" id="from_previous" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label">To</label>
-                                                    <input type="text" class="form-control" name="to_previous[]" id="to_previous[]" placeholder="mm/dd/yyyy">
+                                                    <input type="text" class="form-control" name="to_previous[]" id="to_previous" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
 
@@ -659,7 +655,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">To</label>
-                                                    <input type="text" class="form-control" name="to_present" id="to_present" placeholder="mm/dd/yyyy">
+                                                    <input type="text" class="form-control" name="to_present" id="to_Service" placeholder="mm />dd/yyyy">
                                                 </div>
                                             </div>
 
@@ -796,13 +792,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">From</label>
-                                                    <input type="text" class="form-control" name="from_leave[]" id="from_leave[]" placeholder="mm/dd/yyyy">
+                                                    <input type="text" class="form-control" name="from_leave[]" id="from_leave" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">To</label>
-                                                    <input type="text" class="form-control" name="to_leave[]" id="to_leave[]" placeholder="mm/dd/yyyy">
+                                                    <input type="text" class="form-control" name="to_leave[]" id="to_leave" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
 
@@ -843,7 +839,7 @@
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         @*<div class="col-md-4"></div>*@
-                                                        <div class="offset-sm-3 col-md-4">
+                                                        <div class="col-md-4">
                                                             <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Submit</button>
                                                             <button type="button" class="btn btn-inverse">Cancel</button>
                                                         </div>
@@ -909,6 +905,11 @@
                                             $(this).closest('.r').remove();
                                         });
                                     </script>
+
+                                
+
+
+
                                 </form>
                             </div>
                         </div>
@@ -938,6 +939,64 @@
         <!-- ============================================================== -->
     </div>
 
+    <script>
+    // Date Picker
+    jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker_autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#datepicker_autoclose1').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date_of_present_rank').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#date_of_sod').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#date_of_enrl').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+    jQuery('#from_previous').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#to_previous').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#from_present').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#to_present').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#to_Service').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#from_leave').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#to_leave').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+
+    </script>
 
 </body>
 
