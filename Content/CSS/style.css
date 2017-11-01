@@ -29,7 +29,7 @@
 }
 
 .custom_lime_green{
-    color:limegreen;
+    color:limegreen !important;
 }
 
 body {
@@ -3970,7 +3970,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
         margin-left: 10px;
         font-family: fontawesome !important;
         cursor: pointer;
-        color: rgba(50, 50, 50, 0.5);
+        color: #c3b983;    
     }
 
 .dataTables_wrapper .dataTables_paginate {
@@ -4010,8 +4010,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
             color: white;
-            border: 1px solid #263238;
-            background-color: #263238;
+            border: 1px solid #c3b983;
+            background-color: #c3b983;
         }
 
         .dataTables_wrapper .dataTables_paginate .paginate_button:active {
@@ -5872,16 +5872,17 @@ a.mytooltip {
 .login-register {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    
     height: 100%;
     width: 100%;
-    padding: 5% 0;
+    
     position: fixed;
 }
 
 .login-box {
     width: 400px;
-    margin: 0 auto;
+    margin: 170px 150px; 
+    background-color: lightgray;
 }
 
     .login-box .footer {
@@ -6270,9 +6271,14 @@ a.mytooltip {
     top: 0px;
     z-index: 20;
     padding-top: 60px;
-    background-image: url('../../images/body_bg.png');
+    /*background-image: url('../../images/body_bg.png');
     background-size:8%;
-    background-repeat:repeat-x;
+    background-repeat:repeat-x;*/
+    background: #000600; /* Old browsers */
+    background: -moz-linear-gradient(top, #000600 0%, #001e00 40%, #002900 78%, #003100 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000600', endColorstr='#003100',GradientType=0 );
     -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
@@ -9737,3 +9743,6 @@ a.change_hover span:hover {
     color:limegreen;
 }
 
+.eye_hover:hover{
+    color:#FFF;
+}

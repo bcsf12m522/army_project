@@ -36,8 +36,13 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background-image: url('../../images/body_bg_rotate.png');
-  background-size:100%;
+    /*background-image: url('../../images/body_bg_rotate.png');
+  background-size:100%;*/
+    background: #000600; /* Old browsers */
+    background: -moz-linear-gradient(left, #000600 0%, #001e00 40%, #002900 78%, #003100 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000600', endColorstr='#003100',GradientType=1 );
 }
 
 .topbar .navbar-header {
