@@ -495,6 +495,17 @@ html body .text-purple {
     color: #7460ee;
 }
 
+html body .text-salmon_color {
+    color: darksalmon!important;
+}
+
+html body .text-stealblue_color {
+    color: steelblue!important;
+}
+
+
+
+
 html body .text-current_color {
     color: #455a64;
 }
@@ -508,6 +519,13 @@ html body .text-light_brown_color {
 }
 
 
+.bg-stealblue_color {
+    background-color: steelblue!important;
+}
+
+.bg-salmon_color {
+    background-color: darksalmon!important;
+}
 
 .bg-current_color {
     background-color: #455a64 !important;
@@ -9749,4 +9767,16 @@ a.change_hover span:hover {
 
 .eye_hover:hover{
     color:#FFF;
+}
+
+.point_top_right {
+    top: 0px !important;
+    right: 0px !important;
+}
+
+
+.search_officers_styling_index_page {
+    color: #4a4236 !important;
+    font-weight: 600!important;
+    text-decoration: underline!important;
 }
