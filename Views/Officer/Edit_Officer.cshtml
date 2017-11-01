@@ -504,22 +504,7 @@
                                         </div>
 
 
-                                        <script type="text/javascript">
-
-                                            var addButton_course = $('.add_button_courses');
-                                            var wrapper_course = $('.courses_add');
-                                            $(addButton_course).click(function () {
-                                                //alert("asasas");
-                                                var fieldHTMLss = '<div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="courses" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option><option value="1">Yes</option><option value="2">No</option></select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
-                                                $(wrapper_course).append(fieldHTMLss);
-                                            });
-
-                                            $(wrapper_course).on('click', '.remove_courses', function (e) {
-
-                                                e.preventDefault();
-                                                $(this).closest('.r_courses').remove();
-                                            });
-                                        </script>
+                                      
 
                                         <h3 class="box-title m-t-40">Services Record</h3>
                                         <hr>
@@ -851,58 +836,7 @@
                                     </div>
 
 
-                                    <script type="text/javascript">
-
-                                        var addButton_leaves = $('.add_button_leaves_record');
-                                        var wrapper_leaves = $('.leave_record_div');
-                                        $(addButton_leaves).click(function () {
-                                            //alert("asasas");
-                                            var fieldHTML_leaves = '<div class="row remove_leave_record" style="margin-left:0px"><div class="col-md-2"><div class="form-group"><label class="control-label">Last Leave</label><div><input type="text" name="last_leave[]" id="last_leave[]" class="form-control" placeholder="Last Leave"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_leave[]" id="from_leave[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_leave[]" id="to_leave[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Days</label><div><input type="text" name="leave_days[]" id="leave_days[]" class="form-control" placeholder="Days"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label> <a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_leaves_record"> <i class="fa fa-minus"></i> Remove</a></div></div></div>';
-                                            $(wrapper_leaves).append(fieldHTML_leaves);
-                                        });
-
-                                        $(wrapper_leaves).on('click', '.delete_button_leaves_record', function (e) {
-
-                                            e.preventDefault();
-                                            $(this).closest('.remove_leave_record').remove();
-                                        });
-                                    </script>
-
-
-                                    <script type="text/javascript">
-
-                                        var addButton_previous = $('.add_button_previous_record');
-                                        var wrapper_previous = $('.previous_emp_record');
-                                        $(addButton_previous).click(function () {
-                                            //alert("asasas");
-                                            var fieldHTML_previous = '<div class="row remove_previous_emp_record" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Unit</label><div><input type="text" name="unit_previous[]" id="unit_previous[]" class="form-control" placeholder="Unit"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Location</label><div><input type="text" name="location_previous[]" id="location_previous[]" class="form-control" placeholder="Location"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_previous[]" id="from_previous[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_previous[]" id="to_previous[]" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_previous_record"><i class="fa fa-minus"></i>  Remove</a></div></div><div class="clear"></div></div>';
-                                            $(wrapper_previous).append(fieldHTML_previous);
-                                        });
-
-                                        $(wrapper_previous).on('click', '.delete_button_previous_record', function (e) {
-
-                                            e.preventDefault();
-                                            $(this).closest('.remove_previous_emp_record').remove();
-                                        });
-                                    </script>
-
-
-                                    <script type="text/javascript">
-
-                                        var addButton = $('.add_button');
-                                        var wrapper = $('.field_wrapper');
-                                        $(addButton).click(function () {
-                                            //alert("asasas");
-                                            var fieldHTML = '<div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="" id="datepicker_autoclose" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="" id="datepicker_autoclose1" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div>';
-                                            $(wrapper).append(fieldHTML);
-                                        });
-
-                                        $(wrapper).on('click', '.remove_button', function (e) {
-
-                                            e.preventDefault();
-                                            $(this).closest('.r').remove();
-                                        });
-                                    </script>
+                                    
 
 
 
