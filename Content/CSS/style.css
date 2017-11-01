@@ -6517,10 +6517,14 @@ a.mytooltip {
     .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
         position: absolute;
         left: 60px;
-        top: 45px;
+        top: 39px;
         width: 200px;
         z-index: 1001;
-        background: #f2f6f8;
+        background: #000600; /* Old browsers */
+        background: -moz-linear-gradient(top, #000600 0%, #001e00 40%, #002900 78%, #003100 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #000600 0%,#001e00 40%,#002900 78%,#003100 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000600', endColorstr='#003100',GradientType=0 );
         display: none;
         padding-left: 1px;
     }
@@ -6595,7 +6599,7 @@ a.mytooltip {
 
         .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
             width: 260px;
-            background: #f2f6f8;
+            background:#4a4236!important;
         }
 
             .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a .hide-menu {
