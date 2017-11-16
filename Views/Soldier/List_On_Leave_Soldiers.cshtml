@@ -1,6 +1,4 @@
-﻿@model List<Army_Management_System.Models.Admin>
-
-<body class="fix-header fix-sidebar card-no-border">
+﻿<body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -36,56 +34,75 @@
         <!-- ============================================================== -->
         <div class="page-wrapper" style="">
 
+
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">List of Admins</h3>
+                    <h3 class="text-themecolor">List of Soldiers </h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
                         <li class="breadcrumb-item">Dashboard</li>
-                        <li class="breadcrumb-item custom_lime_green active">List of Admins</li>
+                        <li class="breadcrumb-item custom_lime_green active">List of Soldiers</li>
                     </ol>
                 </div>
 
             </div>
 
             <div class="container-fluid">
+
                 <div class="card">
+
+
                     <div class="card-body">
-                        <h3 class="card-title">Admin's List</h3>
+                        <h3 class="card-title">Soldier's on Leave List</h3>
                         @*<h6 class="card-subtitle">Data table example</h6>*@
+
+
+
+
+
                         <div class="table-responsive m-t-10">
-                            <table id="myTable" class="table full-color-table full-warning-table hover-table">
+                            <table id="aa" class="table full-color-table full-brown-table hover-table">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Rank</th>
                                         <th class="text-center">Address</th>
-                                        <th class="text-center">Email</th>
+                                        <th class="text-center">Number</th>
                                         <th class="text-center">Phone No</th>
                                         @*<th class="text-center">CNIC</th>*@
-                                        <th class="text-center">Type</th>
+                                        @*<th class="text-center">Type</th>*@
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var v in Model)
-                                    {
-                                        <tr>
-                                            <td class="text-center">@v.Name</td>
-                                            <td class="text-center">@v.Rank_Names.Rank_Name</td>
-                                            <td class="text-center">@v.Address</td>
-                                            <td class="text-center">@v.Email</td>
-                                            <td class="text-center">@v.Phone_No</td>
-                                            <td class="text-center">@v.Type</td>
-                                            <td class="text-center" style="width: 50px;">
-                                                <a href="~/Admin/Profile_Admin/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a class="m-l-10 eye_hover" href="~/Admin/Edit_Admin/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                <a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                    }
+
+                                    <tr>
+                                        <td class="text-center">Junaid Khan</td>
+                                        <td class="text-center">SM</td>
+                                        <td class="text-center">Lahore</td>
+                                        <td class="text-center">PJO-7636828</td>
+                                        <td class="text-center">0302-1111111</td>
+                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">Waqar Hussian</td>
+                                        <td class="text-center">Lhav</td>
+                                        <td class="text-center">Lahore</td>
+                                        <td class="text-center">PJO-7368392</td>
+                                        <td class="text-center">0303-1111111</td>
+                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">Yasir Shokat</td>
+                                        <td class="text-center">NCB</td>
+                                        <td class="text-center">Muzafer Ghar</td>
+                                        <td class="text-center">PJO-93744745</td>
+                                        <td class="text-center">0304-1111111</td>
+                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                  
 
 
 
@@ -93,26 +110,26 @@
                             </table>
                             @*<table id="myTable" class="table full-color-table full-dark-table">*@
                             @*<table id="myTable" class="table color-table dark-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                        </table>*@
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                </table>*@
 
                         </div>
                     </div>
@@ -123,11 +140,12 @@
                 <div style="margin-bottom:400px">
                 </div>
                 <div class="clear"></div> 
-
             </div>
+
+
             <script>
                 $(document).ready(function () {
-                    $('#myTable').DataTable();
+                    $('#aa').DataTable();
                     $(document).ready(function () {
                         var table = $('#example').DataTable({
                             "columnDefs": [{

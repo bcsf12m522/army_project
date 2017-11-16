@@ -1,0 +1,1854 @@
+﻿@model Army_Management_System.Models.Soldier
+
+@{
+
+    int hosp_date_counter = 1, previous_count = 1, leave_count = 1;
+    var selected = "selected";
+    int wife_count = 1;
+
+}
+<body class="fix-header fix-sidebar card-no-border" onload="onload_function()">
+  
+    
+ 
+    <div id="main-wrapper">
+ 
+        @{
+            Html.RenderPartial("Header");
+        }
+        
+        @{
+            Html.RenderPartial("Side_Navigation");
+        }
+        
+        
+        <div class="page-wrapper">
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Edit Soldier</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">Main Menu</li>
+                        <li class="breadcrumb-item active custom_lime_green">Edit Soldier</li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Soldier Information</h4>
+                            </div>
+                            
+                            <div class="card-body">
+                                <form action="@Url.Action("Edit_Soldier", "Soldier")" method="post" data-parsley-validate class="" enctype="multipart/form-data">
+
+
+                                    <input value="@ViewBag.hospital_list.Count" id="hospital_count"/>
+                                    <input value="@ViewBag.Previous_record_list.Count" id="previous_count_id"/>
+                                    <input id="leave_count_id" value="@ViewBag.Leave_Record_list.Count"/>
+                                    <input id="new_image_value" name="new_image_value" type="text"/>
+
+                                    <div class="form-body">
+
+
+                                        @*-------------------------PERSONAL INFO--------------------------------------------------------------------------*@
+                                        <h3 class="card-title">Personal Info</h3>
+                                        <hr>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">No</label>
+                                                    <input type="text" name="no" class="form-control" placeholder="No" value="@Model.Person_Number" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Rank</label>
+                                                    <select class="form-control custom-select" name="rank_id">
+                                                        <option value="@Model.Rank_Id">@Model.Rank_Names.Rank_Name</option>
+                                                        @foreach (var rank in ViewBag.Rank)
+                                                        {
+                                                            if (@Model.Rank_Id == rank.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            
+                                                            <option value="@rank.Id">@rank.Rank_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Trade</label>
+                                                    <select class="form-control custom-select" name="trade_id">
+                                                        <option value="@Model.Trade_Id">@Model.Trade_Names.Trade_Name</option>
+                                                            @foreach (var trade in ViewBag.Trade)
+                                                            {
+                                                                if (@Model.Trade_Id == trade.Id)
+                                                                {
+                                                                    continue;
+                                                                }
+                                                                <option value="@trade.Id">@trade.Trade_Name</option>
+                                                            }
+
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="@Model.Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Height (Cm)</label>
+                                                    <select name="height" class="form-control custom-select">
+                                                        <option value="@Model.Height_Id">@Model.Height.Height_Name</option>
+
+                                                        @foreach (var height in ViewBag.Height)
+                                                        {
+                                                            if (@Model.Height_Id == height.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@height.Id">@height.Height_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Weight (Kg)</label>
+                                                    <select name="weight" class="form-control custom-select">
+                                                        <option value="@Model.Weight_Id">@Model.Weight.Weight_Name</option>
+                                                        @foreach (var weight in ViewBag.Weight)
+                                                        {
+                                                            if (@Model.Weight_Id == weight.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@weight.Id">@weight.Weight_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Beard</label>
+                                                    <select class="form-control custom-select" name="beard">
+                                                        @if (@Model.Beard == 1)
+                                                        {
+                                                            <option value="@Model.Beard">Yes</option>
+                                                            <option value="0">No</option>
+                                                        }
+                                                        else if (@Model.Beard == 0)
+                                                        {
+                                                            <option value="@Model.Beard">No</option>
+                                                            <option value="1">Yes</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Complexion</label>
+                                                    <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" value="@Model.Complexion" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Demography</label>
+                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" value="@Model.Demography" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cl Compsn</label>
+                                                    <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
+                                                        <option value="@Model.Class_Composition_Id">@Model.Class_Composition_Names.Compostion_Name</option>
+                                                        @foreach (var composition in ViewBag.Class_Composition)
+                                                        {
+                                                            if (@Model.Class_Composition_Id == composition.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@composition.Id">@composition.Compostion_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Enrollment</label>
+                                                    <input type="text" class="form-control" name="date_of_enrl" id="date_of_enrl" placeholder="mm/dd/yyyy" value="@Model.Date_Enrollment.ToString("dd-MMM-yyyy")">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Present Rank</label>
+                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy" value="@Model.Date_Present_Rank.ToString("dd-MMM-yyyy")">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of SOD</label>
+                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy" value="@Model.Date_SOD.ToString("dd-MMM-yyyy")">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">CNIC</label>
+                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" value="@Model.CNIC" onkeypress="validation_CNIC(event)">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    
+
+                                        <div class="row p-t-20">
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Marital Status</label>
+                                                    <select class="form-control custom-select" oninput="marital_status_function(this.value)" name="marital_status" id="marital_status">
+                                                        <option value="@Model.Marital_Status_Id">@Model.Marital_Status.Marital_Name</option>
+                                                        @foreach (var marital in ViewBag.Marital_Status)
+                                                        {
+                                                            if (@Model.Marital_Status_Id == marital.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@marital.Id">@marital.Marital_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-4 status_single">
+                                                <div class="form-group">
+                                                    <label class="control-label">No. of Marriages</label>
+                                                    <select class="form-control custom-select" name="no_of_marriage" id="no_of_marriage" oninput="wife_number_function(this.value)">
+                                                        <option value="@Model.Wives_No_Id">@Model.Wives_No_Id</option>
+                                                        @foreach (var wife_number in ViewBag.Wife_Number)
+                                                        {
+                                                            if (@Model.Wives_No_Id == wife_number.No_of_Wife)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@wife_number.Id">@wife_number.No_of_Wife</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            @{
+
+                                            }
+
+                                            @*@if (@Model.Wives_No_Id == 1) {*@ 
+
+                                            @foreach (var wife in ViewBag.wifes_obj)
+                                            {
+                                                <div class="col-md-4" id="@String.Concat("wife",wife_count)">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Wife's Name @wife_count</label>
+                                                        <input type="text" name="wife_name" id="@String.Concat("wife_name",wife_count)" class="form-control" placeholder="Wife's Name" value="@wife.Wife_Name" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                                { wife_count++; }
+                                            }
+                                                @*}*@
+                                        </div>
+                                        <script>
+                                            function marital_status_function(marital) {
+                                                //alert("marital" + marital);
+                                                //var marital = $("#marital_status").val();
+                                                if (marital == 1) {
+                                                    $(".status_single").hide();
+                                                    $("#no_of_marriage").val(5);
+                                                    $("#wives_no").val(0);
+                                                }
+                                                else {
+                                                    $(".status_single").show();
+                                                    $("#no_of_marriage").val(1);
+                                                    $("#wives_no").val(1);
+                                                }
+
+                                            }
+
+                                            function wife_number_function(number) {
+                                                alert("number" + number);
+                                                $("#wives_no").val(number);
+                                                if (number == 1) {
+                                                    $("#wife2").hide();
+                                                    $("#wife3").hide();
+                                                    $("#wife4").hide();
+                                                }
+
+                                                if (number == 2) {
+                                                    $("#wife2").show();
+                                                    $("#wife3").hide();
+                                                    $("#wife4").hide();
+                                                }
+
+                                                if (number == 3) {
+                                                    $("#wife5").show();
+                                                    $("#wife3").show();
+                                                    $("#wife4").hide();
+                                                }
+
+                                                if (number == 4) {
+                                                    $("#wife2").show();
+                                                    $("#wife_3").show();
+                                                    $("#wife_4").show();
+                                                }
+                                            }
+
+                                        </script>
+                                
+                                        <label>Wife Number</label><input name="wives_no" id="wives_no" value="@Model.Wives_No_Id" />
+
+
+                                        @*<div class="row p-t-20">
+
+                    <div class="col-md-4" id="wife_name2" style="display:none">
+                        <div class="form-group">
+                            <label class="control-label">Wife's Name 2</label>
+                            <input type="text" name="wife_name2" id="" class="form-control" placeholder="Wife's Name 2">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4" id="wife_name3" style="display:none">
+                        <div class="form-group">
+                            <label class="control-label">Wife's Name 3</label>
+                            <input type="text" name="wife_name3" id="" class="form-control" placeholder="Wife's Name 3">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-4" id="wife_name4" style="display:none">
+                        <div class="form-group">
+                            <label class="control-label">Wife's Name 4</label>
+                            <input type="text" name="wife_name4" id="" class="form-control" placeholder="Wife's Name 4">
+                        </div>
+                    </div>
+
+                </div>*@
+
+
+                                        
+
+
+
+                                        <div class="row p-t-20 wife_rows">
+
+
+                                          
+
+
+
+                                        </div>
+
+                                        <div class="row p-t-20 status_single">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Children</label>
+                                                    <div>
+                                                        <input type="text" name="son" id="son" class="form-control pull-left col-md-6" placeholder="Sons" value="@Model.No_of_Sons" onkeypress="validation_numeric(event)">
+                                                        <input type="text" name="daughter" id="daughter" class="form-control pull-left col-md-6" placeholder="Daughters" value="@Model.No_of_Daughters" onkeypress="validation_numeric(event)">
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Caste</label>
+                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" value="@Model.Caste" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Sect</label>
+                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" value="@Model.Sect" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Blood Group</label>
+                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                        <option value="@Model.Blood_Group_Id">@Model.Blood_Group_Names.Blood_Group_Name</option>
+
+                                                        @foreach (var blood_group in ViewBag.Blood_Group)
+                                                        {
+                                                            if (@Model.Blood_Group_Id == blood_group.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
+                                                        }
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="clear"></div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Military Qualification</label>
+                                                    <select class="form-control custom-select" name="military_qualification" id="military_qualification">
+                                                        <option value="@Model.Military_Qualification_Id">@Model.Military_Qualification_Names.Military_Qual_Name</option>
+                                                        @foreach (var military in ViewBag.Military_Qualification)
+                                                        {
+
+                                                            if (@Model.Military_Qualification_Id == @military.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@military.Id">@military.Military_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Civil Qualification</label>
+                                                    <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
+                                                        <option value="@Model.Civil_Qualification_Id">@Model.Civil_Qualification_Names.Civil_Qual_Name</option>
+                                                        @foreach (var civil in ViewBag.Civil_Qualification)
+                                                        {
+                                                            if (@Model.Civil_Qualification_Id == @civil.Id)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <option value="@civil.Id">@civil.Civil_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Red Entry</label>
+                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                        @if (@Model.Red_Entry_Status == 1)
+                                                        {
+                                                            <option value="@Model.Red_Entry_Status">Yes</option>
+                                                            <option value="0">No</option>
+                                                        }
+                                                        else if (@Model.Red_Entry_Status == 0)
+                                                        {
+                                                            <option value="@Model.Red_Entry_Status">No</option>
+                                                            <option value="1">Yes</option>
+                                                        }
+                                                    </select>
+                                                    <input type="text" name="red_entry" id="red_entry" class="form-control pull-left" placeholder="Red Entry" value="@Model.Red_Entry_Reason" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+                                          
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Sport</label>
+                                                   
+                                                    <select name="sport_name" class="chosen-select form-control custom-select" data-placeholder="-- Select your Sport --" multiple>
+
+
+
+
+
+
+                                                        @foreach (var sport in ViewBag.Sport_Names)
+                                                        {
+
+                                                            if (ViewBag.Sports_List != null)
+                                                            {
+
+                                                                <option @foreach (var vv in ViewBag.Sports_list)
+                                                                        {
+                                                                            if (vv.Sport_Names.Id == sport.Id)
+                                                                            {   @selected       ; } } value="@sport.Id">
+                                                                    @sport.Sport_Name
+
+                                                                </option>
+                                                                }
+                                                        }
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+
+                                        @*-------------------------PERSONAL INFO--------------------------------------------------------------------------*@
+
+
+
+
+
+
+
+
+                                        @*-------------------------MEDICAL RECORD DIVS----------------------------------------------------------------------*@
+
+
+                                        <h3 class="box-title m-t-40">Medical Record</h3>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category</label>
+                                                    <select class="form-control custom-select" name="medical_category_id" id="medical_category_id" onchange="medical_record_dropdown()">
+                                                        @if (@ViewBag.hospital_obj != null) { 
+                                                            <option value="@ViewBag.hospital_obj.Medical_Record_Category_Id">@ViewBag.hospital_obj.Medical_Record_Category_Names.Record_Name</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="">-- Select Category --</option>
+                                                        }
+                                                        @foreach (var category in ViewBag.Medical_Category_Names)
+                                                        {
+                                                            if (@ViewBag.hospital_obj != null)
+                                                            {
+                                                                if (@ViewBag.hospital_obj.Medical_Record_Category_Id == category.Id)
+                                                                {
+                                                                    continue;
+                                                                }
+                                                            }
+                                                            <option value="@category.Id">@category.Record_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button" onclick="medical_date_click()"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        @if (@ViewBag.hospital_list.Count != 0) { 
+
+                                        foreach (var item in ViewBag.hospital_list)
+                                        {
+                                            <div class="row remove_hospital_row">
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Hospital Admission</label>
+                                                        <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission" value="@item.Hospital_Admission_Name" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">From</label>
+                                                        <input type="text" class="form-control from_medical" name="from_medical_date" id="@String.Concat("from_medical_date", hosp_date_counter)" placeholder="mm/dd/yyyy" value="@item.From_Date.ToString("dd-MMM-yyyy")">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">To</label>
+                                                        <input type="text" class="form-control" name="to_medical_date" id="@String.Concat("to_medical_date", hosp_date_counter)" placeholder="mm/dd/yyyy" value="@item.To_Date.ToString("dd-MMM-yyyy")">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Disease</label>
+                                                        <input type="text" class="form-control" name="disease_medical" id="disease_medical" placeholder="Diseases" value="@item.Disease" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label"></label>
+                                                        <a href="javascript:;" style="margin-top:31px" class="btn btn-danger rm_btn_hospital"> <i class="fa fa-minus"></i> Remove</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            hosp_date_counter++;
+
+                                        }
+                                        }
+
+                                        <div class="field_wrapper row"></div>
+                                 
+
+                                        <hr>
+
+                                        @*-------------------------MEDICAL RECORD DIVS----------------------------------------------------------------------*@
+
+
+                                        @*-------------------------COURSES RECORD DIVS----------------------------------------------------------------------*@
+
+
+                                        <div class="row">
+
+
+
+                                            <div class="col-md-3">
+                                                <h3 class="box-title m-t-40">Courses</h3>
+
+                                            </div>
+                                            <div class="col-md-3"></div><div class="col-md-3"></div>
+                                            <div class="col-md-2 pull-right">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_courses"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <hr>
+@if (@ViewBag.Courses_list.Count != 0) {
+                                        foreach (var course in ViewBag.Courses_list)
+                                            {
+                                            <div class="row remove_courses_row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Course Name</label>
+                                                        <div>
+                                                            <input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses" value="@course.Name" onkeypress="validation_alphabetical(event)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Grading</label>
+                                                        <select class="form-control custom-select" name="grading" id="grading">
+                                                            @if (@ViewBag.Courses_obj != null)
+                                                            {
+                                                                <option value="@ViewBag.Courses_obj.Grade_Id">@ViewBag.Courses_obj.Grading_Names.Grade_Name</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="">-- Select your Grade --</option>
+                                                            }
+                                                            
+                                                            @foreach (var grade in ViewBag.Grading_Names)
+                                                            {
+                                                                
+                                                                if (@ViewBag.Courses_obj != null)
+                                                                {
+                                                                    if (@ViewBag.Courses_obj.Grade_Id == grade.Id)
+                                                                    {
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                
+                                                                <option value="@grade.Id">@grade.Grade_Name</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+                                                        <label class="control-label">Instruction Ability</label>
+                                                        <select class="form-control custom-select" name="ability" id="ability">
+                                                            @if (@ViewBag.Courses_obj != null)
+                                                            {
+                                                                <option value="@ViewBag.Courses_obj.Ability_Id">@ViewBag.Courses_obj.Ability_Names.Ability_Name</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="">-- Select your Ability --</option>
+                                                            }
+                                                            
+                                                            
+                                                            @foreach (var ability in ViewBag.Courses_Ability)
+                                                            {
+                                                                
+                                                                if (@ViewBag.Courses_obj != null)
+                                                            {
+                                                                if (@ViewBag.Courses_obj.Ability_Id == ability.Id)
+                                                                    {
+                                                                        continue;
+                                                                    }
+                                                            }
+                                                                <option value="@ability.Id">@ability.Ability_Name</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label"></label>
+                                                        <a href="javascript:;" style="margin-top:31px" class="btn btn-danger rm_btn_courses"> <i class="fa fa-minus"></i> Remove</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+                                            </div>
+                                            }
+}
+                                        <div class="courses_add row"></div>
+                                        <hr>
+
+
+                               
+
+                                        @*-------------------------COURSES RECORD DIVS----------------------------------------------------------------------*@
+
+
+
+                                        @*-------------------------SERVICES RECORD DIVS----------------------------------------------------------------------*@
+
+                                        <h3 class="box-title m-t-40">Services Record</h3>
+                                        <hr>
+
+
+
+
+                                        <h4 class="box-title m-t-40">Total Service</h4>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Years</label>
+                                                    <div>
+                                                        <input type="text" name="total_years" id="total_years" class="form-control bg-white" placeholder="Years" value="@Model.Service_Years" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Month</label>
+                                                    <div>
+                                                        <input type="text" name="total_months" id="total_months" class="form-control bg-white" placeholder="Months" readonly value="@Model.Service_Months">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Days</label>
+                                                    <input type="text" class="form-control bg-white" name="total_days" id="total_days" placeholder="Days" value="@Model.Service_Days" readonly>
+                                                </div>
+                                            </div>
+                                        
+
+
+                                        </div>
+
+
+
+
+
+
+                                        <h4 class="box-title m-t-40">Present Record</h4>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date</label>
+                                                    <div>
+                                                        <input type="text" name="present_service_date" id="present_service_date" class="form-control" placeholder="mm/dd/yyyy" value="@Model.Present_Soldier_Service_Date.ToString("dd-MMM-yyyy")">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Location</label>
+                                                    <div>
+                                                        <input type="text" name="location_present" id="location_present" class="form-control" placeholder="Location" value="@Model.Present_Soldier_Service_Location" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                          
+
+
+                                        </div>
+                                        <hr>
+
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h4 class="box-title m-t-40">Previous Record</h4>
+                                            </div>
+                                            <div class="col-md-7"></div>
+                                            <div class="col-md-2 pull-right">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_previous_record"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <hr>
+
+
+@if (@ViewBag.Previous_record_list.Count != 0) {
+                                        foreach (var previous in ViewBag.Previous_record_list)
+                                            {
+                                            <div class="row remove_previous_row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Unit</label>
+                                                        <div>
+                                                            <input type="text" name="unit_previous" id="unit_previous1" class="form-control" placeholder="Unit" value="@previous.Unit" onkeypress="validation_alphabetical(event)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Location</label>
+                                                        <div>
+                                                            <input type="text" name="location_previous" id="location_previous" class="form-control" placeholder="Location" value="@previous.Location" onkeypress="validation_alphabetical(event)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">From</label>
+                                                        <input type="text" class="form-control" name="from_date_previous" id="@String.Concat("from_date_previous", previous_count)" placeholder="mm/dd/yyyy" value="@previous.From_Date.ToString("dd-MMM-yyyy")">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">To</label>
+                                                        <input type="text" class="form-control" name="to_date_previous" id="@String.Concat("to_date_previous", previous_count)" placeholder="mm/dd/yyyy" value="@previous.To_Date.ToString("dd-MMM-yyyy")">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label"></label>
+                                                        <a href="javascript:;" style="margin-top:31px" class="btn btn-danger rm_btn_previous_record"> <i class="fa fa-minus"></i> Remove</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+                                            </div>
+                                            }
+}
+                                        <div class="row previous_emp_record"></div>
+
+
+                                        @*-------------------------SERVICES RECORD DIVS----------------------------------------------------------------------*@
+
+
+
+
+                                        <hr>
+
+                                        <h3 class="box-title m-t-40">Region / Distt</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Village</label>
+                                                    <div>
+                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village" value="@Model.Village" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">P/O</label>
+                                                    <div>
+                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O" value="@Model.P_O" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Thana</label>
+                                                    <input type="text" class="form-control" name="thanas" id="thana" placeholder="Thana" value="@Model.Thana" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tehsil</label>
+                                                    <div>
+                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil" value="@Model.Tehsil" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Distt</label>
+                                                    <div>
+                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt" value="@Model.District" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h3 class="box-title m-t-40">ACRs</h3>
+                                            </div>
+                                            <div class="col-md-4"></div>
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_ACRs_record"><i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+
+@if (@ViewBag.ACRs_list.Count != 0) {
+                                        foreach (var acrs_obj in ViewBag.ACRs_list)
+                                            {
+
+
+                                            <div class="row remove_ACRs_div">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Years</label>
+                                                        <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" value="@acrs_obj.ACR_Year" onkeypress="validation_numeric(event)" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">ACRs Grade Scale</label>
+                                                        <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale">
+                                                            
+                                                            @if (@ViewBag.ACRs_obj != null)
+                                                            {
+                                                                <option value="@ViewBag.ACRs_obj.ACR_Performance_Name_Id">@ViewBag.ACRs_obj.ACR_Performance_Names.Performance_Name</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="">-- Select your Ability --</option>
+                                                            }
+                                                            
+                                                            @foreach (var acr in ViewBag.ACR_Grade)
+                                                            {
+                                                                 if (@ViewBag.ACRs_obj != null)
+                                                            {
+                                                                 if (@ViewBag.ACRs_obj.ACR_Performance_Name_Id == acr.Id)
+                                                                    {
+                                                                        continue;
+                                                                    }
+                                                            }
+                                                                <option value="@acr.Id">@acr.Performance_Name</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label"></label>
+                                                        <a href="javascript:;" style="margin-top:31px" class="btn btn-danger rm_btn_acrs"><i class="fa fa-minus"></i> Remove</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            }
+}
+                                        <div class="row ACRs_div"></div>
+                                        <hr>
+
+
+
+
+
+                                       
+
+                                        <div class="clear"></div>
+
+
+                                        <div class="clear"></div>
+
+
+
+                                        @*</div>*@
+
+
+
+
+                                        <div class="clear"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h3 class="box-title m-t-40">Leave Record</h3>
+                                            </div>
+                                            <div class="col-md-7"></div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_leaves_record"><i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+@if (@ViewBag.Leave_Record_list.Count != 0) {
+                                        foreach (var leave in ViewBag.Leave_Record_list)
+                                            {
+
+
+                                            <div class="row remove_leave_record_div">
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Last Leave</label>
+                                                        <div>
+                                                            <input type="text" name="last_leave" id="last_leave" class="form-control" placeholder="Last Leave" value="@leave.Last_Leave" onkeypress="validation_numeric(event)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">From</label>
+                                                        <input type="text" class="form-control" name="from_leave" id="@String.Concat("from_leave",leave_count)" placeholder="mm/dd/yyyy" value="@leave.From_Date.ToString("dd-MMM-yyyy")"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">To</label>
+                                                        <input type="text" class="form-control" name="to_leave" id="@String.Concat("to_leave", leave_count)" placeholder="mm/dd/yyyy" value="@leave.From_Date.ToString("dd-MMM-yyyy")"/>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Days</label>
+                                                        <div>
+                                                            <input type="text" name="leave_days" id="leave_days" class="form-control" placeholder="Days" value="@leave.Days" onkeypress="validation_numeric(event)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label"></label>
+                                                        <a href="javascript:;" style="margin-top:31px" class="btn btn-danger rm_btn_leaves_record"><i class="fa fa-minus"></i> Remove</a>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+                                                leave_count++;
+
+                                            }
+}
+                                        <div class="row leave_record_div"></div>
+                                        <hr>
+                                   
+
+
+
+                                        <h3 class="box-title m-t-40">Soldier Service Status</h3>
+                                        <hr>
+
+                                        <div class="row">
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Service Status</label>
+                                                    <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
+                                                        <option value="@Model.Soldier_Service_Status_Id">@Model.Soldier_Service_Status.Service_Status_Name</option>
+                                                        @foreach (var service in ViewBag.Soldier_Status)
+                                                        {
+                                                            <option value="@service.Id">@service.Service_Status_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">Comments &amp; Reviews</h3>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <label>Comments</label>
+                                            <textarea class="form-control" rows="5" name="comments">@Model.Comments</textarea>
+                                        </div>
+
+
+
+                                        <h3 class="box-title m-t-40">Soldier Image</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-lg-4 col-md-4">
+                                                <h5 class="card-title">New Image</h5>
+                                                <div class="card" style="background-color: #c2e4c2;">
+                                                    <div class="card-body">
+                                                        <input type="file" id="input-file-now" class="dropify" name="image" onclick="previous_soldier_image()" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <script>
+                                                function previous_soldier_image() {
+                                                    $(".hide_soldier_previous_image").hide();
+                                                    $("#new_image_value").val(1);
+                                                }
+                                            </script>
+
+                                            @if (Model.Soldier_Image != null)
+                                            {
+
+
+
+                                                <div class="col-lg-4 col-md-4 hide_soldier_previous_image">
+                                                    <h5 class="card-title">Old Image</h5>
+                                                    <div class="card" style="background-color: #c2e4c2;">
+                                                        <div class="card-body">
+
+                                                            <div class="dropify-wrapper">
+                                                                <div class="dropify-message"><span class="fa fa-4x fa-cloud-upload"></span> </div><div class="dropify-loader" style="display: none;"></div><div class="dropify-errors-container"><ul></ul></div><input type="text" id="" class="dropify">
+                                                                <div class="dropify-preview" style="display: block;">
+                                                                    <span class="dropify-render">
+                                                                        @{
+                                                                            var Base64 = Convert.ToBase64String(@Model.Soldier_Image);
+                                                                            var imgsrc = string.Format("data:img/gif;base64,{0}", Base64);
+
+                                                                            <img src="@imgsrc" />
+
+                                                                        }
+
+                                                                    </span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span></p></div></div>
+
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="javascript:;" @*style="margin-top:31px"*@ class="btn btn-danger" onclick="previous_soldier_image()"><i class="fa fa-minus"></i> Remove</a>
+                                                </div>
+
+    @*<div class="col-lg-4 col-md-4 hide_soldier_previous_image">
+        
+        <div class="card" style="background-color: #c2e4c2;">
+            <div class="card-body">
+                
+                
+                <div class="dropify-wrapper has-preview">
+                    <div class="dropify-message">
+                        <span class="file-icon"></span> <p>Drag and drop a file here or click</p>
+                        <p class="dropify-error">Ooops, something wrong appended.</p>
+                    </div>
+                    <div class="dropify-loader" style="display: none;"></div>
+                    <div class="dropify-errors-container"><ul></ul></div>
+                    <input type="file" id="input-file-now-custom-1" class="dropify">
+                    
+                    <div class="dropify-preview" style="display: block;">
+                        <span class="dropify-render">
+
+
+                        </span>
+                        <div class="dropify-infos">
+                            <div class="dropify-infos-inner">
+                                <p class="dropify-filename">
+                                    <span class="file-icon"></span> <span class="dropify-filename-inner">test-image-1.jpg</span>
+                                </p><p class="dropify-infos-message">Drag and drop or click to replace</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+                                            }
+                                        </div>
+
+                                        
+
+                                        <div class="form-actions  m-t-40">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        @*<div class="col-md-4"></div>*@
+                                                        <div class="col-md-4">
+                                                            <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Submit</button>
+                                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        @*<div class="col-md-4"></div>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    
+                        <div class="clear"></div>
+
+                        <div style="margin-bottom:400px">
+                        </div>
+                        <div class="clear"></div> 
+                    
+
+                        <script>
+                            $(document).ready(function () {
+                                $("#date_of_enrl").change(function () {
+                                    var mdate = $("#date_of_enrl").val().toString();
+
+                                    //alert("mdate" + mdate);
+
+                                    var yearThen = parseInt(mdate.substring(6, 10), 10);
+                                    //alert("yearThen" + yearThen);
+                                    var monthThen = parseInt(mdate.substring(3, 5), 10);
+                                    //alert("monthThen" + monthThen);
+                                    var dayThen = parseInt(mdate.substring(0, 2), 10);
+                                    //alert("dayThen" + dayThen);
+
+                                    //var yearThen = parseInt(mdate.substring(0, 4), 10);
+                                    //alert("yearThen" + yearThen);
+                                    //var monthThen = parseInt(mdate.substring(5, 7), 10);
+                                    //alert("monthThen" + monthThen);
+                                    //var dayThen = parseInt(mdate.substring(8, 10), 10);
+                                    //alert("dayThen" + dayThen);
+
+                                    var today = new Date();
+                                    var birthday = new Date(yearThen, monthThen - 1, dayThen);
+
+                                    var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+
+                                    var year_age = Math.floor(differenceInMilisecond / 31536000000);
+                                    var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
+
+                                    //if ((today.getMonth() == birthday.getMonth()) && (today.getDate() == birthday.getDate())) {
+                                    //    alert("Happy B'day!!!");
+                                    //}
+
+                                    var month_age = Math.floor(day_age / 30);
+
+                                    day_age = day_age % 30;
+
+                                    $("#total_years").val(year_age);
+                                    $("#total_months").val(month_age);
+                                    $("#total_days").val(day_age);
+
+                                    //$("#exact_age").html("You are<br/><span id=\"age\">" + year_age + " years " + month_age + " months " + day_age + " days</span> old");
+                                });
+                            });
+
+
+                        </script>
+
+                    
+                    </div>
+                </div>
+                
+            </div>
+
+
+         
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    </script>
+
+    <script>
+        // Date Picker
+        var h_count = $("#hospital_count").val();
+        //alert("h_count" + h_count);
+        for (var i = 1 ; i <= h_count; i++) {
+            //alert("i" + i);
+            jQuery('#from_medical_date'+i).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_medical_date'+i).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        }
+
+        var p_count = $("#previous_count_id").val();
+        //alert("h_count" + h_count);
+        for (var j = 1 ; j <= p_count; j++) {
+            //alert("j" + j);
+            jQuery('#from_date_previous' + j).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_date_previous' + j).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        }
+        
+        jQuery('#date_of_present_rank').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#date_of_sod').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#present_service_date').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        jQuery('#date_of_enrl').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+       
+        jQuery('#from_present').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_present').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_Service').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+        var l_count = $("#leave_count_id").val();
+        //alert("h_count" + h_count);
+        for (var k = 1 ; k <= p_count; k++) {
+            //alert("j" + j);
+            jQuery('#from_leave' + k).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_leave' + k).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        }
+
+       
+
+
+
+
+
+        function medical_date_click() {
+
+            jQuery('.mydatepicker, #datepicker').datepicker();
+
+            for (var i = 1 ; i < 50 ; i++) {
+                jQuery('#from_medical_date' + counter).datepicker({
+                    format: 'dd-mm-yyyy',
+                    autoclose: true,
+                    todayHighlight: true
+                });
+            }
+        }
+
+
+
+
+
+        function abc() {
+            alert("ABC");
+
+            var a = moment([2017, 10, 29]);
+            var b = moment([2007, 10, 28]);
+            alert("Days " + a.diff(b, 'days'));
+            alert("Months " + a.diff(b, 'months'));
+            alert("Years " + a.diff(b, 'years'));
+        }
+
+    </script>
+
+   
+
+    <script>
+    function onload_function() {
+        var m_status = $("#marital_status").val();
+        if (m_status == 1) {
+            $(".status_single").hide();
+        }
+        else {
+            $(".status_single").show();
+        }
+    }
+    </script>
+
+    
+
+
+    @*------------------Hospital Admissions Add More Fields-----------------*@
+
+    <script>
+
+        var addButton = $('.add_button');
+        var wrapper = $('.field_wrapper');
+        var hospital_counter = $("#hospital_count").val();
+        hospital_counter++;
+        //alert("hospital_counter" + hospital_counter);
+        $(addButton).click(function () {
+            //alert("asasas");
+            var fieldHTML = '<div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Hospital Admission</label> <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control from_medical" name="from_medical_date" id="from_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_medical_date" id="to_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="disease_medical" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px;margin-left: -6px;" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div>';
+            $(wrapper).append(fieldHTML);
+
+            jQuery('#from_medical_date' + hospital_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_medical_date' + hospital_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+
+
+            hospital_counter = +hospital_counter + +1;
+        });
+
+        $(wrapper).on('click', '.remove_button', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.r').remove();
+        });
+
+
+        //function remove_hospital_row() {
+        //    //e.preventDefault();
+        //    alert("sadada");
+        //    $(this).closest('.rrrr').remove();
+        //}
+
+        $('.remove_hospital_row').on('click', '.rm_btn_hospital', function (e) {
+            //alert("xxxxxxx");
+            e.preventDefault();
+            $(this).closest('.remove_hospital_row').remove();
+        });
+
+    </script>
+    @*------------------Hospital Admissions Add More Fields-----------------*@
+
+
+
+
+
+
+    @*------------------Courses Add More Fields-----------------*@
+
+
+    <script>
+        //Courses Add More Fields
+
+        var addButton_course = $('.add_button_courses');
+        var wrapper_course = $('.courses_add');
+        $(addButton_course).click(function () {
+            //alert("asasas");
+            var fieldHTMLss = '<div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option> @foreach (var grade in ViewBag.Grading_Names) {<option value="@grade.Id">@grade.Grade_Name</option> } </select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option> @foreach (var ability in ViewBag.Courses_Ability) {<option value="@ability.Id">@ability.Ability_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px;margin-left:-7px;" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            $(wrapper_course).append(fieldHTMLss);
+        });
+
+        $(wrapper_course).on('click', '.remove_courses', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.r_courses').remove();
+        });
+
+
+        $('.remove_courses_row').on('click', '.rm_btn_courses', function (e) {
+            //alert("xxxxxxx");
+            e.preventDefault();
+            $(this).closest('.remove_courses_row').remove();
+        });
+
+    </script>
+    @*------------------Courses Add More Fields-----------------*@
+
+
+
+
+
+
+
+
+
+
+    @*-----------------Previous Service Record Add More Fields--------------*@
+
+    <script>
+
+
+
+        var addButton_previous = $('.add_button_previous_record');
+        var wrapper_previous = $('.previous_emp_record');
+        var counter_previous = 2;
+        $(addButton_previous).click(function () {
+            //alert("asasas");
+            var fieldHTML_previous = '<div class="row remove_previous_emp_record" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Unit</label><div><input type="text" name="unit_previous" id="unit_previous" class="form-control" placeholder="Unit"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Location</label><div><input type="text" name="location_previous" id="location_previous" class="form-control" placeholder="Location"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_date_previous" id="from_date_previous' + counter_previous + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_date_previous" id="to_date_previous' + counter_previous + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px;margin-left:-9px;" class="btn btn-danger delete_button_previous_record"><i class="fa fa-minus"></i>  Remove</a></div></div><div class="clear"></div></div>';
+            $(wrapper_previous).append(fieldHTML_previous);
+
+
+            jQuery('#from_date_previous' + counter_previous).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_date_previous' + counter_previous).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+            counter_previous = +counter_previous + +1;
+        });
+
+        $(wrapper_previous).on('click', '.delete_button_previous_record', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.remove_previous_emp_record').remove();
+        });
+
+
+
+        //Remove Existing Rows
+        $('.remove_previous_row').on('click', '.rm_btn_previous_record', function (e) {
+            //alert("xxxxxxx");
+            e.preventDefault();
+            $(this).closest('.remove_previous_row').remove();
+        });
+
+    </script>
+    @*-----------------Previous Service Record Add More Fields--------------*@
+
+
+
+
+    @*-----------------------ACRs Add More Fields---------------------------*@
+
+    <script type="text/javascript">
+
+
+        var addButton_ACRs = $('.add_button_ACRs_record');
+        var wrapper_ACRs = $('.ACRs_div');
+
+
+        $(addButton_ACRs).click(function () {
+            //alert("asasas");
+            var fieldHTML_ACRs = '<div class="row remove_ACRs_data" style="margin-left:0px"><div class="col-md-4"><div class="form-group"><label class="control-label">Years</label><input type="text" name="acr_year" id="acr_year" class="form-control newwidth" placeholder="ACRs Year"></div></div><div class="col-md-4"><div class="form-group"><label class="control-label">ACRs Grade Scale</label><select class="form-control newwidth custom-select" name="accr_grading_scale" id="accr_grading_scale"><option value="">-- Select your Ability --</option>@foreach (var acr in ViewBag.ACR_Grade){<option value="@acr.Id">@acr.Performance_Name</option>}</select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_ACRs_record"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            @*var fieldHTML_ACRs = '<div class="row ACRs_div" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Years</label> <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year"></div></div><div class="col-md-3"><div class="form-group"> <label class="control-label">ACRs Grade Scale</label> <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale"><option value="">-- Select your Ability --</option> @foreach (var acr in ViewBag.ACR_Grade) {<option value="@acr.Id">@acr.Performance_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"> <label class="control-label"></label> <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_ACRs_record"><i class="fa fa-plus"></i> Add More</a></div></div></div>';*@
+
+            $(wrapper_ACRs).append(fieldHTML_ACRs);
+
+
+
+        });
+
+        $(wrapper_ACRs).on('click', '.delete_button_ACRs_record', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.remove_ACRs_data').remove();
+        });
+
+
+
+        //Remove Existing Rows
+        $('.remove_ACRs_div').on('click', '.rm_btn_acrs', function (e) {
+            //alert("xxxxxxx");
+            e.preventDefault();
+            $(this).closest('.remove_ACRs_div').remove();
+        });
+
+
+
+
+    </script>
+    @*-----------------------ACRs Add More Fields---------------------------*@
+
+
+
+
+
+
+
+
+    @*-----------------------Leave Record Add More Fields-------------------*@
+
+    <script type="text/javascript">
+
+
+        var addButton_leaves = $('.add_button_leaves_record');
+        var wrapper_leaves = $('.leave_record_div');
+
+        var leave_counter = $("#leave_count_id").val();
+        leave_counter++;
+
+
+        $(addButton_leaves).click(function () {
+            //alert("asasas");
+            var fieldHTML_leaves = '<div class="row remove_leave_record" style="margin-left:0px"><div class="col-md-2"><div class="form-group"><label class="control-label">Last Leave</label><div><input type="text" name="last_leave" id="last_leave" class="form-control" placeholder="Last Leave"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_leave" id="from_leave' + leave_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_leave" id="to_leave' + leave_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Days</label><div><input type="text" name="leave_days" id="leave_days" class="form-control" placeholder="Days"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label> <a href="javascript:;" style="margin-top:31px; margin-left:-13px;" class="btn btn-danger delete_button_leaves_record"> <i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            $(wrapper_leaves).append(fieldHTML_leaves);
+
+            jQuery('#from_leave' + leave_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_leave' + leave_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            leave_counter = +leave_counter + +1;
+
+        });
+
+        $(wrapper_leaves).on('click', '.delete_button_leaves_record', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.remove_leave_record').remove();
+        });
+
+
+
+        //Remove Existing Rows
+        $('.remove_leave_record_div').on('click', '.rm_btn_leaves_record', function (e) {
+            //alert("xxxxxxx");
+            e.preventDefault();
+            $(this).closest('.remove_leave_record_div').remove();
+        });
+
+
+        
+
+
+    </script>
+    @*-----------------------Leave Record Add More Fields-------------------*@
+
+
+
+</body>

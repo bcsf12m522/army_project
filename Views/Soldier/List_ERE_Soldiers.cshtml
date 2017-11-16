@@ -1,0 +1,247 @@
+﻿@model List<Army_Management_System.Models.Sport>
+           @{
+               var selected = "selected";
+           }
+    <body class="fix-header fix-sidebar card-no-border">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        @*<div class="preloader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                </svg>
+            </div>*@
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+            <!-- ============================================================== -->
+            <!-- Topbar header - style you can find in pages.scss -->
+            <!-- ============================================================== -->
+            @{
+                Html.RenderPartial("Header");
+            }
+            <!-- ============================================================== -->
+            <!-- End Topbar header -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            @{
+                Html.RenderPartial("Side_Navigation");
+            }
+            <!-- ============================================================== -->
+            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Page wrapper  -->
+            <!-- ============================================================== -->
+            <div class="page-wrapper" style="">
+
+
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">List of Soldiers</h3>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
+                            <li class="breadcrumb-item">Dashboard</li>
+                            <li class="breadcrumb-item custom_lime_green active">List of Soldiers</li>
+                        </ol>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="card">
+
+
+                        <div class="card-body">
+                            <h3 class="card-title">Soldier's List</h3>
+                            @*<h6 class="card-subtitle">Data table example</h6>*@
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Sport</label>
+
+                                    <select name="sport_name" class="chosen-select form-control custom-select" data-placeholder="-- Select your Sport --" multiple>
+
+
+
+
+
+
+                                        @foreach (var sport in @ViewBag.Sport_Names)
+                                        {
+
+                                            <option @foreach (var vv in @Model) { if (vv.Id == sport.Id) {   @selected      ; } } value="@sport.Id">
+                                                @sport.Sport_Name
+
+                                            </option>
+                                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="table-responsive m-t-10">
+                                <table id="List_ERE_Soldiers" class="table full-color-table full-brown-table hover-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Rank</th>
+                                            <th class="text-center">Trade</th>
+                                            <th class="text-center">Number</th>
+                                            <th class="text-center">CNIC</th>
+                                            <th class="text-center">Service Status</th>
+                                            @*<th class="text-center">Village</th>*@
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var v in Model)
+                                        {
+                                            
+                                        }
+
+
+
+                                    </tbody>
+                                </table>
+                                @*<table id="myTable" class="table full-color-table full-dark-table">*@
+                                @*<table id="myTable" class="table color-table dark-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
+                                            </tr>
+                                    </table>*@
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div style="margin-bottom:400px">
+                    </div>
+                    <div class="clear"></div>
+
+
+                </div>
+                <script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+                </script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#List_ERE_Soldiers').DataTable();
+                        $(document).ready(function () {
+                            var table = $('#example').DataTable({
+                                "columnDefs": [{
+                                    "visible": false,
+                                    "targets": 2
+                                }],
+                                "order": [
+                                    [2, 'asc']
+                                ],
+                                "displayLength": 25,
+                                "drawCallback": function (settings) {
+                                    var api = this.api();
+                                    var rows = api.rows({
+                                        page: 'current'
+                                    }).nodes();
+                                    var last = null;
+                                    api.column(2, {
+                                        page: 'current'
+                                    }).data().each(function (group, i) {
+                                        if (last !== group) {
+                                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                                            last = group;
+                                        }
+                                    });
+                                }
+                            });
+                            // Order by the grouping
+                            $('#example tbody').on('click', 'tr.group', function () {
+                                var currentOrder = table.order()[0];
+                                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                                    table.order([2, 'desc']).draw();
+                                } else {
+                                    table.order([2, 'asc']).draw();
+                                }
+                            });
+                        });
+                    });
+                    $('#example23').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf', 'print'
+                        ]
+                    });
+                </script>
+
+
+
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                @{
+                    Html.RenderPartial("Footer");
+                }
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+
+
+
+    </body>

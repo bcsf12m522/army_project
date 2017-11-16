@@ -1,5 +1,4 @@
-﻿@model List<Army_Management_System.Models.Admin>
-
+﻿@model List<Army_Management_System.Models.Soldier>
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -36,36 +35,44 @@
         <!-- ============================================================== -->
         <div class="page-wrapper" style="">
 
+
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">List of Admins</h3>
+                    <h3 class="text-themecolor">List of Soldiers</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
                         <li class="breadcrumb-item">Dashboard</li>
-                        <li class="breadcrumb-item custom_lime_green active">List of Admins</li>
+                        <li class="breadcrumb-item custom_lime_green active">List of Soldiers</li>
                     </ol>
                 </div>
 
             </div>
 
             <div class="container-fluid">
+
                 <div class="card">
+
+
                     <div class="card-body">
-                        <h3 class="card-title">Admin's List</h3>
+                        <h3 class="card-title">Soldier's List</h3>
                         @*<h6 class="card-subtitle">Data table example</h6>*@
+
+
+
+
                         <div class="table-responsive m-t-10">
-                            <table id="myTable" class="table full-color-table full-warning-table hover-table">
+                            <table id="List_Soldier" class="table full-color-table full-brown-table hover-table">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Rank</th>
-                                        <th class="text-center">Address</th>
-                                        <th class="text-center">Email</th>
-                                        <th class="text-center">Phone No</th>
-                                        @*<th class="text-center">CNIC</th>*@
-                                        <th class="text-center">Type</th>
+                                        <th class="text-center">Trade</th>
+                                        <th class="text-center">Number</th>
+                                        <th class="text-center">CNIC</th>
+                                        <th class="text-center">Service Status</th>
+                                        @*<th class="text-center">Village</th>*@
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -75,14 +82,15 @@
                                         <tr>
                                             <td class="text-center">@v.Name</td>
                                             <td class="text-center">@v.Rank_Names.Rank_Name</td>
-                                            <td class="text-center">@v.Address</td>
-                                            <td class="text-center">@v.Email</td>
-                                            <td class="text-center">@v.Phone_No</td>
-                                            <td class="text-center">@v.Type</td>
+                                            <td class="text-center">@v.Trade_Names.Trade_Name</td>
+                                            <td class="text-center">@v.Person_Number</td>
+                                            <td class="text-center">@v.CNIC</td>
+                                            <td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>
+                                            @*<td class="text-center">@v.Village</td>*@
                                             <td class="text-center" style="width: 50px;">
-                                                <a href="~/Admin/Profile_Admin/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a class="m-l-10 eye_hover" href="~/Admin/Edit_Admin/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                <a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
+                                                <a href="~/Soldier/Profile_Soldier/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                <a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     }
@@ -124,10 +132,13 @@
                 </div>
                 <div class="clear"></div> 
 
+
             </div>
+
+
             <script>
                 $(document).ready(function () {
-                    $('#myTable').DataTable();
+                    $('#List_Soldier').DataTable();
                     $(document).ready(function () {
                         var table = $('#example').DataTable({
                             "columnDefs": [{

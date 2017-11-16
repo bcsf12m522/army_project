@@ -157,31 +157,34 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">Rank</label>
-                                                <select class="form-control custom-select" id="rank" required name="rank">
+                                                <select class="form-control custom-select" name="rank">
                                                     <option value="">-- Select Rank --</option>
-                                                    <option>Hon Capt</option>
-                                                    <option>Hon LT</option>
-                                                    <option>SM</option>
-                                                    <option>Sub</option>
-                                                    <option>Nsub</option>
-                                                    <option>Hav</option>
-                                                    <option>Lhav</option>
-                                                    <option>NK</option>
-                                                    <option>Lnk</option>
-                                                    <option>Sig</option>
-                                                    <option>NCsE</option>
-                                                    <option>NCB</option>
-                                                    @*@foreach (var rank in ViewBag.rank)
+                                                    @foreach (var rank in ViewBag.Rank)
                                                     {
                                                         <option value="@rank.Id">@rank.Rank_Name</option>
-                                                    }*@
-                                                    
-                                                 
+                                                    }
+
                                                 </select>
+
                                             </div>
                                         </div>
 
                                     </div>
+
+
+                                    <h3 class="box-title m-t-40">Image</h3>
+                                    <hr>
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="card" style="background-color: #c2e4c2;">
+                                                <div class="card-body">
+                                                    <input type="file" id="input-file-now" name="image" class="dropify" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
 
                                     <h3 class="box-title m-t-40">Permissions</h3>
@@ -192,33 +195,84 @@
 
                                         <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
-                                                <input id="view_officer" type="checkbox" class="filled-in chk-col-light-green">
-                                                <label for="view_officer">View Officers</label>
+                                                <input id="view_Soldier" onclick="view_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="view_soldier">
+                                                
+                                                <label for="view_Soldier">View Soldiers</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3 p-l-0">
                                             <div class="checkbox checkbox-success">
-                                                <input id="add_officer" type="checkbox" class="filled-in chk-col-light-green">
-                                                <label for="add_officer">Add Officers</label>
+                                                <input id="add_Soldier" onclick="add_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="add_soldier">
+                                                <label for="add_Soldier">Add Soldiers</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3 p-l-0">
                                             <div class="checkbox checkbox-success">
-                                                <input id="edit_officer" type="checkbox" class="filled-in chk-col-light-green">
-                                                <label for="edit_officer">Edit Officers</label>
+                                                <input id="edit_Soldier" onclick="edit_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="edit_soldier">
+                                                <label for="edit_Soldier">Edit Soldiers</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3 p-l-0">
                                             <div class="checkbox checkbox-success">
-                                                <input id="delete_officer" type="checkbox" class="filled-in chk-col-light-green">
-                                                <label for="delete_officer">Delete Officers</label>
+                                                <input id="delete_Soldier" onclick="delete_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="delete_soldier">
+                                                <label for="delete_Soldier">Delete Soldiers</label>
                                             </div>
                                         </div>
 
+                                        <script>
+                                            function view_soldier_click() {
+                                                if (document.getElementById("view_Soldier").checked) {
+                                                    $("#view_Soldier").val(1);
+                                                    //alert("if  view_Soldier " + $("#view_Soldier").val());
+                                                } else {
+                                                    $("#view_Soldier").val(0);
+                                                    //alert("else  view_Soldier  " + $("#view_Soldier").val());
+                                                }
+                                            }
+                                         
+                                           
+                                         
+                                        </script>
                                       
+                                        <script >
+                                            function add_soldier_click() {
+                                                if (document.getElementById("add_Soldier").checked) {
+                                                    $("#add_Soldier").val(1);
+                                                    //alert("if add_Soldier " + $("#add_Soldier").val());
+                                                } else {
+                                                    $("#add_Soldier").val(0);
+                                                    //alert("else  add_Soldier  " + $("#add_Soldier").val());
+                                                }
+                                            }
+                                        </script>
+
+                                        <script>
+
+                                            function edit_soldier_click() {
+                                                if (document.getElementById("edit_Soldier").checked) {
+                                                    $("#edit_Soldier").val(1);
+                                                    //alert("if edit_Soldier  " + $("#edit_Soldier").val());
+                                                } else {
+                                                    $("#view_Soldier").val(0);
+                                                    //alert("else  edit_Soldier " + $("#view_Soldier").val());
+                                                }
+                                            }
+                                        </script>
+
+                                        <script>
+                                            function delete_soldier_click() {
+                                                if (document.getElementById("delete_Soldier").checked) {
+                                                    $("#delete_Soldier").val(1);
+                                                    //alert("if  delete_Soldier " + $("#delete_Soldier").val());
+                                                } else {
+                                                    $("#delete_Soldier").val(0);
+                                                    //alert("else  delete_Soldier " + $("#delete_Soldier").val());
+                                                }
+                                            }
+                                        </script>
 
                                         @*<div class="offset-sm-3 col-sm-9 col-md-2"></div>*@
 

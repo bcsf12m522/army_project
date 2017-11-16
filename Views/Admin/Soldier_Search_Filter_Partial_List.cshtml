@@ -1,0 +1,40 @@
+﻿@model List<Army_Management_System.Models.Soldier>
+
+
+
+
+
+
+    <table id="aa" class="table full-color-table full-brown-table hover-table">
+        <thead>
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Rank</th>
+                <th class="text-center">Trade</th>
+                <th class="text-center">Number</th>
+                <th class="text-center">CNIC</th>
+                <th class="text-center">Service Status</th>
+                @*<th class="text-center">Village</th>*@
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="search_filter_div">
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td class="text-center">@v.Name</td>
+                    <td class="text-center">@v.Rank_Names.Rank_Name</td>
+                    <td class="text-center">@v.Trade_Names.Trade_Name</td>
+                    <td class="text-center">@v.Person_Number</td>
+                    <td class="text-center">@v.CNIC</td>
+                    <td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>
+                    @*<td class="text-center">@v.Village</td>*@
+                    <td class="text-center" style="width: 50px;">
+                        <a href="~/Soldier/Profile_Soldier/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

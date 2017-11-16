@@ -1,0 +1,1696 @@
+﻿
+<!-- Mirrored from themedesigner.in/demo/admin-press/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2017 13:38:59 GMT -->
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    @*<div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>*@
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Header");
+        }
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        @{
+            Html.RenderPartial("Side_Navigation");
+        }
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor custom_lime_green">Add New Soldier</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">Dashboard</li>
+                        <li class="breadcrumb-item active custom_lime_green">Add New Soldier</li>
+                    </ol>
+                </div>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+
+                @*<a href="#" onclick="getAge(new Date(2014, 0, 1), new Date(2015, 0, 2))">ABC FUNCTION</a>*@
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Soldier Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="~/Soldier/Create_Soldier" method="post" data-parsley-validate class="" enctype="multipart/form-data">
+                                    <div class="form-body">
+
+
+
+                                        <h3 class="card-title">Personal Info</h3>
+                                        <hr>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">No</label>
+                                                    <input type="text" name="no" class="form-control" placeholder="No">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Rank</label>
+                                                    <select class="form-control custom-select" name="rank_id">
+                                                        <option value="">-- Select Rank --</option>
+                                                        @foreach (var rank in ViewBag.Rank)
+                                                        {
+                                                            <option value="@rank.Id">@rank.Rank_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Trade</label>
+                                                    <select class="form-control custom-select" name="trade_id">
+                                                        <option value="">-- Select Trade --</option>
+                                                        @foreach (var trade in ViewBag.Trade)
+                                                        {
+                                                            <option value="@trade.Id">@trade.Trade_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Height (Cm)</label>
+                                                    <select name="height" class="form-control custom-select">
+                                                        <option value="">-- Select Height --</option>
+
+                                                        @foreach (var height in ViewBag.Height)
+                                                        {
+                                                            <option value="@height.Id">@height.Height_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Weight (Kg)</label>
+                                                    <select name="weight" class="form-control custom-select">
+                                                        <option value="">-- Select Weight --</option>
+                                                        @foreach (var weight in ViewBag.Weight)
+                                                        {
+                                                            <option value="@weight.Id">@weight.Weight_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Beard</label>
+                                                    <select class="form-control custom-select" name="beard">
+                                                        <option>-- Select your Choice --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Complexion</label>
+                                                    <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Demography</label>
+                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cl Compsn</label>
+                                                    <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
+                                                        <option value="">-- Select Cl Compsn --</option>
+                                                        @foreach (var composition in ViewBag.Class_Composition)
+                                                        {
+                                                            <option value="@composition.Id">@composition.Compostion_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
+                                            @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Enrollment</label>
+                                                    <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Present Rank</label>
+                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of SOD</label>
+                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">CNIC</label>
+                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
+                                                </div>
+                                            </div>
+
+                                           
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Marital Status</label>
+                                                    <select class="form-control custom-select" oninput="marital_status_function(this.value)" name="marital_status" id="marital_status">
+                                                        <option value="0">-- Select Marital Status --</option>
+                                                        @foreach (var marital in ViewBag.Marital_Status)
+                                                        {
+                                                            <option value="@marital.Id">@marital.Marital_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-4 status_single" style="display:none">
+                                                <div class="form-group">
+                                                    <label class="control-label">No. of Marriages</label>
+                                                    <select class="form-control custom-select" name="no_of_marriage" id="no_of_marriage" oninput="wife_number_function(this.value)">
+                                                        <option value="1">-- Select No. of Marriage --</option>
+                                                        @foreach (var wife_number in ViewBag.Wife_Number)
+                                                        {
+                                                            <option value="@wife_number.Id">@wife_number.No_of_Wife</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <div class="col-md-4 status_single" style="display:none">
+                                                <div class="form-group">
+                                                    <label class="control-label">Wife's Name</label>
+                                                    <input type="text" name="wife_name1" id="wife_name1" class="form-control" placeholder="Wife's Name" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <input name="wives_no" id="wives_no" />
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4" id="wife_name2" style="display:none">
+                                                <div class="form-group">
+                                                    <label class="control-label">Wife's Name 2</label>
+                                                    <input type="text" name="wife_name2" id="" class="form-control" placeholder="Wife's Name 2" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4" id="wife_name3" style="display:none">
+                                                <div class="form-group">
+                                                    <label class="control-label">Wife's Name 3</label>
+                                                    <input type="text" name="wife_name3" id="" class="form-control" placeholder="Wife's Name 3" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-4" id="wife_name4" style="display:none">
+                                                <div class="form-group">
+                                                    <label class="control-label">Wife's Name 4</label>
+                                                    <input type="text" name="wife_name4" id="" class="form-control" placeholder="Wife's Name 4" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row p-t-20 status_single">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Children</label>
+                                                    <div>
+                                                        <input type="text" name="son" id="son" class="form-control pull-left col-md-6" placeholder="Sons" onkeypress="validation_numeric(event)">
+                                                        <input type="text" name="daughter" id="daughter" class="form-control pull-left col-md-6" placeholder="Daughters" onkeypress="validation_numeric(event)">
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            function marital_status_function(marital) {
+                                                //alert("marital" + marital);
+                                                //var marital = $("#marital_status").val();
+                                                if (marital == 1) {
+                                                    $(".status_single").hide();
+                                                    $("#no_of_marriage").val(5);
+                                                    $("#wives_no").val(0);
+                                                }
+                                                else {
+                                                    $(".status_single").show();
+                                                }
+
+                                            }
+
+                                            function wife_number_function(number) {
+                                                //alert("number" + number);
+                                                $("#wives_no").val(number);
+                                                if (number == 1) {
+                                                    $("#wife_name2").hide();
+                                                    $("#wife_name3").hide();
+                                                    $("#wife_name4").hide();
+                                                }
+
+                                                if (number == 2) {
+                                                    $("#wife_name2").show();
+                                                    $("#wife_name3").hide();
+                                                    $("#wife_name4").hide();
+                                                }
+
+                                                if (number == 3) {
+                                                    $("#wife_name2").show();
+                                                    $("#wife_name3").show();
+                                                    $("#wife_name4").hide();
+                                                }
+
+                                                if (number == 4) {
+                                                    $("#wife_name2").show();
+                                                    $("#wife_name3").show();
+                                                    $("#wife_name4").show();
+                                                }
+                                            }
+
+                                        </script>
+
+
+
+                                        <div class="row p-t-20 wife_rows">
+
+
+                                            @*<div class="col-md-4">
+                                        <div class="form-group ">
+                                            <label class="control-label">Wife Status</label>
+                                            <select class="form-control custom-select" name="wife_status" id="wife_status">
+                                                <option value="">-- Select Status --</option>
+                                                <option>Wife</option>
+                                                <option>Divorced</option>
+                                            </select>
+                                        </div>
+                                    </div>*@
+
+
+
+                                        </div>
+
+
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Caste</label>
+                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Sect</label>
+                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Blood Group</label>
+                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                        <option value="">-- Select Blood Group --</option>
+
+                                                        @foreach (var blood_group in ViewBag.Blood_Group)
+                                                        {
+                                                            <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
+                                                        }
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            @*<script>
+                                        function wife_divs() {
+                                            //var count = $("#no_of_marriage").val();
+                                            ////alert("count"+count);
+                                            //for (var i = 1; i < count; i++) {
+                                            //    //alert(i);
+                                            //    var fieldHTML = '<div class="row wife_rows" style="margin-left:0px"><div class="col-md-4"><div class="form-group"><label class="control-label">Wife Name</label><input type="text" name="wife_name" id="wife_name" class="form-control" placeholder="Wife Name"></div></div><div class="col-md-4"><div class="form-group "><label class="control-label">Wife Status</label><select class="form-control custom-select" name="wife_status" id="wife_status"><option value="">-- Select Status --</option><option>Wife</option><option>Divorced</option></select></div></div></div>';
+                                            //    $(".wife_rows").append(fieldHTML);
+                                            //}
+
+                                        }
+                                    </script>*@
+
+                                        </div>
+
+
+
+
+
+
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="clear"></div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Military Qualification</label>
+                                                    <select class="form-control custom-select" name="military_qualification" id="military_qualification">
+                                                        <option value="">-- Select Military Qual --</option>
+                                                        @foreach (var military in ViewBag.Military_Qualification)
+                                                        {
+                                                            <option value="@military.Id">@military.Military_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Civil Qualification</label>
+                                                    <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
+                                                        <option value="">-- Select Civil Qual --</option>
+                                                        @foreach (var civil in ViewBag.Civil_Qualification)
+                                                        {
+                                                            <option value="@civil.Id">@civil.Civil_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Red Entry</label>
+                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                        <option value="">-- Select --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+                                                    <input type="text" name="red_entry" id="red_entry" class="form-control pull-left" placeholder="Red Entry" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+                                            @*<select class="form-control custom-select" name="sport_name" id="sport_name">
+
+                                    </select>*@
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Sport</label>
+
+
+                                                    <select name="sport_name" class="chosen-select form-control custom-select" data-placeholder="-- Select your Sport --" multiple>
+
+                                                        @foreach (var sport in ViewBag.Sport_Names)
+                                                        {
+                                                            <option value="@sport.Id">@sport.Sport_Name</option>
+                                                        }
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">Medical Record</h3>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category</label>
+                                                    <select class="form-control custom-select" name="medical_category_id" id="medical_category_id" onchange="medical_record_dropdown()">
+                                                        <option value="">-- Select Category --</option>
+                                                        @foreach (var category in ViewBag.Medical_Category_Names)
+                                                        {
+                                                            <option value="@category.Id">@category.Record_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row field_wrapper">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Hospital Admission</label>
+                                                    <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control from_medical" name="from_medical_date" id="from_medical_date1" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_medical_date" id="to_medical_date1" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Disease</label>
+                                                    <input type="text" class="form-control" name="disease_medical" id="disease_medical" placeholder="Diseases" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button" onclick="medical_date_click()"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+
+
+                                        <h3 class="box-title m-t-40">Courses</h3>
+                                        <hr>
+                                        <div class="row courses_add">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Course Name</label>
+                                                    <div>
+                                                        <input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Grading</label>
+                                                    <select class="form-control custom-select" name="grading" id="grading">
+                                                        <option value="">-- Select your Grade --</option>
+                                                        @foreach (var grade in ViewBag.Grading_Names)
+                                                        {
+                                                            <option value="@grade.Id">@grade.Grade_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Instruction Ability</label>
+                                                    <select class="form-control custom-select" name="ability" id="ability">
+                                                        <option value="">-- Select your Ability --</option>
+                                                        @foreach (var ability in ViewBag.Courses_Ability)
+                                                        {
+                                                            <option value="@ability.Id">@ability.Ability_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_courses"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+
+
+
+
+                                        <h3 class="box-title m-t-40">Services Record</h3>
+                                        <hr>
+
+
+
+
+                                        <h4 class="box-title m-t-40">Total Service</h4>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Years</label>
+                                                    <div>
+                                                        <input type="text" name="total_years" id="total_years" class="form-control bg-white" placeholder="Years" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Month</label>
+                                                    <div>
+                                                        <input type="text" name="total_months" id="total_months" class="form-control bg-white" placeholder="Months" readonly>
+                                                        
+                                                        @*<select class="form-control custom-select" name="total_months" id="total_months">
+                                                            <option value="">-- Select Month --</option>
+                                                            @foreach (var month in ViewBag.Months)
+                                                            {
+                                                                <option value="@month.Id">@month.Month_Name</option>
+                                                            }
+
+
+                                                        </select>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Days</label>
+                                                    <input type="text" class="form-control bg-white" name="total_days" id="total_days" placeholder="Days" readonly>
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">To</label>
+                                            <input type="text" class="form-control" name="to_present" id="to_Service" placeholder="mm/dd/yyyy"/>
+                                        </div>
+                                    </div>*@
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+                                        <h5 class="box-title m-t-40">Present Record</h5>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date</label>
+                                                    <div>
+                                                        <input type="text" name="present_service_date" id="present_service_date" class="form-control" placeholder="mm/dd/yyyy">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Location</label>
+                                                    <div>
+                                                        <input type="text" name="location_present" id="location_present" class="form-control" placeholder="Location" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            @*<div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">From</label>
+                                            <input type="text" class="form-control" name="from_present" id="from_present" placeholder="mm/dd/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">To</label>
+                                            <input type="text" class="form-control" name="to_present" id="to_present" placeholder="mm/dd/yyyy">
+                                        </div>
+                                    </div>*@
+
+
+
+
+                                        </div>
+
+
+
+
+
+                                        <h5 class="box-title m-t-40">Previous Record</h5>
+                                        <hr>
+                                        <div class="row previous_emp_record">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Unit</label>
+                                                    <div>
+                                                        <input type="text" name="unit_previous" id="unit_previous1" class="form-control" placeholder="Unit" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Location</label>
+                                                    <div>
+                                                        <input type="text" name="location_previous" id="location_previous1" class="form-control" placeholder="Location" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="from_date_previous" id="from_date_previous1" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_date_previous" id="to_date_previous1" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_previous_record"> <i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">Region / Distt</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Village</label>
+                                                    <div>
+                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">P/O</label>
+                                                    <div>
+                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Thana</label>
+                                                    <input type="text" class="form-control" name="thanas" id="thana" placeholder="Thana" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tehsil</label>
+                                                    <div>
+                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Distt</label>
+                                                    <div>
+                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">ACRs</h3>
+                                        <hr>
+
+                                        <div class="row ACRs_div">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Years</label>
+                                                    <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">ACRs Grade Scale</label>
+                                                    <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale">
+                                                        <option value="">-- Select your Ability --</option>
+                                                        @foreach (var acr in ViewBag.ACR_Grade)
+                                                        {
+                                                            <option value="@acr.Id">@acr.Performance_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_ACRs_record"><i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*<div class="row ACRs_div">
+
+
+
+
+
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label"></label>
+                                            <a href="javascript:;" style="margin-top:31px" class="btn btn-success "> <i class="fa fa-plus"></i> Add More</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+
+                                    <div class="clear"></div>
+
+
+                                    <div class="clear"></div>
+
+
+
+                                </div>*@
+
+
+                                        <div class="clear"></div>
+
+
+                                        <h3 class="box-title m-t-40">Leave Record</h3>
+                                        <hr>
+                                        <div class="row leave_record_div">
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Last Leave</label>
+                                                    <div>
+                                                        <input type="text" name="last_leave" id="last_leave" class="form-control" placeholder="Last Leave" onkeypress="validation_numeric(event)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">From</label>
+                                                    <input type="text" class="form-control" name="from_leave" id="from_leave" placeholder="mm/dd/yyyy"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">To</label>
+                                                    <input type="text" class="form-control" name="to_leave" id="to_leave" placeholder="mm/dd/yyyy"/>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Days</label>
+                                                    <div>
+                                                        <input type="text" name="leave_days" id="leave_days" class="form-control" placeholder="Days" onkeypress="validation_numeric(event)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"></label>
+                                                    <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_leaves_record"><i class="fa fa-plus"></i> Add More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <h3 class="box-title m-t-40">Soldier Service Status</h3>
+                                        <hr>
+
+                                        <div class="row">
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Service Status</label>
+                                                    <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
+                                                        <option value="">-- Select your Status --</option>
+                                                        @foreach (var service in ViewBag.Soldier_Status)
+                                                        {
+                                                            <option value="@service.Id">@service.Service_Status_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <h3 class="box-title m-t-40">Comments &amp; Reviews</h3>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <label>Comments</label>
+                                            <textarea class="form-control" rows="5" name="comments"></textarea>
+                                        </div>
+
+
+
+                                        <h3 class="box-title m-t-40">Soldier Image</h3>
+                                        <hr>
+                                        <div class="row">
+
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="card" style="background-color: #c2e4c2;">
+                                                    <div class="card-body">
+                                                        <input type="file" name="image" id="input-file-now" class="dropify" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-actions  m-t-40">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        @*<div class="col-md-4"></div>*@
+                                                        <div class="col-md-4">
+                                                            <button type="submit" class="btn btn-themecolor"> <i class="fa fa-check"></i> Submit</button>
+                                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        @*<div class="col-md-4"></div>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="margin-bottom:400px">
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                    @*<a href="#" onclick="abc()">ABC</a>
+
+            <label>Today Date</label><input type="text" class="form-control" name="date_of_enrl" value="@DateTime.Today.ToString("dd-MM-yyyy")" id="today_date" placeholder="mm/dd/yyyy">
+            <label>Enrol Date</label><input type="text" class="form-control" name="date_of_enrl" onchange="getAge(this.value)" id="aaaa" placeholder="mm/dd/yyyy">*@
+                    
+
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        
+        
+        
+      
+        <script>
+            //jQuery('#en_date').datepicker({
+            //    format: 'mm-dd-yyyy',
+            //    autoclose: true,
+            //    todayHighlight: true,
+            //    buttonToday: 'picker__button--today'
+            //});
+
+            $(document).ready(function () {
+                $("#date_of_enrl").change(function () {
+                    var mdate = $("#date_of_enrl").val().toString();
+
+                    //alert("mdate" + mdate);
+
+                    var yearThen = parseInt(mdate.substring(6, 10), 10);
+                    //alert("yearThen" + yearThen);
+                    var monthThen = parseInt(mdate.substring(3, 5), 10);
+                    //alert("monthThen" + monthThen);
+                    var dayThen = parseInt(mdate.substring(0, 2), 10);
+                    //alert("dayThen" + dayThen);
+
+                    //var yearThen = parseInt(mdate.substring(0, 4), 10);
+                    //alert("yearThen" + yearThen);
+                    //var monthThen = parseInt(mdate.substring(5, 7), 10);
+                    //alert("monthThen" + monthThen);
+                    //var dayThen = parseInt(mdate.substring(8, 10), 10);
+                    //alert("dayThen" + dayThen);
+
+                    var today = new Date();
+                    var birthday = new Date(yearThen, monthThen - 1, dayThen);
+
+                    var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+
+                    var year_age = Math.floor(differenceInMilisecond / 31536000000);
+                    var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
+
+                    //if ((today.getMonth() == birthday.getMonth()) && (today.getDate() == birthday.getDate())) {
+                    //    alert("Happy B'day!!!");
+                    //}
+
+                    var month_age = Math.floor(day_age / 30);
+
+                    day_age = day_age % 30;
+
+                    $("#total_years").val(year_age);
+                    $("#total_months").val(month_age);
+                    $("#total_days").val(day_age);
+
+                    //$("#exact_age").html("You are<br/><span id=\"age\">" + year_age + " years " + month_age + " months " + day_age + " days</span> old");
+                });
+            });
+        </script>
+        
+
+    </div>
+
+
+    <!-- ============================VALIDATION EVENT================================== -->
+
+
+    <script>
+        function validation_numeric(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) {
+                    theEvent.preventDefault();
+                swal({
+                    title: "ALPHABETS NOT ALLOWED",
+                    text: "You cannot enter Alphabets Values",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Okay',
+                },
+function () {
+});
+                }
+            }
+        }
+
+
+        function validation_alphabetical(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+            var regex = /^[a-zA-Z ]+$/;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) {
+                    theEvent.preventDefault();
+                    swal({
+                        title: "NUMERIC NOT ALLOWED",
+                        text: "You cannot enter Numeric Values",
+                        type: "warning",
+                        confirmButtonColor: '#DD6B55',
+                        confirmButtonText: 'Okay',
+                    },
+    function () {
+    });
+                }
+            }
+        }
+
+
+
+        function validation_CNIC(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+            var regex = /[0-9-]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) {
+                    theEvent.preventDefault();
+                    swal({
+                        title: "ALPHABETS NOT ALLOWED",
+                        text: "You cannot enter Numeric Values",
+                        type: "warning",
+                        confirmButtonColor: '#DD6B55',
+                        confirmButtonText: 'Okay',
+                    },
+    function () {
+    });
+                }
+            }
+        }
+
+
+    </script>
+    <!-- ============================VALIDATION EVENT================================== -->
+
+    <script>
+
+      
+
+        function getAge(a1) {
+            var a2 = $("#today_date").val();
+            
+            alert("a1  " + a1);
+            alert("a2   " + a2);
+
+            //var b1, b2;
+
+            //b2 = Date(a2);
+            //b1 = Date(a1);
+
+
+            
+            var date_1 = Date(a1);
+            var date_2 = Date(a2);
+
+            
+
+            alert("date_1  " + date_1);
+            alert("date_2   " + date_2);
+
+        
+            
+        //convert to UTC
+            //var date2_UTC = new Date(Date.UTC(date_2.getUTCFullYear(), date_2.getUTCMonth(), date_2.getUTCDate()));
+            //var date1_UTC = new Date(Date.UTC(date_1.getUTCFullYear(), date_1.getUTCMonth(), date_1.getUTCDate()));
+
+            //alert("date1_UTC  " + date1_UTC);
+            //alert("date2_UTC   " + date2_UTC);
+
+        var yAppendix, mAppendix, dAppendix;
+
+
+        //--------------------------------------------------------------
+        var days = date_2.getDate() - date_1.getDate();
+        if (days < 0) {
+
+            date_2.setMonth(date_2.getMonth() - 1);
+            days += DaysInMonth(date_2);
+        }
+        //--------------------------------------------------------------
+        var months = date_2.getMonth() - date_1.getMonth();
+        if (months < 0) {
+            date_2.setFullYear(date_2.getFullYear() - 1);
+            months += 12;
+        }
+        //--------------------------------------------------------------
+        var years = date_2.getFullYear() - date_1.getFullYear();
+
+
+
+
+        if (years > 1) yAppendix = " years";
+        else yAppendix = " year";
+        if (months > 1) mAppendix = " months";
+        else mAppendix = " month";
+        if (days > 1) dAppendix = " days";
+        else dAppendix = " day";
+
+
+        alert(years + yAppendix + ", " + months + mAppendix + ", and " + days + dAppendix + " old.");
+    }
+
+
+
+    </script>
+
+
+
+    <script>
+        function medical_record_dropdown(){
+            var aa = $("#medical_category_id").val();
+            alert("aa" + aa);
+            if (aa != 0) {
+                $("#hospital_admission").prop('required', true);
+                $("#from_medical_date1").prop('required', true);
+                $("#to_medical_date1").prop('required', true);
+                $("#disease_medical").prop('required', true);
+
+                alert("value aa " + aa);
+            }
+        }
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    </script>
+
+
+
+    
+
+
+    <script>
+        // Date Picker
+
+        jQuery('#from_medical_date1').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        jQuery('#to_medical_date1').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#date_of_present_rank').datepicker({
+            
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#date_of_sod').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#present_service_date').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        jQuery('#date_of_enrl').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+        jQuery('#from_date_previous1').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_date_previous1').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#from_present').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_present').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_Service').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#from_leave').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#to_leave').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+     
+
+
+        function medical_date_click() {
+
+            jQuery('.mydatepicker, #datepicker').datepicker();
+
+            for (var i = 1 ; i < 50 ; i++) {
+                jQuery('#from_medical_date' + counter).datepicker({
+
+                    autoclose: true,
+                    todayHighlight: true
+                });
+            }
+        }
+
+
+
+
+
+        function abc() {
+            alert("ABC");
+
+            var a = moment([2017, 10, 29]);
+            var b = moment([2007, 10, 28]);
+            alert("Days " + a.diff(b, 'days'));
+            alert("Months " + a.diff(b, 'months'));
+            alert("Years " + a.diff(b, 'years'));
+        }
+
+    </script>
+
+    @*------------------Hospital Admissions Add More Fields-----------------*@
+
+    <script>
+
+        var addButton = $('.add_button');
+        var wrapper = $('.field_wrapper');
+        var hospital_counter = 2;
+        $(addButton).click(function () {
+            //alert("asasas");
+            var fieldHTML = '<div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Hospital Admission</label> <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control from_medical" name="from_medical_date" id="from_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_medical_date" id="to_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="disease_medical" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div>';
+            $(wrapper).append(fieldHTML);
+
+            jQuery('#from_medical_date' + hospital_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_medical_date' + hospital_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+
+
+            hospital_counter = +hospital_counter + +1;
+        });
+
+        $(wrapper).on('click', '.remove_button', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.r').remove();
+        });
+    </script>
+
+
+    @*------------------Hospital Admissions Add More Fields-----------------*@
+
+
+    <script>
+        //Courses Add More Fields
+
+        var addButton_course = $('.add_button_courses');
+        var wrapper_course = $('.courses_add');
+        $(addButton_course).click(function () {
+            //alert("asasas");
+            var fieldHTMLss = '<div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option> @foreach (var grade in ViewBag.Grading_Names) {<option value="@grade.Id">@grade.Grade_Name</option> } </select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option> @foreach (var ability in ViewBag.Courses_Ability) {<option value="@ability.Id">@ability.Ability_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            $(wrapper_course).append(fieldHTMLss);
+        });
+
+        $(wrapper_course).on('click', '.remove_courses', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.r_courses').remove();
+        });
+
+    </script>
+
+
+
+    @*-----------------Previous Service Record Add More Fields--------------*@
+
+    <script>
+        
+
+
+        var addButton_previous = $('.add_button_previous_record');
+        var wrapper_previous = $('.previous_emp_record');
+        var counter_previous = 2;
+        $(addButton_previous).click(function () {
+            //alert("asasas");
+            var fieldHTML_previous = '<div class="row remove_previous_emp_record" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Unit</label><div><input type="text" name="unit_previous" id="unit_previous" class="form-control" placeholder="Unit"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Location</label><div><input type="text" name="location_previous" id="location_previous" class="form-control" placeholder="Location"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_date_previous" id="from_date_previous' + counter_previous + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_date_previous" id="to_date_previous' + counter_previous + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_previous_record"><i class="fa fa-minus"></i>  Remove</a></div></div><div class="clear"></div></div>';
+            $(wrapper_previous).append(fieldHTML_previous);
+
+
+            jQuery('#from_date_previous' + counter_previous).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_date_previous' + counter_previous).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+            counter_previous = +counter_previous + +1;
+        });
+
+        $(wrapper_previous).on('click', '.delete_button_previous_record', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.remove_previous_emp_record').remove();
+        });
+    </script>
+
+
+    @*-----------------Previous Service Record Add More Fields--------------*@
+
+
+    @*-----------------------Leave Record Add More Fields-------------------*@
+
+    <script type="text/javascript">
+
+
+        var addButton_leaves = $('.add_button_leaves_record');
+        var wrapper_leaves = $('.leave_record_div');
+
+        var leave_counter = 2;
+        $(addButton_leaves).click(function () {
+            //alert("asasas");
+            var fieldHTML_leaves = '<div class="row remove_leave_record" style="margin-left:0px"><div class="col-md-2"><div class="form-group"><label class="control-label">Last Leave</label><div><input type="text" name="last_leave" id="last_leave" class="form-control" placeholder="Last Leave"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control" name="from_leave" id="from_leave' + leave_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_leave" id="to_leave' + leave_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Days</label><div><input type="text" name="leave_days" id="leave_days" class="form-control" placeholder="Days"></div></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label> <a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_leaves_record"> <i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            $(wrapper_leaves).append(fieldHTML_leaves);
+
+            jQuery('#from_leave' + leave_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            jQuery('#to_leave' + leave_counter).datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            leave_counter = +leave_counter + +1;
+
+        });
+
+        $(wrapper_leaves).on('click', '.delete_button_leaves_record', function (e) {
+
+            e.preventDefault();
+            $(this).closest('.remove_leave_record').remove();
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    @*-----------------------Leave Record Add More Fields-------------------*@
+
+    @*-----------------------ACRs Add More Fields---------------------------*@
+
+    <script type="text/javascript">
+
+
+    var addButton_ACRs = $('.add_button_ACRs_record');
+    var wrapper_ACRs = $('.ACRs_div');
+
+
+    $(addButton_ACRs).click(function () {
+        //alert("asasas");
+        var fieldHTML_ACRs = '<div class="row remove_ACRs_data" style="margin-left:0px"><div class="col-md-4"><div class="form-group"><label class="control-label">Years</label><input type="text" name="acr_year" id="acr_year" class="form-control newwidth" placeholder="ACRs Year"></div></div><div class="col-md-4"><div class="form-group"><label class="control-label">ACRs Grade Scale</label><select class="form-control newwidth custom-select" name="accr_grading_scale" id="accr_grading_scale"><option value="">-- Select your Ability --</option>@foreach (var acr in ViewBag.ACR_Grade){<option value="@acr.Id">@acr.Performance_Name</option>}</select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger delete_button_ACRs_record"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+        @*var fieldHTML_ACRs = '<div class="row ACRs_div" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Years</label> <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year"></div></div><div class="col-md-3"><div class="form-group"> <label class="control-label">ACRs Grade Scale</label> <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale"><option value="">-- Select your Ability --</option> @foreach (var acr in ViewBag.ACR_Grade) {<option value="@acr.Id">@acr.Performance_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"> <label class="control-label"></label> <a href="javascript:;" style="margin-top:31px" class="btn btn-success add_button_ACRs_record"><i class="fa fa-plus"></i> Add More</a></div></div></div>';*@
+
+        $(wrapper_ACRs).append(fieldHTML_ACRs);
+
+
+
+    });
+
+    $(wrapper_ACRs).on('click', '.delete_button_ACRs_record', function (e){
+
+        e.preventDefault();
+        $(this).closest('.remove_ACRs_data').remove();
+    });
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script>
+  
+    </script>
+
+
+
+
+
+
+
+    @*-----------------------ACRs Add More Fields---------------------------*@  
+
+</body>
+

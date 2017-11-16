@@ -503,6 +503,21 @@ html body .text-stealblue_color {
     color: steelblue!important;
 }
 
+.bg-light_darkgray_color {
+    background-color: darkgray !important;
+}
+.bg-light_darkolivegreen_color {
+    background-color: darkolivegreen !important;
+}
+
+html body .text-darkgray_color {
+    color: darkgray;
+}
+
+html body .text-darkolivegreen_color {
+    color: darkolivegreen;
+}
+
 
 
 
@@ -1161,6 +1176,31 @@ html body .waves-notransition {
         box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     }
 
+.btn-loginnnn, .btn-loginnnn.disabled {
+    background: #223439;
+    border: 1px solid #223439;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+    color:#FFF;
+}
+
+ .btn-loginnnn.disabled:hover, .btn-loginnnn:hover {
+        background: #487165;
+        -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+        box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+        border: 1px solid #487165;
+        color:#000;
+    }
+
+    .btn-loginnnn.active, .btn-loginnnn.disabled.active, .btn-loginnnn.disabled:active, .btn-loginnnn.disabled:focus, .btn-loginnnn:active, .btn-loginnnn:focus {
+        background: steelblue!important;
+        -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+        box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+    }
+
 .btn-primary, .btn-primary.disabled {
     background: #5c4ac7;
     border: 1px solid #5c4ac7;
@@ -1212,6 +1252,14 @@ html body .waves-notransition {
 
     .btn-success.disabled:hover, .btn-success:hover {
         background: #c3b983;
+        /*-webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+        box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);*/
+        border: 1px solid #c3b983;
+        color:#000;
+    }
+
+    .btn-success.disabled:active, .btn-success:active {
+        background: #000;
         /*-webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
         box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);*/
         border: 1px solid #c3b983;
@@ -9775,8 +9823,20 @@ a.change_hover span:hover {
 }
 
 
-.search_officers_styling_index_page {
+.search_Soldiers_styling_index_page {
     color: #4a4236 !important;
     font-weight: 600!important;
     text-decoration: underline!important;
+}
+
+.btn-margin-product {
+    padding: 6px 8px;
+}
+
+.newwidth {
+    width: 287px;
+}
+
+.bg-white{
+    background:#FFF;
 }

@@ -1,5 +1,4 @@
-﻿@model Army_Management_System.Models.Admin
-<body class="fix-header fix-sidebar card-no-border">
+﻿<body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -44,8 +43,8 @@
             <div class="col-md-7 align-self-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item">Main Menu</li>
-                    <li class="breadcrumb-item active custom_lime_green">View Admin Profile</li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active custom_lime_green">Edit New Admin</li>
                 </ol>
             </div>
 
@@ -67,24 +66,9 @@
                     <div class="card">
                         <div class="card-body">
                             <center class="m-t-30">
-                                @*<img src="../assets/images/users/5.jpg" class="img-circle" width="150" />*@
-                                @if (Model.Image != null)
-                                {
-                                    var Base64 = Convert.ToBase64String(@Model.Image);
-                                    var imgsrc = string.Format("data:img/gif;base64,{0}", Base64);
-
-
-
-                                    <img src="@imgsrc" class="img-circle" width="150" height="150" />
-                                }
-
-                                else
-                                {
-                                    <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
-                                }
-
-                                <h4 class="card-title m-t-10">@Model.Name</h4>
-                                <h6 class="card-subtitle">@Model.Rank_Names.Rank_Name</h6>
+                                <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
+                                <h4 class="card-title m-t-10">Iftikhar Hussain</h4>
+                                <h6 class="card-subtitle">Account Manager</h6>
 
                             </center>
                         </div>
@@ -93,11 +77,9 @@
                         </div>
                         <div class="card-body">
                             <small class="text-muted">Email address </small>
-                            <h6>@Model.Email</h6> 
-                            <small class="text-muted p-t-30 db">Phone</small>
-                            <h6>@Model.Phone_No</h6> 
-                            <small class="text-muted p-t-30 db">Address</small>
-                            <h6>@Model.Address</h6>
+                            <h6>IftikharHussain@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
+                            <h6>0311-1111111</h6> <small class="text-muted p-t-30 db">Address</small>
+                            <h6>Chah Korewala Gulgashat,Multan</h6>
 
                         </div>
                     </div>
@@ -108,7 +90,7 @@
                     <div class="card">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs profile-tab" role="tablist">
-                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Profile</a> </li>
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Settings</a> </li>
 
                         </ul>
                         <!-- Tab panes -->
@@ -118,36 +100,46 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="@Model.Name" class="form-control form-control-line" readonly>
+                                            <input type="text" value="Iftikhar Hussain" class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" value="@Model.Email" class="form-control form-control-line" name="example-email" id="example-email" readonly>
+                                            <input type="email" value="IftikharHussain@admin.com" class="form-control form-control-line" name="example-email" id="example-email" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="123456789" class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Phone No</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="@Model.Phone_No" class="form-control form-control-line" readonly>
+                                            <input type="text" value="0311-1111111" class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">CNIC</label>
+                                        <label class="col-md-12">Comment</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="@Model.CNIC" class="form-control form-control-line" readonly>
+                                            <textarea rows="5" value="Done!" class="form-control form-control-line" readonly></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12" readonly>City</label>
+                                        <label class="col-sm-12" readonly>Multan</label>
                                         <div class="col-sm-12">
-                                            <input type="text" value="@Model.City" class="form-control form-control-line" readonly>
+                                            <select class="form-control form-control-line">
+                                                <option>Lahore</option>
+                                                <option>Multan</option>
+
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <a href="~/Admin/Edit_Admin/@Model.Id" class="btn btn-success">Edit Profile</a>
+                                            <button class="btn btn-success">Edit Profile</button>
                                         </div>
                                     </div>
                                 </form>
@@ -157,14 +149,6 @@
                 </div>
                 <!-- Column -->
             </div>
-
-
-            <div class="clear"></div>
-
-            <div style="margin-bottom:400px">
-            </div>
-            <div class="clear"></div> 
-
             <!-- Row -->
             <!-- Row -->
             <!-- ============================================================== -->
