@@ -57,359 +57,497 @@
                         <div class="card">
                             <div class="card-body">
 
+                                <div class="col-md-5 align-self-center p-l-0">
+                                    <h3 class="text-themecolor search_Soldiers_styling_index_page">Search Soldier:</h3>
+                                </div>
+
+
 
                                 <div class="row p-t-20">
-
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                            <label class="control-label">No</label>
+                                            <input type="text" name="person_number" id="person_number" class="form-control" placeholder="No">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Rank</label>
+                                            <select class="form-control custom-select" name="rank_id" id="rank_id">
+                                                <option value="-1">-- Select Rank --</option>
+                                                @foreach (var rank in ViewBag.Rank)
+                                                {
+                                                    <option value="@rank.Id">@rank.Rank_Name</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Trade</label>
+                                            <select class="form-control custom-select" name="trade_id" id="trade_id">
+                                                <option value="-1">-- Select Trade --</option>
+                                                @foreach (var trade in ViewBag.Trade)
+                                                {
+                                                    <option value="@trade.Id">@trade.Trade_Name</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Name</label>
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="no" class="form-control" placeholder="No">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <select class="form-control custom-select">
-                                                <option value="">--Select Rank--</option>
-                                                <option>Hon Capt</option>
-                                                <option>Hon LT</option>
-                                                <option>SM</option>
-                                                <option>Sub</option>
-                                                <option>Nsub</option>
-                                                <option>Hav</option>
-                                                <option>Lhav</option>
-                                                <option>NK</option>
-                                                <option>Lnk</option>
-                                                <option>Sig</option>
-                                                <option>NCsE</option>
-                                                <option>NCB</option>
+                                    <div class="col-md-4">
+                                        <div class="form-group ">
+                                            <label class="control-label">Height (Cm)</label>
+                                            <select name="height" id="height" class="form-control custom-select">
+                                                <option value="-1">-- Select Height --</option>
+
+                                                @foreach (var height in ViewBag.Height)
+                                                {
+                                                    <option value="@height.Id">@height.Height_Name</option>
+                                                }
+
                                             </select>
                                         </div>
                                     </div>
 
-                              
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Weight (Kg)</label>
+                                            <select name="weight" id="weight" class="form-control custom-select">
+                                                <option value="-1">-- Select Weight --</option>
+                                                @foreach (var weight in ViewBag.Weight)
+                                                {
+                                                    <option value="@weight.Id">@weight.Weight_Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
 
 
-
-                                    <script>
-                                        function show_search_filters() {
-                                            //alert("ASDadasd");
-                                            $(".hide_search_filters").show();
-                                            $("#show_advance_search_option_btn").hide();
-
-                                            
-                                            $("#hide_advance_search_option_btn").show();
-
-                                        }
-
-
-                                       
-
-                                    </script>
 
 
                                 </div>
+
 
                                 <div class="row">
                                     <div class="col-md-8"></div>
-                                        <div class="col-md-4" id="show_advance_search_option_btn">
-                                            <div class="form-group pull-right">
-                                                <a class="advance_search_a_tag m-0 font-12" href="#" onclick="show_search_filters()">Advance Search Options</a>
-                                            </div>
+                                    <div class="col-md-4" id="show_advance_search_option_btn">
+                                        <div class="form-group pull-right">
+                                            <a class="advance_search_a_tag m-0 font-12" href="#" onclick="show_search_filters()">Advance Search Options</a>
                                         </div>
+                                    </div>
 
                                 </div>
 
-                              
+                                <script>
+                                    function show_search_filters() {
+                                        //alert("ASDadasd");
+                                        $(".hide_search_filters").show();
+                                        $("#show_advance_search_option_btn").hide();
 
 
-                                    <div class="hide_search_filters" style="display:none">
-                                        
-                                        <div class="row">
+                                        $("#hide_advance_search_option_btn").show();
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select">
-                                                        <option value="">-- Select Trade --</option>
-                                                        <option>Tech Sigs</option>
-                                                        <option>Op Sigs</option>
-                                                        <option>Dvr Sigs</option>
-                                                        <option>W/ Sigs</option>
-                                                        <option>Crypto</option>
-                                                        <option>Cook Mess</option>
-                                                        <option>Cook Unit</option>
-                                                        <option>Clk</option>
-                                                        <option>SMT</option>
-                                                        <option>SW</option>
-                                                        <option>Waiter</option>
-                                                        <option>NCB</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                    }
 
 
 
-                                            <div class="col-md-3">
-                                                <div class="form-group ">
-                                                    <input type="text" name="height" id="height" class="form-control" placeholder="Height">
-                                                </div>
-                                            </div>
+
+                                </script>
 
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="weight" id="weight" placeholder="Weight">
-                                                </div>
-                                            </div>
 
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="complexion" id="complexion" placeholder="Complexion">
-                                                </div>
-                                            </div>
 
-                                         
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography">
-                                                </div>
-                                            </div>
+                                <div class="hide_search_filters" style="display:none">
 
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="date_of_enrl" id="date_of_enrl" placeholder="Enrollment Date">
-                                                </div>
-                                            </div>
 
+                                    <div class="row p-t-20">
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="Present Rank Date">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="Date Of SOD">
-                                                </div>
-                                            </div>
-
-
-                                           
-
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group ">
-                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select" name="no_of_marriage" id="no_of_marriage">
-                                                        <option value="">No. of Marriages</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Beard</label>
+                                                <select class="form-control custom-select" id="beard" name="beard">
+                                                    <option value="-1">-- Select Choice --</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
+                                                </select>
                                             </div>
                                         </div>
 
 
-                                        <div class="row">
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
-                                                        <option value="">-- Select Blood Group --</option>
-                                                        <option value="2">A+</option>
-                                                        <option value="1">A-</option>
-                                                        <option value="3">B+</option>
-                                                        <option value="4">B-</option>
-                                                        <option value="4">O+</option>
-                                                        <option value="4">O-</option>
-                                                        <option value="4">AB+</option>
-                                                        <option value="4">AB-</option>
-
-
-
-                                                    </select>
-                                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Complexion</label>
+                                                <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
                                             </div>
+                                        </div>
 
-
-                                            <div class="col-md-3">
-                                                <div class="form-group ">
-                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
-                                                        <option value="">Select Red Entry</option>
-                                                        <option value="1">Yes</option>
-                                                        <option value="2">No</option>
-                                                    </select>
-                                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Demography</label>
+                                                <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" onkeypress="validation_alphabetical(event)">
                                             </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select" name="qualification" id="qualification">
-                                                        <option value="">Select  Qualification</option>
-                                                        <option value="1">TT-1</option>
-                                                        <option value="1">TT-2</option>
-                                                        <option value="1">TT-3</option>
-                                                        <option value="4">MR-1</option>
-                                                        <option value="4">MR-2</option>
-                                                        <option value="4">MR-3</option>
-                                                        <option value="4">MR Basic Lvl</option>
-                                                        <option value="4">MR Adv Lvl</option>
-                                                        <option value="4">Civ</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select" name="sport" id="sport">
-                                                        <option value="">Select your Sport</option>
-                                                        <option value="1">Hockey</option>
-                                                        <option value="2">Volleyball</option>
-                                                        <option value="3">Football</option>
-                                                        <option value="4">Basket Ball</option>
-                                                        <option value="4">Wrestling</option>
-                                                        <option value="4">Wushu</option>
-                                                        <option value="4">Baseball</option>
-                                                        <option value="4">Athletic</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                         </div>
 
 
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <select class="form-control custom-select">
-                                                        <option value="">Select Medical Category</option>
-                                                        <option>A</option>
-                                                        <option>B Temp</option>
-                                                        <option>B Perm</option>
-                                                        <option>C Temp</option>
-                                                        <option>C Perm</option>
 
-                                                    </select>
-                                                </div>
+
+
+
+
+                                    </div>
+
+
+
+                                    <div class="row p-t-20">
+
+
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Cl Compsn</label>
+                                                <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
+                                                    <option value="-1">-- Select Cl Compsn --</option>
+                                                    @foreach (var composition in ViewBag.Class_Composition)
+                                                    {
+                                                        <option value="@composition.Id">@composition.Compostion_Name</option>
+                                                    }
+                                                </select>
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village">
-                                                    </div>
-                                                </div>
+                                        @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
+                                        @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of Enrollment</label>
+                                                <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
                                             </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="thana" id="thana" placeholder="Thana">
-                                                </div>
-                                            </div>
-
-
                                         </div>
 
 
-                                        <div class="row">
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil">
-                                                    </div>
-                                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of Present Rank</label>
+                                                <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
                                             </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group ">
-                                                    <select class="form-control custom-select" name="acr_year" id="acr_year">
-                                                        <option value="">--ACR Year --</option>
-                                                        <option value="1">2012</option>
-                                                        <option value="2">2013</option>
-                                                        <option value="1">2014</option>
-                                                        <option value="2">2015</option>
-                                                        <option value="1">2016</option>
-                                                        <option value="2">2017</option>
-                                                        <option value="2">2018</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group ">
-                                                    <select class="form-control custom-select" name="scale" id="scale">
-                                                        <option value="">-- ACR Grade --</option>
-                                                        <option value="1">OS</option>
-                                                        <option value="2">WAA</option>
-                                                        <option value="1">AA</option>
-                                                        <option value="2">HA</option>
-                                                        <option value="1">BA</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-
                                         </div>
 
-                                      
+
+
+                                    </div>
+
+
+                                    <div class="row p-t-20">
+
+
+
+
+
+
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of SOD</label>
+                                                <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">CNIC</label>
+                                                <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Marital Status</label>
+                                                <select class="form-control custom-select" name="marital_status" id="marital_status">
+                                                    <option value="-1">-- Select Marital Status --</option>
+                                                    @foreach (var marital in ViewBag.Marital_Status)
+                                                    {
+                                                        <option value="@marital.Id">@marital.Marital_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                    <div class="row p-t-20">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Caste</label>
+                                                <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label">Sect</label>
+                                                <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Blood Group</label>
+                                                <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                    <option value="-1">-- Select Blood Group --</option>
+
+                                                    @foreach (var blood_group in ViewBag.Blood_Group)
+                                                    {
+                                                        <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
+                                                    }
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                    <div class="row p-t-20">
+
+                                        <div class="clear"></div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Military Qualification</label>
+                                                <select class="form-control custom-select" name="military_qualification" id="military_qualification">
+                                                    <option value="-1">-- Select Military Qual --</option>
+                                                    @foreach (var military in ViewBag.Military_Qualification)
+                                                    {
+                                                        <option value="@military.Id">@military.Military_Qual_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Civil Qualification</label>
+                                                <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
+                                                    <option value="-1">-- Select Civil Qual --</option>
+                                                    @foreach (var civil in ViewBag.Civil_Qualification)
+                                                    {
+                                                        <option value="@civil.Id">@civil.Civil_Qual_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label">Red Entry</label>
+                                                <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                    <option value="-1">-- Select --</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                    <div class="row p-t-20">
+
+
+                                        @*<select class="form-control custom-select" name="sport_name" id="sport_name">
+
+                        </select>*@
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Sport</label>
+
+
+
+                                                <select class="form-control custom-select" name="sport_name" id="sport_name">
+                                                    <option value="-1">-- Select Sport --</option>
+
+                                                    @foreach (var sport in ViewBag.Sport_Names)
+                                                    {
+                                                        <option value="@sport.Id">@sport.Sport_Name</option>
+                                                    }
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Medical Category</label>
+                                                <select class="form-control custom-select" name="medical_category_id" id="medical_category_id">
+                                                    <option value="-1">-- Select Category --</option>
+                                                    @foreach (var category in ViewBag.Medical_Category_Names)
+                                                    {
+                                                        <option value="@category.Id">@category.Record_Name</option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Course Name</label>
+                                                <div>
+                                                    <input type="text" name="course_name" id="course_name" class="form-control" placeholder="Courses" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row p-t-20">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Village</label>
+                                                <div>
+                                                    <input type="text" name="village" id="village" class="form-control" placeholder="Village" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">P/O</label>
+                                                <div>
+                                                    <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Thana</label>
+                                                <input type="text" class="form-control" name="thanas" id="thana" placeholder="Thana" onkeypress="validation_alphabetical(event)">
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+                                    <div class="row p-t-20">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Tehsil</label>
+                                                <div>
+                                                    <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Distt</label>
+                                                <div>
+                                                    <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label">Service Status</label>
+                                                <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
+                                                    <option value="-1">-- Select Status --</option>
+                                                    @foreach (var service in ViewBag.Soldier_Status)
+                                                    {
+                                                        <option value="@service.Id">@service.Service_Status_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="row p-t-20">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">ACRs Year</label>
+                                                <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">ACRs Grade Scale</label>
+                                                <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale">
+                                                    <option value="-1">-- Select Ability --</option>
+                                                    @foreach (var acr in ViewBag.ACR_Grade)
+                                                    {
+                                                        <option value="@acr.Id">@acr.Performance_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+
+
 
                                 </div>
 
@@ -443,6 +581,8 @@
                                                 <div class="col-md-10"></div>
                                                 <div class="col-md-2 pull-right">
                                                     <button type="submit" class="btn btn-themecolor" onclick="show_Soldier_table()"> <i class="fa fa-check"></i> Search</button>
+                                                    @*<button type="submit" class="btn btn-themecolor" onclick="search_ajax_call()"> <i class="fa fa-check"></i> Search</button>*@
+                                                    @*<button type="submit" class="btn btn-themecolor" onclick="hhh()"> <i class="fa fa-check"></i> Search22222</button>*@
                                                 </div>
                                                 @*<div class="col-md-4"></div>*@
                                             </div>
@@ -450,8 +590,8 @@
                                     </div>
                                 </div>
 
-                               
-                                <hr class="hr_height p-b-40"/>
+
+                                <hr class="hr_height p-b-40" />
 
                                 <div class="hide_table_Soldier" style="display:none">
 
@@ -471,147 +611,30 @@
                                                     <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">Iftikhar Ahmed</td>
-                                                    <td class="text-center">Hon LT</td>
-                                                    <td class="text-center">Multan</td>
-                                                    <td class="text-center">PJO-3665960</td>
-                                                    <td class="text-center">0300-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Hamza Imran</td>
-                                                    <td class="text-center">Hon Capt</td>
-                                                    <td class="text-center">Multan</td>
-                                                    <td class="text-center">PJO-57848324</td>
-                                                    <td class="text-center">0301-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Junaid Khan</td>
-                                                    <td class="text-center">SM</td>
-                                                    <td class="text-center">Lahore</td>
-                                                    <td class="text-center">PJO-7636828</td>
-                                                    <td class="text-center">0302-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Waqar Hussian</td>
-                                                    <td class="text-center">Lhav</td>
-                                                    <td class="text-center">Lahore</td>
-                                                    <td class="text-center">PJO-7368392</td>
-                                                    <td class="text-center">0303-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Yasir Shokat</td>
-                                                    <td class="text-center">NCB</td>
-                                                    <td class="text-center">Muzafer Ghar</td>
-                                                    <td class="text-center">PJO-93744745</td>
-                                                    <td class="text-center">0304-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Muzammil Haneef</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">Lahore</td>
-                                                    <td class="text-center">PJO-6753475</td>
-                                                    <td class="text-center">0305-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Zeeshan Safder</td>
-                                                    <td class="text-center">Sig</td>
-                                                    <td class="text-center">Faisalabad</td>
-                                                    <td class="text-center">PJO-87643685</td>
-                                                    <td class="text-center">0306-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Kamran Haneef</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">Multan</td>
-                                                    <td class="text-center">PJO-6576528</td>
-                                                    <td class="text-center">0308-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Shoaib Shokat</td>
-                                                    <td class="text-center">NCB</td>
-                                                    <td class="text-center">Muzafer Ghar</td>
-                                                    <td class="text-center">PJO-8474763</td>
-                                                    <td class="text-center">0309-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Shokat Yasir</td>
-                                                    <td class="text-center">Sig</td>
-                                                    <td class="text-center">Muzafer Ghar</td>
-                                                    <td class="text-center">PJO-0643704</td>
-                                                    <td class="text-center">0310-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Kashif Latif</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">karachi</td>
-                                                    <td class="text-center">PJO-9965638</td>
-                                                    <td class="text-center">03011-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Latif Khan</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">Lahore</td>
-                                                    <td class="text-center">PJO-6784775</td>
-                                                    <td class="text-center">03011-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Irfan Haneef</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">Multan</td>
-                                                    <td class="text-center">PJO-7883645</td>
-                                                    <td class="text-center">03011-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="text-center">Saif Khan</td>
-                                                    <td class="text-center">NCsE</td>
-                                                    <td class="text-center">Multan</td>
-                                                    <td class="text-center">PJO-9578393</td>
-                                                    <td class="text-center">03011-1111111</td>
-                                                    <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                                </tr>
-
-
-
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
                                         @*<table id="myTable" class="table full-color-table full-dark-table">*@
                                         @*<table id="myTable" class="table color-table dark-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                </table>*@
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011/04/25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                        </table>*@
 
                                     </div>
 
@@ -619,6 +642,8 @@
 
                             </div>
                         </div>
+
+
 
                         <div class="clear"></div>
 

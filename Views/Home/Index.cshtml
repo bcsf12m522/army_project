@@ -1,4 +1,41 @@
-﻿<body>
+﻿<style>
+    .unitLogoArea {
+        padding-top: 180px;
+        padding-left: 50px;
+    }
+
+    .companyNameArea {
+        padding-top: 30px;
+        padding-left: 33px;
+    }
+
+    .pArmyLogo {
+        float: right;
+        padding-right: 84px;
+        padding-top: 50px;
+    }
+
+    .signupArea {
+        padding-right: 40px;
+        padding-top: 30px;
+    }
+
+    .sheikhchange {
+        color: #000 !important;
+        background-color: #FFF !important;
+        padding-left: 10px !important;
+    }
+    .login_bg_colors {
+        background: #766956 !important; /* Old browsers */
+        background: -moz-linear-gradient(top, #766956 10%, #766956 10%, #4a4236 47%, #2c2720 100%) !important; /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%) !important; /*Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #766956 10%,#766956 10%,#4a4236 47%,#2c2720 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#766956', endColorstr='#2c2720',GradientType=0 ) !important; /* IE6-9 */
+        border: 0;
+        color: #ffffff;
+    }
+</style>
+<body onload="db_backup_load()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -11,52 +48,119 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(../../Content/static_images_website/login_register_bg.jpg);">
-            <div class="login-box card pull-right" style="">
-                <div class="card-body">
-                    <form class="form-horizontal form-material" id="loginform" method="post" action="@Url.Action("Login","Home")">
-                        <h3 class="box-title m-b-20">Sign In</h3>
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" name="username" required="" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
-                            </div>
-                        </div>
-
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                @*<a class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light text-white" href="~/Home/Index">Log In</a>*@
-                                <button class="btn btn-loginnnn btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
-                            </div>
-                        </div>
+        <div class="login-register img-responsive" style="background-image:url(../../Content/static_images_website/bg.jpg);">
+            <div class="container-fluid">
 
 
-                    </form>
-                    <form class="form-horizontal" id="recoverform" action="http://themedesigner.in/demo/admin-press/main/index.html">
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <h3>Recover Password</h3>
-                                <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="unitLogoArea">
+                            <img src="~/Content/static_images_website/unitLogo.png" width="350px"
+                                 height="350px" />
+                        </div>
+                        <div class="companyNameArea">
+                            <img src="~/Content/static_images_website/companyName.png" width="400px" height="36px" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="pArmyLogo">
+                            <img src="~/Content/static_images_website/Pakistan Army.png" width="400px"
+                                 height="79px" />
+                        </div>
+
+                        <div class="signupArea">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="login-box card login_bg_colors">
+                                    <div class="card-body" style="padding:25px">
+                                        <form class="form-horizontal form-material" id="loginform" method="post" action="@Url.Action("login","home")">
+                                            <h3 class="box-title m-b-20" style="color:#ffffff;">&nbsp&nbsp Sign In</h3>
+                                            <div class="form-group ">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <input class="form-control sheikhchange" type="text" name="username" required placeholder="Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <input class="form-control sheikhchange" type="password" name="password"
+                                                           required="" placeholder="Password">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group text-center m-t-20">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                    <button class="btn btn-loginnnn btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">
+                                                        Log In
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                        <form class="form-horizontal" id="recoverform" action="http://themedesigner.in/demo/admin-press/main/index.html">
+                                            <div class="form-group ">
+                                                <div class="col-xs-12">
+                                                    <h3>Recover Password</h3>
+                                                    <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-xs-12">
+                                                    <input class="form-control" type="text" required="" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group text-center m-t-20">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light"
+                                                            type="submit">
+                                                        Reset
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+
                 </div>
+
+
             </div>
+
         </div>
     </section>
-</body>
 
+    <script>
+        function db_backup_load() {
+            var d = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            var n = weekday[d.getDay()];
+            //alert(n);
+            if (n == 'Wednesday') {
+                swal({
+                    title: "DATABASE BACK-UP",
+                    text: "Today is Wednesday,Kindly create Back-up of Database",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Okay',
+                },
+   function () {
+   });
+            }
+
+        }
+    </script>
+
+</body>

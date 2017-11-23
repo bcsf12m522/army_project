@@ -1,7 +1,10 @@
-﻿@model List<Army_Management_System.Models.Sport>
-           @{
-               var selected = "selected";
-           }
+﻿@model List<Army_Management_System.Models.Soldier>
+ 
+@{
+    string edit_permission = Session["admin_edit_permission"].ToString();
+    string delete_permission = Session["admin_delete_permission"].ToString();
+}
+
     <body class="fix-header fix-sidebar card-no-border">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -41,13 +44,13 @@
 
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">List of Soldiers</h3>
+                        <h3 class="text-themecolor">List of ERE Soldiers</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
-                            <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item custom_lime_green active">List of Soldiers</li>
+                            <li class="breadcrumb-item">Main Menu</li>
+                            <li class="breadcrumb-item custom_lime_green active">List of ERE Soldiers</li>
                         </ol>
                     </div>
 
@@ -63,30 +66,7 @@
                             @*<h6 class="card-subtitle">Data table example</h6>*@
 
 
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Sport</label>
-
-                                    <select name="sport_name" class="chosen-select form-control custom-select" data-placeholder="-- Select your Sport --" multiple>
-
-
-
-
-
-
-                                        @foreach (var sport in @ViewBag.Sport_Names)
-                                        {
-
-                                            <option @foreach (var vv in @Model) { if (vv.Id == sport.Id) {   @selected      ; } } value="@sport.Id">
-                                                @sport.Sport_Name
-
-                                            </option>
-                                                        }
-                                    </select>
-
-                                </div>
-                            </div>
-
+                          
 
 
 
@@ -99,7 +79,7 @@
                                             <th class="text-center">Rank</th>
                                             <th class="text-center">Trade</th>
                                             <th class="text-center">Number</th>
-                                            <th class="text-center">CNIC</th>
+                                            @*<th class="text-center">CNIC</th>*@
                                             <th class="text-center">Service Status</th>
                                             @*<th class="text-center">Village</th>*@
                                             <th class="text-center">Actions</th>
@@ -108,7 +88,27 @@
                                     <tbody>
                                         @foreach (var v in Model)
                                         {
-                                            
+                                            <tr>
+                                                <td class="text-center">@v.Name</td>
+                                                <td class="text-center">@v.Rank_Names.Rank_Name</td>
+                                                <td class="text-center">@v.Trade_Names.Trade_Name</td>
+                                                <td class="text-center">@v.Person_Number</td>
+                                                @*<td class="text-center">@v.CNIC</td>*@
+                                                <td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>
+                                                @*<td class="text-center">@v.Village</td>*@
+                                                <td class="text-center" style="width: 50px;">
+
+                                                    <a href="~/Soldier/Profile_Soldier/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                    @if (edit_permission != "0")
+                                                    {
+                                                        <a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    }
+                                                    @if (delete_permission != "0")
+                                                    {
+                                                        <a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
+                                                    }
+                                                </td>
+                                            </tr>
                                         }
 
 

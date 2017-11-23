@@ -1,8 +1,8 @@
 ﻿@model Army_Management_System.Models.Admin
 
 @{
-    
-   
+
+
 }
 
 <body class="fix-header fix-sidebar card-no-border" onload="checkboxes_load_function()">
@@ -50,7 +50,7 @@
             <div class="col-md-7 align-self-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item">Main Menu</li>
                     <li class="breadcrumb-item active custom_lime_green">Edit New Admin</li>
                 </ol>
             </div>
@@ -76,6 +76,9 @@
                         <div class="card-body">
                             <form method="post" action="@Url.Action("Edit_Admin","Admin")" data-parsley-validate class="" enctype="multipart/form-data">
                                 <div class="form-body">
+
+                                    <input hidden id="new_image_value" name="new_image_value" type="text" />
+
                                     <h3 class="card-title">Admin Info</h3>
                                     <hr>
 
@@ -148,7 +151,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">Address</label>
-                                                <input type="text" class="form-control" name="address" id="address" required placeholder="Address"  value="@Model.Address">
+                                                <input type="text" class="form-control" name="address" id="address" required placeholder="Address" value="@Model.Address">
                                             </div>
                                         </div>
 
@@ -173,7 +176,7 @@
                                                             continue;
                                                         }
 
-                                                        <option value="@rank.Id">@rank.Rank_Name</option>
+                                                    <option value="@rank.Id">@rank.Rank_Name</option>
                                                     }
 
                                                 </select>
@@ -186,49 +189,109 @@
 
                                     <h3 class="box-title m-t-40">Image</h3>
                                     <hr>
-                                    @if (Model.Image != null)
-                                    {
-                                        var Base64 = Convert.ToBase64String(@Model.Image);
-                                        var imgsrc = string.Format("data:img/gif;base64,{0}", Base64);
 
 
-                                        <div class="row">
 
-                                            <div class="col-lg-4 col-md-4">
-                                                <div class="card" style="background-color: #c2e4c2;">
-                                                    <div class="card-body">
-                                                        <input type="image" id="input-file-now-custom-1" name="image" class="dropify" data-default-file=""/>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <h3 class="box-title m-t-40">Soldier Image</h3>
+                                    <hr>
+                                    <div class="row">
 
-                                            <div class="col-lg-4 col-md-4">
-                                                <div class="card" style="background-color: #c2e4c2;">
-                                                    <div class="card-body">
-                                                        <img src="@imgsrc" id="" class="" style="width: 314px;
-    height: 200px;" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                          
-                                        </div>
-
-                                    }
-                                    else
-                                    {
-                                        <div class="row">
-
-                                            <div class="col-lg-4 col-md-4">
-                                                <div class="card" style="background-color: #c2e4c2;">
-                                                    <div class="card-body">
-                                                        <input type="file" id="input-file-now" name="image" class="dropify"/>
-                                                    </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <h5 class="card-title">New Image</h5>
+                                            <div class="card" style="background-color: #c2e4c2;">
+                                                <div class="card-body">
+                                                    <input type="file" id="input-file-now" class="dropify" name="image" onclick="previous_admin_image()" />
                                                 </div>
                                             </div>
                                         </div>
 
-                                    }
+
+
+
+
+
+                                        <script>
+                                            function previous_admin_image() {
+                                                $(".hide_admin_previous_image").hide();
+                                                $("#new_image_value").val(1);
+                                            }
+                                        </script>
+                                        @if (Model.Image != null)
+                                        {
+
+
+
+                                            <div class="col-lg-4 col-md-4 hide_admin_previous_image">
+                                                <h5 class="card-title">Old Image</h5>
+                                                <div class="card" style="background-color: #c2e4c2;">
+                                                    <div class="card-body">
+
+                                                        <div class="dropify-wrapper">
+                                                            <div class="dropify-message"><span class="fa fa-4x fa-cloud-upload"></span> </div><div class="dropify-loader" style="display: none;"></div><div class="dropify-errors-container"><ul></ul></div><input type="text" id="" class="dropify">
+                                                            <div class="dropify-preview" style="display: block;">
+                                                                <span class="dropify-render">
+                                                                    @{
+                                                                        var Base64 = Convert.ToBase64String(@Model.Image);
+                                                                        var imgsrc = string.Format("data:img/gif;base64,{0}", Base64);
+
+                                                                        <img src="@imgsrc" />
+
+                                                                    }
+
+                                                                </span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span></p></div></div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a href="javascript:;" @*style="margin-top:31px"*@ class="btn btn-danger" onclick="previous_admin_image()"><i class="fa fa-minus"></i> Remove</a>
+                                            </div>
+
+                                            @*<div class="col-lg-4 col-md-4 hide_soldier_previous_image">
+
+                                                    <div class="card" style="background-color: #c2e4c2;">
+                                                        <div class="card-body">
+
+
+                                                            <div class="dropify-wrapper has-preview">
+                                                                <div class="dropify-message">
+                                                                    <span class="file-icon"></span> <p>Drag and drop a file here or click</p>
+                                                                    <p class="dropify-error">Ooops, something wrong appended.</p>
+                                                                </div>
+                                                                <div class="dropify-loader" style="display: none;"></div>
+                                                                <div class="dropify-errors-container"><ul></ul></div>
+                                                                <input type="file" id="input-file-now-custom-1" class="dropify">
+
+                                                                <div class="dropify-preview" style="display: block;">
+                                                                    <span class="dropify-render">
+
+
+                                                                    </span>
+                                                                    <div class="dropify-infos">
+                                                                        <div class="dropify-infos-inner">
+                                                                            <p class="dropify-filename">
+                                                                                <span class="file-icon"></span> <span class="dropify-filename-inner">test-image-1.jpg</span>
+                                                                            </p><p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+
+                                        }
+                                    </div>
+
+
+
+
+
+
+
+
 
                                     <h3 class="box-title m-t-40">Permissions</h3>
                                     <hr>
@@ -236,29 +299,29 @@
 
                                         @*<div class="offset-sm-3 col-sm-9 col-md-3"></div>*@
 
-                                        <div class="col-md-3">
+                                        @*<div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="view_Soldier" onclick="view_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="view_soldier" value="@Model.Permission_View_Soldier">
 
                                                 <label for="view_Soldier">View Soldiers</label>
                                             </div>
-                                        </div>
+                                        </div>*@
 
-                                        <div class="col-md-3 p-l-0">
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="add_Soldier" onclick="add_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="add_soldier" value="@Model.Permission_Add_Soldier">
                                                 <label for="add_Soldier">Add Soldiers</label>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 p-l-0">
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="edit_Soldier" onclick="edit_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="edit_soldier" value="@Model.Permission_Edit_Soldier">
                                                 <label for="edit_Soldier">Edit Soldiers</label>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 p-l-0">
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="delete_Soldier" onclick="delete_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="delete_soldier" value="@Model.Permission_Delete_Soldier">
                                                 <label for="delete_Soldier">Delete Soldiers</label>
@@ -266,7 +329,7 @@
                                         </div>
 
                                         <script>
-                                            function checkboxes_load_function(){
+                                            function checkboxes_load_function() {
                                                 var view = $("#view_Soldier").val();
                                                 var add = $("#add_Soldier").val();
                                                 var edit = $("#edit_Soldier").val();
@@ -289,9 +352,9 @@
 
                                                 if (del == 1) {
                                                     document.getElementById("delete_Soldier").checked = true;
-                                                   //alert("IF del");
+                                                    //alert("IF del");
                                                 }
-                                                
+
                                             }
                                         </script>
 
@@ -329,7 +392,7 @@
                                                     $("#edit_Soldier").val(1);
                                                     //alert("if edit_Soldier  " + $("#edit_Soldier").val());
                                                 } else {
-                                                    $("#view_Soldier").val(0);
+                                                    $("#edit_Soldier").val(0);
                                                     //alert("else  edit_Soldier " + $("#view_Soldier").val());
                                                 }
                                             }
@@ -404,7 +467,6 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
 
-    
+
 
 </body>
-

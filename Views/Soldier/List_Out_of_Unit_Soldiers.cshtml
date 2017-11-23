@@ -1,4 +1,11 @@
-﻿<body class="fix-header fix-sidebar card-no-border">
+﻿@model List<Army_Management_System.Models.Soldier>
+
+@{
+    string edit_permission = Session["admin_edit_permission"].ToString();
+    string delete_permission = Session["admin_delete_permission"].ToString();
+}
+
+<body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -37,13 +44,13 @@
 
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">List of Soldiers </h3>
+                    <h3 class="text-themecolor">List In Unit Soldiers </h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
-                        <li class="breadcrumb-item">Dashboard</li>
-                        <li class="breadcrumb-item custom_lime_green active">List of Soldiers</li>
+                        <li class="breadcrumb-item">Main Menu</li>
+                        <li class="breadcrumb-item custom_lime_green active">List In Unit Soldiers</li>
                     </ol>
                 </div>
 
@@ -76,75 +83,39 @@
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">Iftikhar Ahmed</td>
-                                        <td class="text-center">Hon LT</td>
-                                        <td class="text-center">Multan</td>
-                                        <td class="text-center">PJO-3665960</td>
-                                        <td class="text-center">0300-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Hamza Imran</td>
-                                        <td class="text-center">Hon Capt</td>
-                                        <td class="text-center">Multan</td>
-                                        <td class="text-center">PJO-57848324</td>
-                                        <td class="text-center">0301-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Junaid Khan</td>
-                                        <td class="text-center">SM</td>
-                                        <td class="text-center">Lahore</td>
-                                        <td class="text-center">PJO-7636828</td>
-                                        <td class="text-center">0302-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Waqar Hussian</td>
-                                        <td class="text-center">Lhav</td>
-                                        <td class="text-center">Lahore</td>
-                                        <td class="text-center">PJO-7368392</td>
-                                        <td class="text-center">0303-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Yasir Shokat</td>
-                                        <td class="text-center">NCB</td>
-                                        <td class="text-center">Muzafer Ghar</td>
-                                        <td class="text-center">PJO-93744745</td>
-                                        <td class="text-center">0304-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Muzammil Haneef</td>
-                                        <td class="text-center">NCsE</td>
-                                        <td class="text-center">Lahore</td>
-                                        <td class="text-center">PJO-6753475</td>
-                                        <td class="text-center">0305-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Zeeshan Safder</td>
-                                        <td class="text-center">Sig</td>
-                                        <td class="text-center">Faisalabad</td>
-                                        <td class="text-center">PJO-87643685</td>
-                                        <td class="text-center">0306-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Kamran Haneef</td>
-                                        <td class="text-center">NCsE</td>
-                                        <td class="text-center">Multan</td>
-                                        <td class="text-center">PJO-6576528</td>
-                                        <td class="text-center">0308-1111111</td>
-                                        <td class="text-center" style="width: 50px;"><a href="~/Admin/Profile_Admin/" class="eye_hover"><i class=" fa fa-eye" aria-hidden="true"></i></a><a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="m-l-10" href="#"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a></td>
-                                    </tr>
+
+
                                 
+                                <tbody>
+                                    @foreach (var v in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center">@v.Name</td>
+                                            <td class="text-center">@v.Rank_Names.Rank_Name</td>
+                                            <td class="text-center">@v.Trade_Names.Trade_Name</td>
+                                            <td class="text-center">@v.Person_Number</td>
+                                            @*<td class="text-center">@v.CNIC</td>*@
+                                            <td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>
+                                            @*<td class="text-center">@v.Village</td>*@
+                                            <td class="text-center" style="width: 50px;">
+
+                                                <a href="~/Soldier/Profile_Soldier/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                @if (edit_permission != "0")
+                                                {
+                                                    <a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                }
+                                                @if (delete_permission != "0")
+                                                {
+                                                    <a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
 
 
                                 </tbody>
+                                
                             </table>
                             @*<table id="myTable" class="table full-color-table full-dark-table">*@
                             @*<table id="myTable" class="table color-table dark-table">

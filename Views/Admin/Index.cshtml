@@ -1,4 +1,7 @@
 ﻿<body class="fix-header fix-sidebar card-no-border">
+    @{
+        string super_admin = Session["admin_type"].ToString();
+    }
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -59,6 +62,8 @@
             <!-- Start Page Content -->
             <!-- ============================================================== -->
             <!-- Row -->
+            
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card card-outline-info">
@@ -72,9 +77,14 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Soldier"><i class="fa fa-users text-current_color"></i></a></h2>
-                                                <h3 class="">14</h3>
-                                                <h6 class="card-subtitle">Total Soldiers</h6>
+                                                @*<h2 class="m-b-0"><a href="~/Soldier/List_Soldier"><i class="fa fa-users text-current_color"></i></a></h2>*@
+                                                <h2 class="m-b-0">
+                                                <a href="~/Soldier/List_Soldier">
+                                                    <img src="~/content/static_images_website/army_monogram.png"/>
+                                                </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.Total_Str_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Total Str</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -87,32 +97,23 @@
 
 
 
+                                
 
-
-                                @*<div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h2 class="m-b-0"><a href="~/Soldier/List_Out_of_Unit_Soldiers" class="notify setpos point_top_right"><span class="point"></span> <i class="fa fa-users text-brown_color"></i></a></h2>
-                                                    <h3 class="">8</h3>
-                                                    <h6 class="card-subtitle">Out of Unit Soldiers</h6>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-brown_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
+                             
 
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Pending_Leave_Soldiers"><i class="fa fa-users text-darkgray_color"></i></a></h2>
-                                                <h3 class="">3</h3>
-                                                <h6 class="card-subtitle">Pending Leave</h6>
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Present_Str_Soldiers">
+                                                        @*<i class="fa fa-users text-darkgray_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png"/>
+                                                    </a>
+                                                </h2>
+                                                @*<h3 class="">@ViewBag.Pending_Leave_List.Count</h3>*@
+                                                <h3 class="p-l-5">@ViewBag.Present_Str_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Present Str</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -128,9 +129,15 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Present_In_Unit_Soldiers" class="notify setpos point_top_right"><span class="point"></span> <i class="fa fa-users text-brown_color"></i></a></h2>
-                                                <h3 class="">8</h3>
-                                                <h6 class="card-subtitle">Present In Unit Soldiers</h6>
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_On_Leave_Soldiers" class="notify setpos point_top_right"><span class="point"></span>
+                                                        @*<i class="fa fa-users text-brown_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png"/>
+                                                    </a>
+                                                </h2>
+                                                @*<h3 class="">@ViewBag.Present_In_Unit_List.Count</h3>*@
+                                                <h3 class="p-l-5">@ViewBag.On_Leave_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">On Leave</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -146,9 +153,14 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_ERE_Soldiers"><i class="fa fa-users text-darkolivegreen_color"></i></a></h2>
-                                                <h3 class="">6</h3>
-                                                <h6 class="card-subtitle">ERE Soldiers</h6>
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_On_Course_Soldiers">
+                                                        @*<i class="fa fa-users text-darkolivegreen_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png"/>
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.On_Course_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">On Course</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -163,37 +175,9 @@
 
 
 
-                                @*<div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h2 class="m-b-0"><a href="~/Soldier/List_Beard_Soldiers"><i class="fa fa-users text-light_brown_color"></i></a></h2>
-                                                    <h3 class="">6</h3>
-                                                    <h6 class="card-subtitle">Beard Soldiers</h6>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-light_brown_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
-
-
-
-
-
-
-
-                                <!-- Column -->
-                                <!-- Column -->
-                                <!-- Column -->
-                                <!-- Column -->
-                                <!-- Column -->
-                                <!-- Column -->
-
+                             
                             </div>
+
 
 
 
@@ -205,9 +189,124 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Beard_Soldiers"><i class="fa fa-users text-light_brown_color"></i></a></h2>
-                                                <h3 class="">6</h3>
-                                                <h6 class="card-subtitle">Posted Out Soldiers</h6>
+                                                @*<h2 class="m-b-0"><a href="~/Soldier/List_Soldier"><i class="fa fa-users text-current_color"></i></a></h2>*@
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_In_Comd_Sta_Soldier">
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.In_Comd_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Comd (In Sta)</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-current_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Out_Comd_Sta_Soldier">
+                                                        @*<i class="fa fa-users text-darkgray_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                @*<h3 class="">@ViewBag.Pending_Leave_List.Count</h3>*@
+                                                <h3 class="p-l-5">@ViewBag.Out_Comd_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Comd (Out Sta)</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-light_darkgray_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                
+
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_ERE_Soldiers">
+                                                        @*<i class="fa fa-users text-darkolivegreen_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.ERE_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">On ERE</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-light_darkolivegreen_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Red_Entry_Soldiers">
+                                                        @*<i class="fa fa-users text-stealblue_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.Red_Entry_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Red Ink Entry</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-stealblue_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+
+                            
+                                <!-- Column -->
+
+                            </div>
+
+                            
+
+                            <div class="card-group">
+
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Pending_Leave_Soldiers">
+                                                        @*<i class="fa fa-users text-light_brown_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.Pending_Leave_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Pending Leave</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -222,9 +321,14 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Retired_Soldiers"><i class="fa fa-users text-teal_color"></i></a></h2>
-                                                <h3 class="">3</h3>
-                                                <h6 class="card-subtitle">Retired Soldiers</h6>
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Posted_Out_Soldiers">
+                                                        @*<i class="fa fa-users text-teal_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png"/>
+                                                    </a>
+                                                </h2>
+                                                <h3 class="p-l-5">@ViewBag.Posted_Out_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Posted Out</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
@@ -235,20 +339,24 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Soldier/List_Red_Entry_Soldiers"><i class="fa fa-users text-stealblue_color"></i></a></h2>
-                                                <h3 class="">1</h3>
-                                                <h6 class="card-subtitle">Red Entry Soldiers</h6>
+                                                <h2 class="m-b-0">
+                                                    <a href="~/Soldier/List_Retired_Soldiers" class="notify setpos point_top_right">
+                                                        <span class="point"></span>
+                                                        @*<i class="fa fa-users text-brown_color"></i>*@
+                                                        <img src="~/content/static_images_website/army_monogram.png" />
+                                                    </a>
+                                                </h2>
+                                                @*<h3 class="">@ViewBag.Present_In_Unit_List.Count</h3>*@
+                                                <h3 class="p-l-5">@ViewBag.Retired_List.Count</h3>
+                                                <h6 class="card-subtitle p-l-5">Retired</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-stealblue_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-brown_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -256,26 +364,58 @@
                                 </div>
 
 
+                               
 
+                                @if (super_admin == "Super Admin")
+                                {
 
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h2 class="m-b-0"><a href="~/Admin/List_Admin"><i class="fa fa-users text-salmon_color"></i></a></h2>
-                                                <h3 class="">7</h3>
-                                                <h6 class="card-subtitle">Total Admins</h6>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-salmon_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h2 class="m-b-0">
+                                                        <a href="~/Admin/List_Admin">
+                                                            @*<i class="fa fa-users text-salmon_color"></i>*@
+                                                            <img src="~/content/static_images_website/army_monogram.png"/>
+                                                        </a>
+                                                    </h2>
+                                                    <h3 class="p-l-5">@ViewBag.Admin_List.Count</h3>
+                                                    <h6 class="card-subtitle p-l-5">Total Admins</h6>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-salmon_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-
+                                }
+                                else
+                                {
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h2 class="m-b-0">
+                                                        <a href="~/Soldier/List_Permanent_Posting_Soldiers">
+                                                            @*<i class="fa fa-users text-salmon_color"></i>*@
+                                                            <img src="~/content/static_images_website/army_monogram.png"/>
+                                                        </a>
+                                                    </h2>
+                                                    <h3 class="p-l-5">@ViewBag.Admin_List.Count</h3>
+                                                    <h6 class="card-subtitle p-l-5">Perm Posting</h6>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-salmon_color" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
 
 
                                 <!-- Column -->
@@ -296,85 +436,454 @@
 
 
 
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="col-md-5 align-self-center p-l-0">
+                                        <h3 class="text-themecolor search_Soldiers_styling_index_page">Search Soldier:</h3>
+                                    </div>
 
 
-                                <div class="card">
-                                    <div class="card-body">
 
-                                        <div class="col-md-5 align-self-center p-l-0">
-                                            <h3 class="text-themecolor search_Soldiers_styling_index_page">Search Soldier:</h3>
+                                    <div class="row p-t-20">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">No</label>
+                                                <input type="text" name="person_number" id="person_number" class="form-control" placeholder="No">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Rank</label>
+                                                <select class="form-control custom-select" name="rank_id" id="rank_id">
+                                                    <option value="-1">-- Select Rank --</option>
+                                                    @foreach (var rank in ViewBag.Rank)
+                                                    {
+                                                        <option value="@rank.Id">@rank.Rank_Name</option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Trade</label>
+                                                <select class="form-control custom-select" name="trade_id" id="trade_id">
+                                                    <option value="-1">-- Select Trade --</option>
+                                                    @foreach (var trade in ViewBag.Trade)
+                                                    {
+                                                        <option value="@trade.Id">@trade.Trade_Name</option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row p-t-20">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Name</label>
+                                                <input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
+                                            </div>
                                         </div>
 
-                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label">Height (Cm)</label>
+                                                <select name="height" id="height" class="form-control custom-select">
+                                                    <option value="-1">-- Select Height --</option>
+
+                                                    @foreach (var height in ViewBag.Height)
+                                                    {
+                                                        <option value="@height.Id">@height.Height_Name</option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Weight (Kg)</label>
+                                                <select name="weight" id="weight" class="form-control custom-select">
+                                                    <option value="-1">-- Select Weight --</option>
+                                                    @foreach (var weight in ViewBag.Weight)
+                                                    {
+                                                        <option value="@weight.Id">@weight.Weight_Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-8"></div>
+                                        <div class="col-md-4" id="show_advance_search_option_btn">
+                                            <div class="form-group pull-right">
+                                                <a class="advance_search_a_tag m-0 font-12" href="#" onclick="show_search_filters()">Advance Search Options</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <script>
+                                        function show_search_filters() {
+                                            //alert("ASDadasd");
+                                            $(".hide_search_filters").show();
+                                            $("#show_advance_search_option_btn").hide();
+
+
+                                            $("#hide_advance_search_option_btn").show();
+
+                                        }
+
+
+
+
+                                    </script>
+
+
+
+
+
+                                    <div class="hide_search_filters" style="display:none">
+
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Beard</label>
+                                                    <select class="form-control custom-select" id="beard" name="beard">
+                                                        <option value="-1">-- Select --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Complexion</label>
+                                                    <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Demography</label>
+                                                    <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cl Compsn</label>
+                                                    <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
+                                                        <option value="-1">-- Select Cl Compsn --</option>
+                                                        @foreach (var composition in ViewBag.Class_Composition)
+                                                        {
+                                                            <option value="@composition.Id">@composition.Compostion_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
+                                            @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Enrollment</label>
+                                                    <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of Present Rank</label>
+                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+
+
+
+
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date Of SOD</label>
+                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">CNIC</label>
+                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Marital Status</label>
+                                                    <select class="form-control custom-select" name="marital_status" id="marital_status">
+                                                        <option value="-1">-- Select Marital Status --</option>
+                                                        @foreach (var marital in ViewBag.Marital_Status)
+                                                        {
+                                                            <option value="@marital.Id">@marital.Marital_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+
 
                                         <div class="row p-t-20">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label">No</label>
-                                                    <input type="text" name="person_number" id="person_number" class="form-control" placeholder="No">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Rank</label>
-                                                    <select class="form-control custom-select" name="rank_id" id="rank_id">
-                                                        <option value="-1">-- Select Rank --</option>
-                                                        @foreach (var rank in ViewBag.Rank)
-                                                        {
-                                                            <option value="@rank.Id">@rank.Rank_Name</option>
-                                                        }
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Trade</label>
-                                                    <select class="form-control custom-select" name="trade_id" id="trade_id">
-                                                        <option value="-1">-- Select Trade --</option>
-                                                        @foreach (var trade in ViewBag.Trade)
-                                                        {
-                                                            <option value="@trade.Id">@trade.Trade_Name</option>
-                                                        }
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row p-t-20">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Name</label>
-                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
+                                                    <label class="control-label">Caste</label>
+                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group ">
-                                                    <label class="control-label">Height (Cm)</label>
-                                                    <select name="height" id="height" class="form-control custom-select">
-                                                        <option value="-1">-- Select Height --</option>
-
-                                                        @foreach (var height in ViewBag.Height)
-                                                        {
-                                                            <option value="@height.Id">@height.Height_Name</option>
-                                                        }
-
-                                                    </select>
+                                                    <label class="control-label">Sect</label>
+                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label">Weight (Kg)</label>
-                                                    <select name="weight" id="weight" class="form-control custom-select">
-                                                        <option value="-1">-- Select Weight --</option>
-                                                        @foreach (var weight in ViewBag.Weight)
+                                                    <label class="control-label">Blood Group</label>
+                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                        <option value="-1">-- Select Blood Group --</option>
+
+                                                        @foreach (var blood_group in ViewBag.Blood_Group)
                                                         {
-                                                            <option value="@weight.Id">@weight.Weight_Name</option>
+                                                            <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
+                                                        }
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="clear"></div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Military Qualification</label>
+                                                    <select class="form-control custom-select" name="military_qualification" id="military_qualification">
+                                                        <option value="-1">-- Select Military Qual --</option>
+                                                        @foreach (var military in ViewBag.Military_Qualification)
+                                                        {
+                                                            <option value="@military.Id">@military.Military_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Civil Qualification</label>
+                                                    <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
+                                                        <option value="-1">-- Select Civil Qual --</option>
+                                                        @foreach (var civil in ViewBag.Civil_Qualification)
+                                                        {
+                                                            <option value="@civil.Id">@civil.Civil_Qual_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Red Entry</label>
+                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                        <option value="-1">-- Select --</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+                                        <div class="row p-t-20">
+
+
+                                            @*<select class="form-control custom-select" name="sport_name" id="sport_name">
+
+                        </select>*@
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Sport</label>
+
+
+
+                                                    <select class="form-control custom-select" name="sport_name" id="sport_name">
+                                                        <option value="-1">-- Select Sport --</option>
+
+                                                        @foreach (var sport in ViewBag.Sport_Names)
+                                                        {
+                                                            <option value="@sport.Id">@sport.Sport_Name</option>
+                                                        }
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Medical Category</label>
+                                                    <select class="form-control custom-select" name="medical_category_id" id="medical_category_id">
+                                                        <option value="-1">-- Select Category --</option>
+                                                        @foreach (var category in ViewBag.Medical_Category_Names)
+                                                        {
+                                                            <option value="@category.Id">@category.Record_Name</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Course Name</label>
+                                                    <div>
+                                                        <input type="text" name="course_name" id="course_name" class="form-control" placeholder="Courses" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Village</label>
+                                                    <div>
+                                                        <input type="text" name="village" id="village" class="form-control" placeholder="Village" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">P/O</label>
+                                                    <div>
+                                                        <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Thana</label>
+                                                    <input type="text" class="form-control" name="thanas" id="thana" placeholder="Thana" onkeypress="validation_alphabetical(event)">
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tehsil</label>
+                                                    <div>
+                                                        <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Distt</label>
+                                                    <div>
+                                                        <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt" onkeypress="validation_alphabetical(event)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Service Status</label>
+                                                    <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
+                                                        <option value="-1">-- Select Status --</option>
+                                                        @foreach (var service in ViewBag.Soldier_Status)
+                                                        {
+                                                            <option value="@service.Id">@service.Service_Status_Name</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -383,514 +892,140 @@
 
 
 
+
+
+
+
+
                                         </div>
 
 
+                                        <div class="row p-t-20">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">ACRs Year</label>
+                                                    <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">ACRs Grade Scale</label>
+                                                    <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale">
+                                                        <option value="-1">-- Select Ability --</option>
+                                                        @foreach (var acr in ViewBag.ACR_Grade)
+                                                        {
+                                                            <option value="@acr.Id">@acr.Performance_Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-8"></div>
+                                        <div class="col-md-4" style="display:none" id="hide_advance_search_option_btn">
+                                            <div class="form-group pull-right">
+                                                <a class="advance_search_a_tag m-0 font-12" href="#" onclick="hide_search_filters()">Hide Advance Search Options</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <script>
+                                        function hide_search_filters() {
+                                            //alert("ASDadasd");
+                                            $(".hide_search_filters").hide();
+                                            $("#show_advance_search_option_btn").show();
+
+
+                                            $("#hide_advance_search_option_btn").hide();
+                                        }
+
+                                    </script>
+
+                                    <div class="form-actions">
                                         <div class="row">
-                                            <div class="col-md-8"></div>
-                                            <div class="col-md-4" id="show_advance_search_option_btn">
-                                                <div class="form-group pull-right">
-                                                    <a class="advance_search_a_tag m-0 font-12" href="#" onclick="show_search_filters()">Advance Search Options</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <script>
-    function show_search_filters() {
-        //alert("ASDadasd");
-        $(".hide_search_filters").show();
-        $("#show_advance_search_option_btn").hide();
-
-
-        $("#hide_advance_search_option_btn").show();
-
-    }
-
-
-
-
-                                        </script>
-
-
-
-
-
-                                        <div class="hide_search_filters" style="display:none">
-
-
-
-                                            <div class="row p-t-20">
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Beard</label>
-                                                        <select class="form-control custom-select" id="beard" name="beard">
-                                                            <option value="-1">-- Select your Choice --</option>
-                                                            <option value="1">Yes</option>
-                                                            <option value="0">No</option>
-                                                        </select>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2 pull-right">
+                                                        @*<button type="submit" class="btn btn-themecolor" onclick="show_Soldier_table()"> <i class="fa fa-check"></i> Search</button>*@
+                                                        <button type="submit" class="btn btn-themecolor" onclick="search_ajax_call()"> <i class="fa fa-check"></i> Search</button>
+                                                        @*<button type="submit" class="btn btn-themecolor" onclick="hhh()"> <i class="fa fa-check"></i> Search22222</button>*@
                                                     </div>
-                                                </div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Complexion</label>
-                                                        <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Demography</label>
-                                                        <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" onkeypress="validation_alphabetical(event)">
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-
-                                            </div>
-
-
-
-                                            <div class="row p-t-20">
-
-
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Cl Compsn</label>
-                                                        <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
-                                                            <option value="-1">-- Select Cl Compsn --</option>
-                                                            @foreach (var composition in ViewBag.Class_Composition)
-                                                            {
-                                                                <option value="@composition.Id">@composition.Compostion_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
-                                                @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Date Of Enrollment</label>
-                                                        <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Date Of Present Rank</label>
-                                                        <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-
-
-                                            <div class="row p-t-20">
-
-
-
-
-
-
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Date Of SOD</label>
-                                                        <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">CNIC</label>
-                                                        <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Marital Status</label>
-                                                        <select class="form-control custom-select" name="marital_status" id="marital_status">
-                                                            <option value="-1">-- Select Marital Status --</option>
-                                                            @foreach (var marital in ViewBag.Marital_Status)
-                                                            {
-                                                                <option value="@marital.Id">@marital.Marital_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-
-
-
-                                            <div class="row p-t-20">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Caste</label>
-                                                        <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Sect</label>
-                                                        <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Blood Group</label>
-                                                        <select class="form-control custom-select" name="blood_group" id="blood_group">
-                                                            <option value="-1">-- Select Blood Group --</option>
-
-                                                            @foreach (var blood_group in ViewBag.Blood_Group)
-                                                            {
-                                                                <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
-                                                            }
-
-
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-
-
-
-                                            <div class="row p-t-20">
-
-                                                <div class="clear"></div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Military Qualification</label>
-                                                        <select class="form-control custom-select" name="military_qualification" id="military_qualification">
-                                                            <option value="-1">-- Select Military Qual --</option>
-                                                            @foreach (var military in ViewBag.Military_Qualification)
-                                                            {
-                                                                <option value="@military.Id">@military.Military_Qual_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Civil Qualification</label>
-                                                        <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
-                                                            <option value="-1">-- Select Civil Qual --</option>
-                                                            @foreach (var civil in ViewBag.Civil_Qualification)
-                                                            {
-                                                                <option value="@civil.Id">@civil.Civil_Qual_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Red Entry</label>
-                                                        <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
-                                                            <option value="-1">-- Select --</option>
-                                                            <option value="1">Yes</option>
-                                                            <option value="0">No</option>
-                                                        </select>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-
-
-
-                                            <div class="row p-t-20">
-
-
-                                                @*<select class="form-control custom-select" name="sport_name" id="sport_name">
-
-            </select>*@
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Sport</label>
-
-
-                                                        
-                                                            <select class="form-control custom-select" name="sport_name" id="sport_name">
-                                                                <option value="-1">-- Select your Sport --</option>
-
-                                                                @foreach (var sport in ViewBag.Sport_Names)
-                                                                {
-                                                                    <option value="@sport.Id">@sport.Sport_Name</option>
-                                                                }
-                                                            </select>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Medical Category</label>
-                                                        <select class="form-control custom-select" name="medical_category_id" id="medical_category_id">
-                                                            <option value="-1">-- Select Category --</option>
-                                                            @foreach (var category in ViewBag.Medical_Category_Names)
-                                                            {
-                                                                <option value="@category.Id">@category.Record_Name</option>
-                                                            }
-
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Course Name</label>
-                                                        <div>
-                                                            <input type="text" name="course_name" id="course_name" class="form-control" placeholder="Courses" onkeypress="validation_alphabetical(event)">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div class="row p-t-20">
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Village</label>
-                                                        <div>
-                                                            <input type="text" name="village" id="village" class="form-control" placeholder="Village" onkeypress="validation_alphabetical(event)">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">P/O</label>
-                                                        <div>
-                                                            <input type="text" name="p_o" id="p_o" class="form-control" placeholder="P/O" onkeypress="validation_alphabetical(event)">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Thana</label>
-                                                        <input type="text" class="form-control" name="thanas" id="thana" placeholder="Thana" onkeypress="validation_alphabetical(event)">
-                                                    </div>
-                                                </div>
-
-
-
-
-
-                                            </div>
-
-                                            <div class="row p-t-20">
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Tehsil</label>
-                                                        <div>
-                                                            <input type="text" name="tehsil" id="tehsil" class="form-control" placeholder="Tehsil" onkeypress="validation_alphabetical(event)">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Distt</label>
-                                                        <div>
-                                                            <input type="text" name="distt" id="distt" class="form-control" placeholder="Distt" onkeypress="validation_alphabetical(event)">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Service Status</label>
-                                                        <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
-                                                            <option value="-1">-- Select your Status --</option>
-                                                            @foreach (var service in ViewBag.Soldier_Status)
-                                                            {
-                                                                <option value="@service.Id">@service.Service_Status_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-
-
-
-                                            </div>
-
-
-                                            <div class="row p-t-20">
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">ACRs Years</label>
-                                                        <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">ACRs Grade Scale</label>
-                                                        <select class="form-control custom-select" name="accr_grading_scale" id="accr_grading_scale">
-                                                            <option value="-1">-- Select your Ability --</option>
-                                                            @foreach (var acr in ViewBag.ACR_Grade)
-                                                            {
-                                                                <option value="@acr.Id">@acr.Performance_Name</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-
-
-                                         
-
-
-
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-8"></div>
-                                            <div class="col-md-4" style="display:none" id="hide_advance_search_option_btn">
-                                                <div class="form-group pull-right">
-                                                    <a class="advance_search_a_tag m-0 font-12" href="#" onclick="hide_search_filters()">Hide Advance Search Options</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <script>
-                                            function hide_search_filters() {
-                                                //alert("ASDadasd");
-                                                $(".hide_search_filters").hide();
-                                                $("#show_advance_search_option_btn").show();
-
-
-                                                $("#hide_advance_search_option_btn").hide();
-                                            }
-
-                                        </script>
-
-                                        <div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-10"></div>
-                                                        <div class="col-md-2 pull-right">
-                                                            @*<button type="submit" class="btn btn-themecolor" onclick="show_Soldier_table()"> <i class="fa fa-check"></i> Search</button>*@
-                                                            <button type="submit" class="btn btn-themecolor" onclick="search_ajax_call()"> <i class="fa fa-check"></i> Search</button>
-                                                            <button type="submit" class="btn btn-themecolor" onclick="hhh()"> <i class="fa fa-check"></i> Search22222</button>
-                                                        </div>
-                                                        @*<div class="col-md-4"></div>*@
-                                                    </div>
+                                                    @*<div class="col-md-4"></div>*@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
 
-                                        <hr class="hr_height p-b-40" />
+                                    <hr class="hr_height p-b-40" />
 
-                                        <div class="hide_table_Soldier" style="display:none">
-
-
-                                            <h3 class="card-title">Soldier LIST</h3>
-                                            @*<h6 class="card-subtitle">Data table example</h6>*@
-                                            <div class="table-responsive m-t-10">
-                                                <table id="aa" class="table full-color-table full-warning-table hover-table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="text-center">Name</th>
-                                                            <th class="text-center">Rank</th>
-                                                            <th class="text-center">Address</th>
-                                                            <th class="text-center">Email</th>
-                                                            <th class="text-center">Phone No</th>
-                                                            @*<th class="text-center">CNIC</th>*@
-                                                            <th class="text-center">Actions</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
+                                    <div class="hide_table_Soldier" style="display:none">
 
 
-
-                                                    </tbody>
-                                                </table>
-                                                @*<table id="myTable" class="table full-color-table full-dark-table">*@
-                                                @*<table id="myTable" class="table color-table dark-table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Position</th>
-                                                                <th>Office</th>
-                                                                <th>Age</th>
-                                                                <th>Start date</th>
-                                                                <th>Salary</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Tiger Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>61</td>
-                                                                <td>2011/04/25</td>
-                                                                <td>$320,800</td>
-                                                            </tr>
-                                                    </table>*@
-
-                                            </div>
+                                        <h3 class="card-title">Soldier LIST</h3>
+                                        @*<h6 class="card-subtitle">Data table example</h6>*@
+                                        <div class="table-responsive m-t-10">
+                                            <table id="aa" class="table full-color-table full-warning-table hover-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Name</th>
+                                                        <th class="text-center">Rank</th>
+                                                        <th class="text-center">Address</th>
+                                                        <th class="text-center">Email</th>
+                                                        <th class="text-center">Phone No</th>
+                                                        @*<th class="text-center">CNIC</th>*@
+                                                        <th class="text-center">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            @*<table id="myTable" class="table full-color-table full-dark-table">*@
+                                            @*<table id="myTable" class="table color-table dark-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011/04/25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                        </table>*@
 
                                         </div>
 
                                     </div>
+
                                 </div>
+                            </div>
+
+                                
 
 
 
@@ -910,12 +1045,17 @@
 
                 <div class="clear"></div>
 
-                <div style="margin-bottom:500px">
-                </div>
+                
                 <div class="clear"></div>
 
 
             </div>
+
+
+            <div class="clear"></div>
+            <div style="margin-bottom:300px!important"></div>
+
+
             <!-- Row -->
             <!-- Row -->
             <!-- ============================================================== -->
@@ -975,9 +1115,7 @@
             var complexion_value = $("#complexion").val();
             //alert("complexion_value       " + complexion_value);
 
-            var demography_value = $("#demography").val();
-            //alert("demography_value       " + demography_value);
-
+            
             var cl_compsn_value = $("#cl_compsn").val();
             //alert("cl_compsn_value       " + cl_compsn_value);
 
@@ -1021,7 +1159,7 @@
             //alert("medical_category_value       " + medical_category_value);
 
             var course_name_value = $("#course_name").val();
-            alert("course_name_value       " + course_name_value);
+            //alert("course_name_value       " + course_name_value);
 
             var village_value = $("#village").val();
             //alert("village_value       " + village_value);
@@ -1054,8 +1192,8 @@
 
             $.ajax({
 
-                url: '/Admin/Search_Soldier_Filters/',
-                data: { person_number: person_number_value, rank_id: rank_id_value, trade_id: trade_id_value, name: name_value, height: height_value, weight: weight_value, beard: beard_value, complexion: complexion_value, demography: demography_value, cl_compsn: cl_compsn_value, date_of_enrl: date_of_enrl_value, date_of_present_rank: date_of_present_rank_value, date_of_sod: date_of_sod_value, cnic: cnic_value, marital_status: marital_status_value, caste: caste_value, sect: sect_value, blood_group: blood_group_value, military: military_value, civil: civil_value, red_entry: red_entry_value, sport_name: sport_name_value, medical_category: medical_category_value, course_name: course_name_value, village: village_value, p_o: p_o_value, thana: thana_value, tehsil: tehsil_value, distt: distt_value, soldier_service_status: soldier_service_value, acr_year: acr_year_value, accr_grading_scale: accr_grading_scale_value },
+                url: '/Soldier/Search_Soldier_Filters/',
+                data: { person_number: person_number_value, rank_id: rank_id_value, trade_id: trade_id_value, name: name_value, height: height_value, weight: weight_value, beard: beard_value, complexion: complexion_value, cl_compsn: cl_compsn_value, date_of_enrl: date_of_enrl_value, date_of_present_rank: date_of_present_rank_value, date_of_sod: date_of_sod_value, cnic: cnic_value, marital_status: marital_status_value, caste: caste_value, sect: sect_value, blood_group: blood_group_value, military: military_value, civil: civil_value, red_entry: red_entry_value, sport_name: sport_name_value, medical_category: medical_category_value, course_name: course_name_value, village: village_value, p_o: p_o_value, thana: thana_value, tehsil: tehsil_value, distt: distt_value, soldier_service_status: soldier_service_value, acr_year: acr_year_value, accr_grading_scale: accr_grading_scale_value },
                 //data: { person_number: person_number_value, rank_id: rank_id_value, trade_id: trade_id_value, name: name_value },
                 type: "Get",
                 cache: false,
@@ -1110,6 +1248,8 @@
 
             });
         }
+
+
 
 
     </script>

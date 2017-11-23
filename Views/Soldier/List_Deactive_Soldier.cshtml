@@ -1,9 +1,5 @@
 ﻿@model List<Army_Management_System.Models.Soldier>
 
-@{
-    string edit_permission = Session["admin_edit_permission"].ToString();
-    string delete_permission = Session["admin_delete_permission"].ToString();
-}
 
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
@@ -44,13 +40,13 @@
 
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">List Red Entry Soldiers</h3>
+                    <h3 class="text-themecolor">List Deactive Soldiers</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
                         <li class="breadcrumb-item">Main Menu</li>
-                        <li class="breadcrumb-item custom_lime_green active">List Red Entry Soldiers</li>
+                        <li class="breadcrumb-item custom_lime_green active">List Deactive Soldiers</li>
                     </ol>
                 </div>
 
@@ -68,9 +64,8 @@
 
 
 
-
                         <div class="table-responsive m-t-10">
-                            <table id="aa" class="table full-color-table full-brown-table hover-table">
+                            <table id="list_deactive_soldiers" class="table full-color-table full-brown-table hover-table">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Name</th>
@@ -96,15 +91,10 @@
                                             @*<td class="text-center">@v.Village</td>*@
                                             <td class="text-center" style="width: 50px;">
 
-                                                <a href="~/Soldier/Profile_Soldier/@v.Id" class="eye_hover"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                @if (edit_permission != "0")
-                                                {
-                                                    <a class="m-l-10 eye_hover" href="~/Soldier/Edit_Soldier/@v.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                }
-                                                @if (delete_permission != "0")
-                                                {
-                                                    <a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>
-                                                }
+
+                                                @*<a class="m-l-10" href="~/Soldier/Delete_Soldier/@v.Id"><i class="fa fa-trash-o red_color" aria-hidden="true"></i></a>*@
+                                                <a class="m-l-10 active_soldier" href="~/Soldier/Active_Soldier/@v.Id"><span class="label label-info">Active</span></a>
+
                                             </td>
                                         </tr>
                                     }
@@ -112,7 +102,6 @@
 
 
                                 </tbody>
-
                             </table>
                             @*<table id="myTable" class="table full-color-table full-dark-table">*@
                             @*<table id="myTable" class="table color-table dark-table">
@@ -139,28 +128,21 @@
 
                         </div>
                     </div>
-
-
-                    <div class="clear"></div>
-
-                    <div style="margin-bottom:400px">
-                    </div>
-                    <div class="clear"></div> 
-
-
                 </div>
+
                 <div class="clear"></div>
 
                 <div style="margin-bottom:400px">
                 </div>
-                <div class="clear"></div> 
+                <div class="clear"></div>
+
 
             </div>
 
 
             <script>
                 $(document).ready(function () {
-                    $('#aa').DataTable();
+                    $('#list_deactive_soldiers').DataTable();
                     $(document).ready(function () {
                         var table = $('#example').DataTable({
                             "columnDefs": [{

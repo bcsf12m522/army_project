@@ -193,29 +193,33 @@
 
                                         @*<div class="offset-sm-3 col-sm-9 col-md-3"></div>*@
 
-                                        <div class="col-md-3">
-                                            <div class="checkbox checkbox-success">
-                                                <input id="view_Soldier" onclick="view_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="view_soldier">
+                                        @*<div class="col-md-3">
+                                            <div class="checkbox checkbox-success">*@
+                                                @*<input id="view_Soldier" onclick="view_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="view_soldier">
                                                 
-                                                <label for="view_Soldier">View Soldiers</label>
-                                            </div>
-                                        </div>
+                                                <label for="view_Soldier">View Soldiers</label>*@
 
-                                        <div class="col-md-3 p-l-0">
+                                                <input id="view_Soldier" value="1" hidden type="checkbox" class="filled-in chk-col-light-green" name="view_soldier">
+
+                                                <label hidden for="view_Soldier">View Soldiers</label>
+                                            @*</div>
+                                        </div>*@
+
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="add_Soldier" onclick="add_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="add_soldier">
                                                 <label for="add_Soldier">Add Soldiers</label>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 p-l-0">
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="edit_Soldier" onclick="edit_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="edit_soldier">
                                                 <label for="edit_Soldier">Edit Soldiers</label>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 p-l-0">
+                                        <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
                                                 <input id="delete_Soldier" onclick="delete_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="delete_soldier">
                                                 <label for="delete_Soldier">Delete Soldiers</label>

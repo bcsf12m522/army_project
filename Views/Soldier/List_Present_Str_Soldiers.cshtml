@@ -44,13 +44,13 @@
 
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">List Retired Soldiers</h3>
+                        <h3 class="text-themecolor">List In Unit Soldiers</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
                             <li class="breadcrumb-item">Main Menu</li>
-                            <li class="breadcrumb-item custom_lime_green active">List Retired Soldiers</li>
+                            <li class="breadcrumb-item custom_lime_green active">List In Unit Soldiers</li>
                         </ol>
                     </div>
 
@@ -70,15 +70,15 @@
 
 
                             <div class="table-responsive m-t-10">
-                                <table id="list_retired_soldiers_list" class="table full-color-table full-brown-table hover-table">
+                                <table id="List_Present_In_Unit_Soldiers" class="table full-color-table full-brown-table hover-table">
                                     <thead>
                                         <tr>
                                             <th class="text-center">Name</th>
                                             <th class="text-center">Rank</th>
                                             <th class="text-center">Trade</th>
                                             <th class="text-center">Number</th>
-                                            @*<th class="text-center">CNIC</th>*@
-                                            <th class="text-center">Service Status</th>
+                                            <th class="text-center">CNIC</th>
+                                            @*<th class="text-center">Service Status</th>*@
                                             @*<th class="text-center">Village</th>*@
                                             <th class="text-center">Actions</th>
                                         </tr>
@@ -91,8 +91,8 @@
                                                 <td class="text-center">@v.Rank_Names.Rank_Name</td>
                                                 <td class="text-center">@v.Trade_Names.Trade_Name</td>
                                                 <td class="text-center">@v.Person_Number</td>
-                                                @*<td class="text-center">@v.CNIC</td>*@
-                                                <td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>
+                                                <td class="text-center">@v.CNIC</td>
+                                                @*<td class="text-center">@v.Soldier_Service_Status.Service_Status_Name</td>*@
                                                 @*<td class="text-center">@v.Village</td>*@
                                                 <td class="text-center" style="width: 50px;">
 
@@ -152,7 +152,7 @@
 
                 <script>
                     $(document).ready(function () {
-                        $('#list_retired_soldiers_list').DataTable();
+                        $('#List_Present_In_Unit_Soldiers').DataTable();
                         $(document).ready(function () {
                             var table = $('#example').DataTable({
                                 "columnDefs": [{
@@ -197,6 +197,7 @@
                         ]
                     });
                 </script>
+
 
 
                 <!-- ============================================================== -->
