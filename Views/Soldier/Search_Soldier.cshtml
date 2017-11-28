@@ -182,7 +182,7 @@
                                             <div class="form-group">
                                                 <label class="control-label">Beard</label>
                                                 <select class="form-control custom-select" id="beard" name="beard">
-                                                    <option value="-1">-- Select Choice --</option>
+                                                    <option value="-1">-- Select --</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>
                                                 </select>
@@ -197,10 +197,11 @@
                                             </div>
                                         </div>
 
+                                       
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="control-label">Demography</label>
-                                                <input type="text" class="form-control" name="demography" id="demography" placeholder="Demography" onkeypress="validation_alphabetical(event)">
+                                                <label class="control-label">CNIC</label>
+                                                <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
                                             </div>
                                         </div>
 
@@ -209,9 +210,43 @@
 
 
 
-
                                     </div>
 
+
+
+                                    <div class="row p-t-20">
+
+
+
+
+                                        
+
+                                        @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
+                                        @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of Enrollment</label>
+                                                <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of Present Rank</label>
+                                                <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Date Of SOD</label>
+                                                <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                            </div>
+                                        </div>
+
+                                    </div>
 
 
                                     <div class="row p-t-20">
@@ -232,52 +267,27 @@
                                             </div>
                                         </div>
 
-                                        @*<input value="@DateTime.Today.ToString("MM-dd-yyy")" id="today_date"/>*@
-                                        @*<input type="date" value="@DateTime.Now" id="today_date"/>*@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="control-label">Date Of Enrollment</label>
-                                                <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                                <label class="control-label">Blood Group</label>
+                                                <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                    <option value="-1">-- Select Blood Group --</option>
+
+                                                    @foreach (var blood_group in ViewBag.Blood_Group)
+                                                    {
+                                                        <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
+                                                    }
+
+
+                                                </select>
                                             </div>
                                         </div>
 
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Date Of Present Rank</label>
-                                                <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
-                                            </div>
-                                        </div>
+                                      
 
 
-
-                                    </div>
-
-
-                                    <div class="row p-t-20">
-
-
-
-
-
-
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Date Of SOD</label>
-                                                <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">CNIC</label>
-                                                <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
-                                            </div>
-                                        </div>
+                                      
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -291,6 +301,9 @@
                                                 </select>
                                             </div>
                                         </div>
+
+
+
 
                                     </div>
 
@@ -313,22 +326,18 @@
                                             </div>
                                         </div>
 
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Blood Group</label>
-                                                <select class="form-control custom-select" name="blood_group" id="blood_group">
-                                                    <option value="-1">-- Select Blood Group --</option>
-
-                                                    @foreach (var blood_group in ViewBag.Blood_Group)
-                                                    {
-                                                        <option value="@blood_group.Id">@blood_group.Blood_Group_Name</option>
-                                                    }
-
-
+                                          <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label">Red Entry</label>
+                                                <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                    <option value="-1">-- Select --</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
                                                 </select>
+
                                             </div>
                                         </div>
+                                       
 
 
 
@@ -368,18 +377,19 @@
                                         </div>
 
 
-
                                         <div class="col-md-4">
                                             <div class="form-group ">
-                                                <label class="control-label">Red Entry</label>
-                                                <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
-                                                    <option value="-1">-- Select --</option>
-                                                    <option value="1">Yes</option>
-                                                    <option value="0">No</option>
+                                                <label class="control-label">Service Status</label>
+                                                <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
+                                                    <option value="-1">-- Select Status --</option>
+                                                    @foreach (var service in ViewBag.Soldier_Status)
+                                                    {
+                                                        <option value="@service.Id">@service.Service_Status_Name</option>
+                                                    }
                                                 </select>
-
                                             </div>
                                         </div>
+                                      
 
 
 
@@ -494,20 +504,14 @@
                                             </div>
                                         </div>
 
+                                      
+
                                         <div class="col-md-4">
-                                            <div class="form-group ">
-                                                <label class="control-label">Service Status</label>
-                                                <select class="form-control custom-select" name="soldier_service_status" id="soldier_service_status">
-                                                    <option value="-1">-- Select Status --</option>
-                                                    @foreach (var service in ViewBag.Soldier_Status)
-                                                    {
-                                                        <option value="@service.Id">@service.Service_Status_Name</option>
-                                                    }
-                                                </select>
+                                            <div class="form-group">
+                                                <label class="control-label">ACRs Year</label>
+                                                <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)" />
                                             </div>
                                         </div>
-
-
 
 
 
@@ -520,12 +524,7 @@
 
                                     <div class="row p-t-20">
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">ACRs Year</label>
-                                                <input type="text" name="acr_year" id="acr_year" class="form-control" placeholder="ACRs Year" onkeypress="validation_numeric(event)" />
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -580,8 +579,8 @@
                                             <div class="row">
                                                 <div class="col-md-10"></div>
                                                 <div class="col-md-2 pull-right">
-                                                    <button type="submit" class="btn btn-themecolor" onclick="show_Soldier_table()"> <i class="fa fa-check"></i> Search</button>
-                                                    @*<button type="submit" class="btn btn-themecolor" onclick="search_ajax_call()"> <i class="fa fa-check"></i> Search</button>*@
+                                                    @*<button type="submit" class="btn btn-themecolor" onclick="show_Soldier_table()"> <i class="fa fa-check"></i> Search</button>*@
+                                                    <button type="submit" class="btn btn-themecolor" onclick="search_ajax_call()"> <i class="fa fa-check"></i> Search</button>
                                                     @*<button type="submit" class="btn btn-themecolor" onclick="hhh()"> <i class="fa fa-check"></i> Search22222</button>*@
                                                 </div>
                                                 @*<div class="col-md-4"></div>*@
@@ -642,6 +641,10 @@
 
                             </div>
                         </div>
+
+
+
+
 
 
 
@@ -750,24 +753,163 @@
     <!-- ============================================================== -->
 
     <script>
+
+        function search_ajax_call() {
+
+            var person_number_value = $("#person_number").val();
+            //alert("person_number_value       " + person_number_value);
+
+            var rank_id_value = $("#rank_id").val();
+            //alert("rank_id_value       " + rank_id_value);
+
+            var trade_id_value = $("#trade_id").val();
+            //alert("trade_id_value       " + trade_id_value);
+
+            var name_value = $("#name").val();
+            //alert("name_value       " + name_value);
+
+            var height_value = $("#height").val();
+            //alert("height_value       " + height_value);
+
+            var weight_value = $("#weight").val();
+            //alert("weight_value       " + weight_value);
+
+            var beard_value = $("#beard").val();
+            //alert("beard_value       " + beard_value);
+
+            var complexion_value = $("#complexion").val();
+            //alert("complexion_value       " + complexion_value);
+
+
+            var cl_compsn_value = $("#cl_compsn").val();
+            //alert("cl_compsn_value       " + cl_compsn_value);
+
+            var date_of_enrl_value = $("#date_of_enrl").val();
+            //alert("date_of_enrl_value       " + date_of_enrl_value);
+
+            var date_of_present_rank_value = $("#date_of_present_rank").val();
+            //alert("date_of_present_rank_value       " + date_of_present_rank_value);
+
+            var date_of_sod_value = $("#date_of_sod").val();
+            //alert("date_of_sod_value       " + date_of_sod_value);
+
+            var cnic_value = $("#cnic").val();
+            //alert("cnic_value       " + cnic_value);
+
+            var marital_status_value = $("#marital_status").val();
+            //alert("marital_status_value       " + marital_status_value);
+
+            var caste_value = $("#caste").val();
+            //alert("caste_value       " + caste_value);
+
+            var sect_value = $("#sect").val();
+            //alert("sect_value       " + sect_value);
+
+            var blood_group_value = $("#blood_group").val();
+            //alert("blood_group_value       " + blood_group_value);
+
+            var military_value = $("#military_qualification").val();
+            //alert("military_value       " + military_value);
+
+            var civil_value = $("#civil_qualification").val();
+            //alert("civil_value       " + civil_value);
+
+            var red_entry_value = $("#red_entry_dropdown").val();
+            //alert("red_entry_value       " + red_entry_value);
+
+            var sport_name_value = $("#sport_name").val();
+            //alert("sport_name_value       " + sport_name_value);
+
+            var medical_category_value = $("#medical_category_id").val();
+            //alert("medical_category_value       " + medical_category_value);
+
+            var course_name_value = $("#course_name").val();
+            //alert("course_name_value       " + course_name_value);
+
+            var village_value = $("#village").val();
+            //alert("village_value       " + village_value);
+
+            var p_o_value = $("#p_o").val();
+            //alert("p_o_value       " + p_o_value);
+
+            var thana_value = $("#thana").val();
+            //alert("thana_value       " + thana_value);
+
+            var tehsil_value = $("#tehsil").val();
+            //alert("tehsil_value       " + tehsil_value);
+
+            var distt_value = $("#distt").val();
+            //alert("distt_value       " + distt_value);
+
+            var soldier_service_value = $("#soldier_service_status").val();
+            //alert("soldier_service_value       " + soldier_service_value);
+
+            var acr_year_value = $("#acr_year").val();
+            //alert("acr_year_value       " + acr_year_value);
+
+            var accr_grading_scale_value = $("#accr_grading_scale").val();
+            //alert("accr_grading_scale_value       " + accr_grading_scale_value);
+
+
+            //var Url = '/Admin/Search_Soldier_Filters/';
+
+
+
+            $.ajax({
+
+                url: '/Soldier/Search_Soldier_Filters/',
+                data: { person_number: person_number_value, rank_id: rank_id_value, trade_id: trade_id_value, name: name_value, height: height_value, weight: weight_value, beard: beard_value, complexion: complexion_value, cl_compsn: cl_compsn_value, date_of_enrl: date_of_enrl_value, date_of_present_rank: date_of_present_rank_value, date_of_sod: date_of_sod_value, cnic: cnic_value, marital_status: marital_status_value, caste: caste_value, sect: sect_value, blood_group: blood_group_value, military: military_value, civil: civil_value, red_entry: red_entry_value, sport_name: sport_name_value, medical_category: medical_category_value, course_name: course_name_value, village: village_value, p_o: p_o_value, thana: thana_value, tehsil: tehsil_value, distt: distt_value, soldier_service_status: soldier_service_value, acr_year: acr_year_value, accr_grading_scale: accr_grading_scale_value },
+                //data: { person_number: person_number_value, rank_id: rank_id_value, trade_id: trade_id_value, name: name_value },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+
+                    //alert(data);
+                    $(".hide_table_Soldier").show();
+
+                    document.getElementById("aa").innerHTML = data;
+
+                    $(document).ready(function () {
+                        $('#aa').DataTable();
+                    });
+
+                },
+                error: function (response) {
+                    alert("Error Occured" + response);
+                }
+
+            })
+        }
+
+
+
+
     // Date Picker
     jQuery('.mydatepicker, #datepicker').datepicker();
     jQuery('#datepicker_autoclose').datepicker({
         autoclose: true,
         todayHighlight: true
     });
-    jQuery('#date_of_enrl').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
+
     jQuery('#date_of_present_rank').datepicker({
+        format: 'dd/mm/yyyy',
         autoclose: true,
         todayHighlight: true
     });
-    jQuery('#date_of_sod ').datepicker({
+    jQuery('#date_of_sod').datepicker({
+        format: 'dd/mm/yyyy',
         autoclose: true,
         todayHighlight: true
     });
+
+    jQuery('#date_of_enrl').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+
 
 
 

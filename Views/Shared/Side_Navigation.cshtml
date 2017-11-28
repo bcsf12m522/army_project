@@ -12,7 +12,15 @@
             <!-- User profile image -->
             <div class="profile-img">
                 @*<img src="@Session["image"]" alt="user" />*@
-                <img src="~/images/pak_army.jpg" alt="user" />
+                @*<img src="~/images/pak_army.jpg" alt="user" />*@
+
+             
+
+
+                    <img src=@Session["admin_image"] alt="user"/>
+
+             
+
                 
                 <!-- this is blinking heartbit-->
                 @*<div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>*@
@@ -42,11 +50,11 @@
                         {
                             <li><a href="~/Soldier/Soldier_Form_Data">Add Soldier </a></li>
                         }
-                        <li><a href="~/Soldier/List_Soldier">Active Soldiers</a></li>
+                        @*<li><a href="~/Soldier/List_Soldier">Active Soldiers</a></li>
                         @if (Session["admin_type"].ToString() == "Super Admin")
                         {
                             <li><a href="~/Soldier/List_Deactive_Soldier">Deactive Soldiers</a></li>
-                        }
+                        }*@
                         <li><a href="~/Soldier/Search_Soldier">Search Soldier</a></li>
                         
                     </ul>
@@ -60,7 +68,7 @@
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Admin</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="~/Admin/Admin_Form_Data">Create Admin</a></li>
-                            <li><a href="~/Admin/List_Admin">List Admin</a></li>
+                            @*<li><a href="~/Admin/List_Admin">List Admin</a></li>*@
 
                         </ul>
                     </li>

@@ -1,5 +1,5 @@
 ﻿@model Army_Management_System.Models.Admin
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar card-no-border" onload="checkboxes_load_function()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -63,7 +63,7 @@
             <!-- Row -->
             <div class="row">
                 <!-- Column -->
-                <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="col-lg-3 col-xlg-3 col-md-3">
                     <div class="card">
                         <div class="card-body">
                             <center class="m-t-30">
@@ -93,9 +93,9 @@
                         </div>
                         <div class="card-body">
                             <small class="text-muted">Email address </small>
-                            <h6>@Model.Email</h6> 
-                            <small class="text-muted p-t-30 db">Phone</small>
-                            <h6>@Model.Phone_No</h6> 
+                            <h6>@Model.Email</h6>
+                            @*<small class="text-muted p-t-30 db">Phone</small>
+                            <h6>@Model.Phone_No</h6>*@
                             <small class="text-muted p-t-30 db">Address</small>
                             <h6>@Model.Address</h6>
 
@@ -104,27 +104,35 @@
                 </div>
                 <!-- Column -->
                 <!-- Column -->
-                <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="col-lg-9 col-xlg-9 col-md-9">
                     <div class="card">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs profile-tab" role="tablist">
-                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Profile</a> </li>
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Admin's Profile</a> </li>
 
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-pane" id="settings" role="tabpanel">
                             <div class="card-body">
                                 <form class="form-horizontal form-material">
+                                    <h4 class="box-title m-t-40">Personal Info</h4>
+                                    <hr>
                                     <div class="form-group">
-                                        <label class="col-md-12">Full Name</label>
+                                        <label class="col-md-12">Name</label>
                                         <div class="col-md-12">
                                             <input type="text" value="@Model.Name" class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <label for="example-email" class="col-md-12">Rank</label>
                                         <div class="col-md-12">
-                                            <input type="email" value="@Model.Email" class="form-control form-control-line" name="example-email" id="example-email" readonly>
+                                            <input type="email" value="@Model.Rank_Names.Rank_Name" class="form-control form-control-line" name="example-email" id="example-email" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Username</label>
+                                        <div class="col-md-12">
+                                            <input type="email" value="@Model.Username" class="form-control form-control-line" name="example-email" id="example-email" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -145,11 +153,92 @@
                                             <input type="text" value="@Model.City" class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <a href="~/Admin/Edit_Admin/@Model.Id" class="btn btn-success">Edit Profile</a>
+
+
+
+                                    <h4 class="box-title m-t-40">Permissions</h4>
+                                    <hr>
+                                    <div class="row p-t-10">
+
+                                        @*<div class="offset-sm-3 col-sm-9 col-md-3"></div>*@
+
+                                        @*<div class="col-md-3">
+                <div class="checkbox checkbox-success">
+                    <input id="view_Soldier" onclick="view_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="view_soldier" value="@Model.Permission_View_Soldier">
+
+                    <label for="view_Soldier">View Soldiers</label>
+                </div>
+            </div>*@
+
+                                        <div class="col-md-3">
+                                            <div class="checkbox checkbox-success">
+                                                <input id="add_Soldier" type="checkbox" class="filled-in chk-col-dark_green" name="add_soldier" value="@Model.Permission_Add_Soldier" disabled>
+                                                <label for="add_Soldier">Add Soldiers</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="checkbox checkbox-success">
+                                                <input id="edit_Soldier" type="checkbox" class="filled-in chk-col-dark_green" name="edit_soldier" value="@Model.Permission_Edit_Soldier" disabled>
+                                                <label for="edit_Soldier">Edit Soldiers</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="checkbox checkbox-success">
+                                                <input id="delete_Soldier" type="checkbox" class="filled-in chk-col-dark_green" name="delete_soldier" value="@Model.Permission_Delete_Soldier" disabled>
+                                                <label for="delete_Soldier">Delete Soldiers</label>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            function checkboxes_load_function() {
+                                                var view = $("#view_Soldier").val();
+                                                var add = $("#add_Soldier").val();
+                                                var edit = $("#edit_Soldier").val();
+                                                var del = $("#delete_Soldier").val();
+
+                                                if (view == 1) {
+                                                    document.getElementById("view_Soldier").checked = true;
+                                                    //alert("IF view");
+                                                }
+
+                                                if (add == 1) {
+                                                    document.getElementById("add_Soldier").checked = true;
+                                                    //alert("IF add");
+                                                }
+
+                                                if (edit == 1) {
+                                                    document.getElementById("edit_Soldier").checked = true;
+                                                    //alert("IF edit");
+                                                }
+
+                                                if (del == 1) {
+                                                    document.getElementById("delete_Soldier").checked = true;
+                                                    //alert("IF del");
+                                                }
+
+                                            }
+                                        </script>
+
+                                       
+
+                                    </div>
+
+
+
+
+                                    <div class="row p-t-20">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <a href="~/Admin/Edit_Admin/@Model.Id" class="btn btn-success">Edit Profile</a>
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                  
+
                                 </form>
                             </div>
                         </div>

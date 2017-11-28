@@ -112,17 +112,17 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">No</label>
-                                                    <input type="text" name="no" class="form-control" placeholder="No">
+                                                    <input type="text" name="no" class="form-control" placeholder="No" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Rank</label>
-                                                    <select class="form-control custom-select" name="rank_id">
+                                                    <select class="form-control custom-select" name="rank_id" required>
                                                         <option value="">-- Select Rank --</option>
                                                         @foreach (var rank in ViewBag.Rank)
                                                         {
-                                                        <option value="@rank.Id">@rank.Rank_Name</option>
+                                                            <option value="@rank.Id">@rank.Rank_Name</option>
                                                         }
 
                                                     </select>
@@ -131,11 +131,11 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Trade</label>
-                                                    <select class="form-control custom-select" name="trade_id">
+                                                    <select class="form-control custom-select" name="trade_id" required>
                                                         <option value="">-- Select Trade --</option>
                                                         @foreach (var trade in ViewBag.Trade)
                                                         {
-                                                        <option value="@trade.Id">@trade.Trade_Name</option>
+                                                            <option value="@trade.Id">@trade.Trade_Name</option>
                                                         }
 
                                                     </select>
@@ -149,14 +149,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Name</label>
-                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
+                                                    <input required type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group ">
                                                     <label class="control-label">Height (Cm)</label>
-                                                    <select name="height" class="form-control custom-select">
+                                                    <select required name="height" class="form-control custom-select">
                                                         <option value="">-- Select Height --</option>
 
                                                         @foreach (var height in ViewBag.Height)
@@ -172,7 +172,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Weight (Kg)</label>
-                                                    <select name="weight" class="form-control custom-select">
+                                                    <select required name="weight" class="form-control custom-select">
                                                         <option value="">-- Select Weight --</option>
                                                         @foreach (var weight in ViewBag.Weight)
                                                         {
@@ -198,7 +198,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Beard</label>
-                                                    <select class="form-control custom-select" name="beard">
+                                                    <select required class="form-control custom-select" name="beard">
                                                         <option>-- Select --</option>
                                                         <option value="1">Yes</option>
                                                         <option value="0">No</option>
@@ -210,14 +210,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Complexion</label>
-                                                    <input type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
+                                                    <input required type="text" name="complexion" id="complexion" class="form-control" placeholder="Complexion" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Cl Compsn</label>
-                                                    <select class="form-control custom-select" name="cl_compsn" id="cl_compsn">
+                                                    <select required class="form-control custom-select" name="cl_compsn" id="cl_compsn">
                                                         <option value="">-- Select Cl Compsn --</option>
                                                         @foreach (var composition in ViewBag.Class_Composition)
                                                         {
@@ -249,7 +249,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Date Of Enrollment</label>
-                                                    <input type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
+                                                    <input required type="text" class="form-control" name="date_of_enrl" @*onchange="getAge(this.value)"*@ id="date_of_enrl" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
 
@@ -257,14 +257,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Date Of Present Rank</label>
-                                                    <input type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
+                                                    <input required type="text" class="form-control" name="date_of_present_rank" id="date_of_present_rank" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Date Of SOD</label>
-                                                    <input type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
+                                                    <input required type="text" class="form-control" name="date_of_sod" id="date_of_sod" placeholder="mm/dd/yyyy">
                                                 </div>
                                             </div>
 
@@ -286,7 +286,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">CNIC</label>
-                                                    <input type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
+                                                    <input required type="text" class="form-control" name="cnic" id="cnic" placeholder="CNIC" onkeypress="validation_CNIC(event)">
                                                 </div>
                                             </div>
 
@@ -302,7 +302,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Marital Status</label>
-                                                    <select class="form-control custom-select" oninput="marital_status_function(this.value)" name="marital_status" id="marital_status">
+                                                    <select required class="form-control custom-select" oninput="marital_status_function(this.value)" name="marital_status" id="marital_status">
                                                         <option value="0">-- Select Marital Status --</option>
                                                         @foreach (var marital in ViewBag.Marital_Status)
                                                         {
@@ -460,14 +460,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Caste</label>
-                                                    <input type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
+                                                    <input required type="text" name="caste" id="caste" class="form-control" placeholder="Caste" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group ">
                                                     <label class="control-label">Sect</label>
-                                                    <input type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
+                                                    <input required type="text" name="sect" id="sect" class="form-control" placeholder="Sect" onkeypress="validation_alphabetical(event)">
                                                 </div>
                                             </div>
 
@@ -475,7 +475,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Blood Group</label>
-                                                    <select class="form-control custom-select" name="blood_group" id="blood_group">
+                                                    <select required class="form-control custom-select" name="blood_group" id="blood_group">
                                                         <option value="">-- Select Blood Group --</option>
 
                                                         @foreach (var blood_group in ViewBag.Blood_Group)
@@ -519,7 +519,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Military Qualification</label>
-                                                    <select class="form-control custom-select" name="military_qualification" id="military_qualification">
+                                                    <select required class="form-control custom-select" name="military_qualification" id="military_qualification">
                                                         <option value="">-- Select Military Qual --</option>
                                                         @foreach (var military in ViewBag.Military_Qualification)
                                                         {
@@ -532,7 +532,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Civil Qualification</label>
-                                                    <select class="form-control custom-select" name="civil_qualification" id="civil_qualification">
+                                                    <select required class="form-control custom-select" name="civil_qualification" id="civil_qualification">
                                                         <option value="">-- Select Civil Qual --</option>
                                                         @foreach (var civil in ViewBag.Civil_Qualification)
                                                         {
@@ -547,7 +547,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group ">
                                                     <label class="control-label">Red Entry</label>
-                                                    <select class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
+                                                    <select required class="form-control pull-left custom-select" name="red_entry_dropdown" id="red_entry_dropdown">
                                                         <option value="">-- Select --</option>
                                                         <option value="1">Yes</option>
                                                         <option value="0">No</option>
@@ -1093,7 +1093,7 @@
                                             <div class="col-lg-4 col-md-4">
                                                 <div class="card" style="background-color: #c2e4c2;">
                                                     <div class="card-body">
-                                                        <input type="file" name="image" id="input-file-now" class="dropify" />
+                                                        <input type="file" name="image" id="input-file-now" class="dropify" onchange="return ValidateImageSize(this)"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1167,8 +1167,33 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- All Jquery -->
-        
-        
+
+
+        <!-----------------------IMAGE VALIDATION----------------->
+        <script>
+            function ValidateImageSize(file) {
+                var FileSize = file.files[0].size / 1024 / 1024; // in MB
+                if (FileSize > 2) {
+
+                    swal({
+                        title: "IMAGE SIZE EXCEEDS",
+                        text: "Image File Size Exceeds 2 MB",
+                        type: "warning",
+                        confirmButtonColor: '#DD6B55',
+                        confirmButtonText: 'Okay',
+                    },
+        function () {
+        });
+
+                    $("#input-file-now").val(null);
+                    return false;
+                    // $(file).val(''); //for clearing with Jquery
+                } else {
+                    return true;
+                }
+            }
+        </script>
+        <!-----------------------IMAGE VALIDATION----------------->
         
       
         <script>
@@ -1375,7 +1400,7 @@ function () {
 
 
     </script>
-
+    <!-- ============================VALIDATION EVENT================================== -->
 
 
     <script>
@@ -1443,8 +1468,11 @@ function () {
         jQuery('#date_of_enrl').datepicker({
             format: 'dd-mm-yyyy',
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            maxDate: '0'
         });
+
+        
 
 
         jQuery('#from_date_previous1').datepicker({
@@ -1525,7 +1553,8 @@ function () {
         var hospital_counter = 2;
         $(addButton).click(function () {
             //alert("asasas");
-            var fieldHTML = '<div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Hospital Admission</label> <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control from_medical" name="from_medical_date" id="from_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_medical_date" id="to_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="disease_medical" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div>';
+            var fieldHTML = 
+                '<div style="width:100%; display:block;"><div class="row r" style="margin-left:0px"><div class="col-md-3"><div class="form-group"> <label class="control-label">Hospital Admission</label> <input type="text" class="form-control" name="hospital_admission" id="hospital_admission" placeholder="Hospital Admission"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">From</label><input type="text" class="form-control from_medical" name="from_medical_date" id="from_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">To</label><input type="text" class="form-control" name="to_medical_date" id="to_medical_date' + hospital_counter + '" placeholder="mm/dd/yyyy"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label">Diseases</label><input type="text" class="form-control" name="disease_medical" placeholder="Diseases"></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_button"><i class="fa fa-minus"></i>  Remove</a></div></div></div></div>';
             $(wrapper).append(fieldHTML);
 
             jQuery('#from_medical_date' + hospital_counter).datepicker({
@@ -1563,7 +1592,7 @@ function () {
         var wrapper_course = $('.courses_add');
         $(addButton_course).click(function () {
             //alert("asasas");
-            var fieldHTMLss = '<div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option> @foreach (var grade in ViewBag.Grading_Names) {<option value="@grade.Id">@grade.Grade_Name</option> } </select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option> @foreach (var ability in ViewBag.Courses_Ability) {<option value="@ability.Id">@ability.Ability_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div>';
+            var fieldHTMLss = '<div style="width:100%; display:block;"><div class="row r_courses" style="margin-left:0px"><div class="col-md-3"><div class="form-group"><label class="control-label">Course Name</label><div><input type="text" name="course_name" id="courses" class="form-control" placeholder="Courses"></div></div></div><div class="col-md-3"><div class="form-group"><label class="control-label">Grading</label><select class="form-control custom-select" name="grading" id="grading"><option value="">-- Select your Grade --</option> @foreach (var grade in ViewBag.Grading_Names) {<option value="@grade.Id">@grade.Grade_Name</option> } </select></div></div><div class="col-md-3"><div class="form-group "><label class="control-label">Ability</label><select class="form-control custom-select" name="ability" id="ability"><option value="">-- Select your Ability --</option> @foreach (var ability in ViewBag.Courses_Ability) {<option value="@ability.Id">@ability.Ability_Name</option> } </select></div></div><div class="col-md-2"><div class="form-group"><label class="control-label"></label><a href="javascript:;" style="margin-top:31px" class="btn btn-danger remove_courses"><i class="fa fa-minus"></i> Remove</a></div></div></div></div>';
             $(wrapper_course).append(fieldHTMLss);
         });
 
@@ -1708,7 +1737,7 @@ function () {
     </script>
 
 
-
+    
 
 
 

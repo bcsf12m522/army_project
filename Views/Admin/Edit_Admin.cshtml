@@ -87,7 +87,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">Name</label>
-                                                <input type="text" name="name" id="name" class="form-control" required placeholder="Name" value="@Model.Name">
+                                                <input type="text" name="name" id="name" class="form-control" required placeholder="Name" value="@Model.Name" onkeypress="validation_alphabetical(event)">
                                             </div>
                                         </div>
 
@@ -117,7 +117,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">CNIC</label>
-                                                <input type="text" class="form-control" name="cnic" id="cnic" required placeholder="CNIC" value="@Model.CNIC">
+                                                <input type="text" class="form-control" name="cnic" id="cnic" required placeholder="CNIC" value="@Model.CNIC" onkeypress="validation_CNIC(event)">
                                             </div>
                                         </div>
 
@@ -132,7 +132,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">Phone No.</label>
-                                                <input type="text" class="form-control" name="phone" id="phone" required placeholder="Phone No." value="@Model.Phone_No">
+                                                <input type="text" class="form-control" name="phone" id="phone" required placeholder="Phone No." value="@Model.Phone_No" onkeypress="validation_numeric(event)">
                                             </div>
                                         </div>
 
@@ -159,7 +159,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label">City</label>
-                                                <input type="text" class="form-control" name="city" id="city" required placeholder="City" value="@Model.City">
+                                                <input type="text" class="form-control" name="city" id="city" required placeholder="City" value="@Model.City" onkeypress="validation_alphabetical(event)">
                                             </div>
                                         </div>
 
@@ -200,7 +200,7 @@
                                             <h5 class="card-title">New Image</h5>
                                             <div class="card" style="background-color: #c2e4c2;">
                                                 <div class="card-body">
-                                                    <input type="file" id="input-file-now" class="dropify" name="image" onclick="previous_admin_image()" />
+                                                    <input type="file" id="input-file-now" class="dropify" name="image" onchange="ValidateImageSize(this)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +214,39 @@
                                             function previous_admin_image() {
                                                 $(".hide_admin_previous_image").hide();
                                                 $("#new_image_value").val(1);
+
+
+
+
                                             }
+
+
+                                            function ValidateImageSize(file) {
+                                                $(".hide_admin_previous_image").hide();
+                                                $("#new_image_value").val(1);
+                                                var FileSize = file.files[0].size / 1024 / 1024; // in MB
+                                                if (FileSize > 2) {
+
+                                                    swal({
+                                                        title: "IMAGE SIZE EXCEEDS",
+                                                        text: "Image File Size Exceeds 2 MB",
+                                                        type: "warning",
+                                                        confirmButtonColor: '#DD6B55',
+                                                        confirmButtonText: 'Okay',
+                                                    },
+                                        function () {
+                                        });
+
+                                                    $("#input-file-now").val(null);
+
+                                                    // $(file).val(''); //for clearing with Jquery
+                                                } else {
+
+                                                }
+                                            }
+
+
+
                                         </script>
                                         @if (Model.Image != null)
                                         {
@@ -309,21 +341,21 @@
 
                                         <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
-                                                <input id="add_Soldier" onclick="add_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="add_soldier" value="@Model.Permission_Add_Soldier">
+                                                <input id="add_Soldier" onclick="add_soldier_click()" type="checkbox" class="filled-in chk-col-dark_green" name="add_soldier" value="@Model.Permission_Add_Soldier">
                                                 <label for="add_Soldier">Add Soldiers</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
-                                                <input id="edit_Soldier" onclick="edit_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="edit_soldier" value="@Model.Permission_Edit_Soldier">
+                                                <input id="edit_Soldier" onclick="edit_soldier_click()" type="checkbox" class="filled-in chk-col-dark_green" name="edit_soldier" value="@Model.Permission_Edit_Soldier">
                                                 <label for="edit_Soldier">Edit Soldiers</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="checkbox checkbox-success">
-                                                <input id="delete_Soldier" onclick="delete_soldier_click()" type="checkbox" class="filled-in chk-col-light-green" name="delete_soldier" value="@Model.Permission_Delete_Soldier">
+                                                <input id="delete_Soldier" onclick="delete_soldier_click()" type="checkbox" class="filled-in chk-col-dark_green" name="delete_soldier" value="@Model.Permission_Delete_Soldier">
                                                 <label for="delete_Soldier">Delete Soldiers</label>
                                             </div>
                                         </div>
@@ -466,7 +498,78 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script>
+    function validation_numeric(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) {
+                theEvent.preventDefault();
+                swal({
+                    title: "ALPHABETS NOT ALLOWED",
+                    text: "You cannot enter Alphabets Values",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Okay',
+                },
+function () {
+});
+            }
+        }
+    }
 
+
+    function validation_alphabetical(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /^[a-zA-Z ]+$/;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) {
+                theEvent.preventDefault();
+                swal({
+                    title: "NUMERIC NOT ALLOWED",
+                    text: "You cannot enter Numeric Values",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Okay',
+                },
+function () {
+});
+            }
+        }
+    }
+
+
+
+    function validation_CNIC(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /[0-9-]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) {
+                theEvent.preventDefault();
+                swal({
+                    title: "ALPHABETS NOT ALLOWED",
+                    text: "You cannot enter Numeric Values",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Okay',
+                },
+function () {
+});
+            }
+        }
+    }
+
+
+    </script>
 
 
 </body>

@@ -5565,7 +5565,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     color: #ffffff;
     opacity: 0;
     cursor: default;
-    font-size: 14;
+    font-size: 14px;
     line-height: 27px;
     pointer-events: none;
     -webkit-transform: scale3d(0.1, 0.2, 1);
@@ -9860,4 +9860,8 @@ a.change_hover span:hover {
 
 .active_soldier span:hover{
     background-color:#0f2942;
+}
+
+.actions_style_width{
+    width:100px;
 }
